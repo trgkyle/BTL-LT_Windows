@@ -10,11 +10,21 @@ using System.Windows.Forms;
 
 namespace BTL_LT_Windows
 {
-    public partial class Form1 : Form
+    public partial class QLThuVien : Form
     {
-        public Form1()
+        public QLThuVien()
         {
             InitializeComponent();
+        }
+
+        private void QLThuVien_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tabPage1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
