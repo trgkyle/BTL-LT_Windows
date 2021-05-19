@@ -25,7 +25,8 @@ namespace BTL_LT_Windows
         private void button1_Click(object sender, EventArgs e)
         {
             this.Enabled = false;
-            QLThuVien newForm = new QLThuVien();
+            Main newForm = new Main();
+            //QLThuVien newForm = new QLThuVien();
             this.Hide();
             newForm.ShowDialog();
             this.Close();
