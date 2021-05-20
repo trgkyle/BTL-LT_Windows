@@ -41,11 +41,13 @@ namespace BTL_LT_Windows
             this.label21 = new System.Windows.Forms.Label();
             this.label = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // textBox20
             // 
-            this.textBox20.Location = new System.Drawing.Point(388, 418);
+            this.textBox20.Location = new System.Drawing.Point(218, 440);
             this.textBox20.Name = "textBox20";
             this.textBox20.Size = new System.Drawing.Size(129, 20);
             this.textBox20.TabIndex = 21;
@@ -53,7 +55,7 @@ namespace BTL_LT_Windows
             // label24
             // 
             this.label24.AutoSize = true;
-            this.label24.Location = new System.Drawing.Point(266, 421);
+            this.label24.Location = new System.Drawing.Point(96, 443);
             this.label24.Name = "label24";
             this.label24.Size = new System.Drawing.Size(116, 13);
             this.label24.TabIndex = 20;
@@ -61,7 +63,7 @@ namespace BTL_LT_Windows
             // 
             // textBox19
             // 
-            this.textBox19.Location = new System.Drawing.Point(388, 369);
+            this.textBox19.Location = new System.Drawing.Point(218, 391);
             this.textBox19.Name = "textBox19";
             this.textBox19.Size = new System.Drawing.Size(129, 20);
             this.textBox19.TabIndex = 19;
@@ -69,7 +71,7 @@ namespace BTL_LT_Windows
             // label23
             // 
             this.label23.AutoSize = true;
-            this.label23.Location = new System.Drawing.Point(266, 372);
+            this.label23.Location = new System.Drawing.Point(96, 394);
             this.label23.Name = "label23";
             this.label23.Size = new System.Drawing.Size(71, 13);
             this.label23.TabIndex = 18;
@@ -77,7 +79,7 @@ namespace BTL_LT_Windows
             // 
             // textBox18
             // 
-            this.textBox18.Location = new System.Drawing.Point(388, 320);
+            this.textBox18.Location = new System.Drawing.Point(218, 342);
             this.textBox18.Name = "textBox18";
             this.textBox18.Size = new System.Drawing.Size(129, 20);
             this.textBox18.TabIndex = 17;
@@ -85,7 +87,7 @@ namespace BTL_LT_Windows
             // label22
             // 
             this.label22.AutoSize = true;
-            this.label22.Location = new System.Drawing.Point(266, 323);
+            this.label22.Location = new System.Drawing.Point(96, 345);
             this.label22.Name = "label22";
             this.label22.Size = new System.Drawing.Size(67, 13);
             this.label22.TabIndex = 16;
@@ -94,7 +96,7 @@ namespace BTL_LT_Windows
             // label20
             // 
             this.label20.AutoSize = true;
-            this.label20.Location = new System.Drawing.Point(266, 281);
+            this.label20.Location = new System.Drawing.Point(96, 303);
             this.label20.Name = "label20";
             this.label20.Size = new System.Drawing.Size(70, 13);
             this.label20.TabIndex = 15;
@@ -102,14 +104,14 @@ namespace BTL_LT_Windows
             // 
             // textBox17
             // 
-            this.textBox17.Location = new System.Drawing.Point(388, 201);
+            this.textBox17.Location = new System.Drawing.Point(218, 198);
             this.textBox17.Name = "textBox17";
             this.textBox17.Size = new System.Drawing.Size(129, 20);
             this.textBox17.TabIndex = 14;
             // 
             // textBox16
             // 
-            this.textBox16.Location = new System.Drawing.Point(388, 147);
+            this.textBox16.Location = new System.Drawing.Point(218, 144);
             this.textBox16.Name = "textBox16";
             this.textBox16.Size = new System.Drawing.Size(129, 20);
             this.textBox16.TabIndex = 13;
@@ -117,7 +119,7 @@ namespace BTL_LT_Windows
             // label21
             // 
             this.label21.AutoSize = true;
-            this.label21.Location = new System.Drawing.Point(266, 207);
+            this.label21.Location = new System.Drawing.Point(96, 204);
             this.label21.Name = "label21";
             this.label21.Size = new System.Drawing.Size(74, 13);
             this.label21.TabIndex = 12;
@@ -126,7 +128,7 @@ namespace BTL_LT_Windows
             // label
             // 
             this.label.AutoSize = true;
-            this.label.Location = new System.Drawing.Point(266, 154);
+            this.label.Location = new System.Drawing.Point(96, 151);
             this.label.Name = "label";
             this.label.Size = new System.Drawing.Size(81, 13);
             this.label.TabIndex = 11;
@@ -142,11 +144,33 @@ namespace BTL_LT_Windows
             this.label1.TabIndex = 39;
             this.label1.Text = "TRANG CÁ NHÂN";
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(96, 103);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(59, 20);
+            this.label2.TabIndex = 40;
+            this.label2.Text = "Hồ Sơ";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(95, 256);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(160, 20);
+            this.label3.TabIndex = 41;
+            this.label3.Text = "Thay Đổi Mật Khẩu";
+            // 
             // HoSo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 487);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.textBox20);
             this.Controls.Add(this.label24);
@@ -180,5 +204,7 @@ namespace BTL_LT_Windows
         private System.Windows.Forms.Label label21;
         private System.Windows.Forms.Label label;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label3;
     }
 }

@@ -64,6 +64,9 @@ namespace BTL_LT_Windows
             this.button2 = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+            this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).BeginInit();
@@ -117,10 +120,14 @@ namespace BTL_LT_Windows
             this.dataGridView3.AllowUserToAddRows = false;
             this.dataGridView3.AllowUserToDeleteRows = false;
             this.dataGridView3.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView3.Location = new System.Drawing.Point(13, 457);
+            this.dataGridView3.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Column8,
+            this.Column7,
+            this.Column9});
+            this.dataGridView3.Location = new System.Drawing.Point(80, 473);
             this.dataGridView3.Name = "dataGridView3";
             this.dataGridView3.ReadOnly = true;
-            this.dataGridView3.Size = new System.Drawing.Size(803, 150);
+            this.dataGridView3.Size = new System.Drawing.Size(343, 150);
             this.dataGridView3.TabIndex = 25;
             // 
             // textBox15
@@ -396,6 +403,24 @@ namespace BTL_LT_Windows
             this.label2.TabIndex = 40;
             this.label2.Text = "TRẢ SÁCH THƯ VIỆN";
             // 
+            // Column8
+            // 
+            this.Column8.HeaderText = "Mã Tài Liệu";
+            this.Column8.Name = "Column8";
+            this.Column8.ReadOnly = true;
+            // 
+            // Column7
+            // 
+            this.Column7.HeaderText = "Tên Tài Liệu";
+            this.Column7.Name = "Column7";
+            this.Column7.ReadOnly = true;
+            // 
+            // Column9
+            // 
+            this.Column9.HeaderText = "Số Lượng Mượn";
+            this.Column9.Name = "Column9";
+            this.Column9.ReadOnly = true;
+            // 
             // QLMuonTra
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -452,5 +477,8 @@ namespace BTL_LT_Windows
         private System.Windows.Forms.Button button7;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column8;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column7;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column9;
     }
 }
