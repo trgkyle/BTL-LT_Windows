@@ -46,6 +46,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Component\HoSo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Component\HoSo.Designer.cs">
+      <DependentUpon>HoSo.cs</DependentUpon>
+    </Compile>
     <Compile Include="Login.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -60,12 +66,27 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="QLThuVien.cs">
+    <Compile Include="Component\QLDanhMuc.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="QLThuVien.Designer.cs">
-      <DependentUpon>QLThuVien.cs</DependentUpon>
+    <Compile Include="Component\QLDanhMuc.Designer.cs">
+      <DependentUpon>QLDanhMuc.cs</DependentUpon>
     </Compile>
+    <Compile Include="Component\QLMuonTra.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Component\QLMuonTra.Designer.cs">
+      <DependentUpon>QLMuonTra.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Component\ThongKe.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Component\ThongKe.Designer.cs">
+      <DependentUpon>ThongKe.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Component\HoSo.resx">
+      <DependentUpon>HoSo.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
     </EmbeddedResource>
@@ -81,8 +102,14 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="QLThuVien.resx">
-      <DependentUpon>QLThuVien.cs</DependentUpon>
+    <EmbeddedResource Include="Component\QLDanhMuc.resx">
+      <DependentUpon>QLDanhMuc.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Component\QLMuonTra.resx">
+      <DependentUpon>QLMuonTra.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Component\ThongKe.resx">
+      <DependentUpon>ThongKe.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

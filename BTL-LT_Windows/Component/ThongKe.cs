@@ -10,21 +10,11 @@ using System.Windows.Forms;
 
 namespace BTL_LT_Windows
 {
-    public partial class QLThuVien : Form
+    public partial class ThongKe : Form
     {
-        public QLThuVien()
+        public ThongKe()
         {
             InitializeComponent();
-        }
-
-        private void QLThuVien_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void tabPage1_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }
