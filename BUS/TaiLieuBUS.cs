@@ -1,29 +1,23 @@
-﻿using System;
+﻿using DAL;
+using DTO;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace DAO
+namespace BUS
 {
-    class TaiLieuBUS
+    public class TaiLieuBUS
     {
-        private string maTaiLieu;
-        private string tenTaiLieu;
-        private string theLoai;
-        private int soLuong;
-        private string nhaXuatBan;
-        private int namXuatBan;
-        private string tacGia;
-
-        public TaiLieuBUS(string maTaiLieu, string tenTaiLieu, string theLoai, int soLuong, string nhaXuatBan, int namXuatBan, string tacGia)
+        TaiLieuDAL theLoaiDB = new TaiLieuDAL();
+        public Object getDataFromSource()
         {
-            this.maTaiLieu = maTaiLieu;
-            this.tenTaiLieu = tenTaiLieu;
-            this.theLoai = theLoai;
-            this.soLuong = soLuong;
-            this.nhaXuatBan = nhaXuatBan;
-            this.namXuatBan = namXuatBan;
-            this.tacGia = tacGia;
+            return theLoaiDB.loadFromDB();
         }
-        
+
+        public Boolean addNewData(TaiLieuDTO newTaiLieu)
+        {
+            theLoaiDB.AddNewToDB(newTaiLieu);
+            return true;
+        }
     }
 }

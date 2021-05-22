@@ -1,4 +1,4 @@
-/*
+﻿/*
 Created		5/18/2021
 Modified		5/18/2021
 Project		
@@ -20,10 +20,23 @@ GO
 USE QLThuVien;
 GO
 
+/*
+Created		5/18/2021
+Modified		5/22/2021
+Project		
+Model		
+Company		
+Author		
+Version		
+Database		MS SQL 7 
+*/
+
+
 
 Create table [TheLoai] (
 	[MaTheLoai] Char(10) NOT NULL,
-	[TenTheLoai] Varchar(20) NULL,
+	[TenTheLoai] Nvarchar(20) NULL,
+	[GhiChu] Char(10) NULL,
 Primary Key  ([MaTheLoai])
 ) 
 go
@@ -31,11 +44,11 @@ go
 Create table [TaiLieu] (
 	[MaTaiLieu] Char(10) NOT NULL,
 	[MaTheLoai] Char(10) NOT NULL,
-	[TenTaiLieu] Char(10) NULL,
-	[SoLuong] Char(10) NULL,
-	[NhaXuatBan] Char(10) NULL,
-	[NamXuatBan] Char(10) NULL,
-	[TacGia] Char(10) NULL,
+	[TenTaiLieu] Nvarchar(20) NULL,
+	[SoLuong] Smallint NULL,
+	[NhaXuatBan] Nvarchar(20) NULL,
+	[NamXuatBan] Smallint NULL,
+	[TacGia] Nvarchar(20) NULL,
 Primary Key  ([MaTaiLieu])
 ) 
 go
@@ -43,9 +56,8 @@ go
 Create table [PhieuMuonChiTiet] (
 	[MaPhieuMuon] Char(10) NOT NULL,
 	[MaTaiLieu] Char(10) NOT NULL,
-	[MaSach] Char(10) NOT NULL,
-	[SoLuongMuon] Char(10) NULL,
-	[NgayTra] Char(10) NULL,
+	[SoLuongMuon] Smallint NULL,
+	[NgayTra] Datetime NULL,
 Primary Key  ([MaPhieuMuon],[MaTaiLieu])
 ) 
 go
@@ -54,7 +66,7 @@ Create table [PhieuMuon] (
 	[MaPhieuMuon] Char(10) NOT NULL,
 	[MaNhanVien] Char(10) NOT NULL,
 	[MaDocGia] Char(10) NOT NULL,
-	[NgayMuon] Char(10) NULL,
+	[NgayMuon] Datetime NULL,
 Primary Key  ([MaPhieuMuon])
 ) 
 go
@@ -62,9 +74,9 @@ go
 Create table [NhanVien] (
 	[MaNhanVien] Char(10) NOT NULL,
 	[MaChucVu] Char(10) NOT NULL,
-	[HoTen] Char(10) NULL,
-	[TaiKhoan] Char(10) NULL,
-	[MatKhau] Char(10) NULL,
+	[HoTen] Nvarchar(20) NULL,
+	[TaiKhoan] Char(20) NULL,
+	[MatKhau] Char(20) NULL,
 	[Quyen] Char(10) NULL,
 Primary Key  ([MaNhanVien])
 ) 
@@ -73,25 +85,25 @@ go
 Create table [DocGia] (
 	[MaDocGia] Char(10) NOT NULL,
 	[MaDoiTuong] Char(10) NOT NULL,
-	[HoTen] Char(10) NULL,
-	[GioiTinh] Char(10) NULL,
-	[NgaySinh] Char(10) NULL,
-	[NgayCap] Char(10) NULL,
-	[NgayHetHan] Char(10) NULL,
+	[HoTen] Nvarchar(20) NULL,
+	[GioiTinh] Nvarchar(20) NULL,
+	[NgaySinh] Datetime NULL,
+	[NgayCap] Datetime NULL,
+	[NgayHetHan] Datetime NULL,
 Primary Key  ([MaDocGia])
 ) 
 go
 
 Create table [ChucVu] (
 	[MaChucVu] Char(10) NOT NULL,
-	[TenChucVu] Char(10) NULL,
+	[TenChucVu] Nvarchar(20) NULL,
 Primary Key  ([MaChucVu])
 ) 
 go
 
 Create table [DoiTuong] (
 	[MaDoiTuong] Char(10) NOT NULL,
-	[TenDoiTuong] Varchar(20) NULL,
+	[TenDoiTuong] Nvarchar(20) NULL,
 Primary Key  ([MaDoiTuong])
 ) 
 go
@@ -127,3 +139,24 @@ go
 /* Users permissions */
 
 
+
+
+
+
+INSERT INTO TheLoai(MaTheLoai,TenTheLoai, GhiChu) VALUES ('TL01',N'Lập Trình',N'Tets');
+GO
+INSERT INTO TaiLieu(MaTaiLieu,TenTaiLieu,MaTheLoai,SoLuong,NhaXuatBan, NamXuatBan, TacGia) VALUES ('TL01',N'Lập trình C#','TL01',3,N'Giác Dục',2021,N'Vũ Minh Hoàng');
+INSERT INTO TaiLieu(MaTaiLieu,TenTaiLieu,MaTheLoai,SoLuong,NhaXuatBan, NamXuatBan, TacGia) VALUES ('TL02',N'Lập trình C#','TL01',3,N'Giác Dục',2021,N'Vũ Minh Hoàng');
+GO
+
+INSERT INTO ChucVu(MaChucVu,TenChucVu) VALUES('CV01',N'Thủ Thư');
+INSERT INTO ChucVu(MaChucVu,TenChucVu) VALUES('CV02',N'Giảng Viên');
+GO
+
+INSERT INTO NhanVien(MaNhanVien, HoTen, MaChucVu, TaiKhoan, MatKhau, Quyen) VALUES ('NV01',N'Nguyễn Xuân Trường', 'CV01', 'truonghdpk','123','ADMIN');
+GO
+
+INSERT INTO DoiTuong(MaDoiTuong,TenDoiTuong) VALUES('DT01',N'Sinh viên');
+GO
+INSERT INTO DocGia(MaDocGia,HoTen,GioiTinh,NgaySinh,MaDoiTuong,NgayCap,NgayHetHan) VALUES('DG01',N'Hoàng Chí Thanh',N'Nam','07-15-2000','DT01','3-23-2017','3-24-2025');
+GO

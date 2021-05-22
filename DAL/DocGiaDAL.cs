@@ -9,6 +9,17 @@ namespace DAL
     {
         dbDataContext data = new dbDataContext();
 
+        public string TimTenDocGiaVoiMa(string maDocGia)
+        {
+            try { 
+                var docGia = data.DocGias.Single(x => x.MaDocGia == maDocGia);
+                return docGia.HoTen;
+            }
+            catch (Exception)
+            {
+                return "";
+            }
+        }
         public Boolean SaveToDB(DocGiaDTO newDocGia)
         {
             // check if doc gia exist
@@ -16,16 +27,16 @@ namespace DAL
             //docGiaORM.MaDocGia = newDocGia.;
             docGiaORM.HoTen = newDocGia.HoTen;
             docGiaORM.GioiTinh = newDocGia.GioiTinh;
-            docGiaORM.NgaySinh = newDocGia.NgaySinh;
+            docGiaORM.NgaySinh = DateTime.Parse(newDocGia.NgaySinh);
             docGiaORM.MaDoiTuong = newDocGia.MaDoiTuong;
-            docGiaORM.NgayCap = newDocGia.NgayCap;
-            docGiaORM.NgayHetHan = newDocGia.NgayHetHan;
+            docGiaORM.NgayCap = DateTime.Parse(newDocGia.NgayCap);
+            docGiaORM.NgayHetHan = DateTime.Parse(newDocGia.NgayHetHan);
             var docGias = data.DocGias.Single(x => x.MaDocGia == docGiaORM.MaDocGia);
             if (docGias.MaDoiTuong.Length > 0)
             {
                 // update 
                 try { 
-                    this.updateToDB(newDocGia);
+                    this.UpdateToDB(newDocGia);
                     return true;
                 }
                 catch (Exception)
@@ -39,7 +50,7 @@ namespace DAL
                 // create
                 try
                 {
-                    this.addNewToDB(newDocGia);
+                    this.AddNewToDB(newDocGia);
                     return true;
                 }
                 catch (Exception)
@@ -56,10 +67,10 @@ namespace DAL
             docGiaORM.MaDocGia = newDocGia.MaDocGia;
             docGiaORM.HoTen = newDocGia.HoTen;
             docGiaORM.GioiTinh = newDocGia.GioiTinh;
-            docGiaORM.NgaySinh = newDocGia.NgaySinh;
+            docGiaORM.NgaySinh = DateTime.Parse(newDocGia.NgaySinh);
             docGiaORM.MaDoiTuong = newDocGia.MaDoiTuong;
-            docGiaORM.NgayCap = newDocGia.NgayCap;
-            docGiaORM.NgayHetHan = newDocGia.NgayHetHan;
+            docGiaORM.NgayCap = DateTime.Parse(newDocGia.NgayCap);
+            docGiaORM.NgayHetHan = DateTime.Parse(newDocGia.NgayHetHan);
             data.DocGias.InsertOnSubmit(docGiaORM);
             data.SubmitChanges();
             return true;
@@ -72,10 +83,10 @@ namespace DAL
             line.MaDocGia = docGia.MaDocGia;
             line.HoTen = docGia.HoTen;
             line.GioiTinh = docGia.GioiTinh;
-            line.NgaySinh = docGia.NgaySinh;
+            line.NgaySinh = DateTime.Parse(docGia.NgaySinh);
             line.MaDoiTuong = docGia.MaDoiTuong;
-            line.NgayCap = docGia.NgayCap;
-            line.NgayHetHan = docGia.NgayHetHan;
+            line.NgayCap = DateTime.Parse(docGia.NgayCap);
+            line.NgayHetHan = DateTime.Parse(docGia.NgayHetHan);
             data.SubmitChanges();
             return true;
         }

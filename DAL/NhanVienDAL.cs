@@ -1,28 +1,25 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 namespace DAL
 {
     public class NhanVienDAL
     {
-        private string maNhanVien;
-        private string hoTen;
-        private string maChucVu;
-        private string chucVu;
-        private string taiKhoan;
-        private string matKhau;
-        private string quyen;
+        dbDataContext data = new dbDataContext();
 
-        public NhanVienDAL(string maNhanVien, string hoTen, string maChucVu, string chucVu, string taiKhoan, string matKhau, string quyen)
+        public string TimTenNhanVienVoiMa(string maNhanVien)
         {
-            this.maNhanVien = maNhanVien;
-            this.hoTen = hoTen;
-            this.maChucVu = maChucVu;
-            this.chucVu = chucVu;
-            this.taiKhoan = taiKhoan;
-            this.matKhau = matKhau;
-            this.quyen = quyen;
+            try
+            {
+                var nhanVien = data.NhanViens.Single(x => x.MaNhanVien == maNhanVien);
+                return nhanVien.HoTen;
+            }
+            catch (Exception)
+            {
+                return "";
+            }
         }
     }
 }

@@ -10,6 +10,10 @@ namespace DAL
     {
         dbDataContext data = new dbDataContext();
 
+        public Object loadFromDB()
+        {
+            return data.TaiLieus.Select(x => x).Select(x => new {x.MaTaiLieu, x.TenTaiLieu,x.MaTheLoai, x.SoLuong, x.NhaXuatBan,x.NamXuatBan,x.TacGia });
+        }
         public Boolean SaveToDB(TaiLieuDTO newTaiLieu)
         {
             // check if doc gia exist
@@ -17,9 +21,9 @@ namespace DAL
             taiLieuORM.MaTaiLieu = newTaiLieu.MaTaiLieu;
             taiLieuORM.TenTaiLieu = newTaiLieu.TenTaiLieu;
             taiLieuORM.MaTheLoai = newTaiLieu.MaTheLoai;
-            taiLieuORM.SoLuong = newTaiLieu.SoLuong.ToString();
+            taiLieuORM.SoLuong = newTaiLieu.SoLuong;
             taiLieuORM.NhaXuatBan = newTaiLieu.NhaXuatBan;
-            taiLieuORM.NamXuatBan = newTaiLieu.NamXuatBan.ToString();
+            taiLieuORM.NamXuatBan = newTaiLieu.NamXuatBan;
             taiLieuORM.TacGia = newTaiLieu.TacGia;
             var docGias = data.TaiLieus.Single(x => x.MaTaiLieu == taiLieuORM.MaTaiLieu);
             if (docGias.MaTaiLieu.Length > 0)
@@ -58,9 +62,9 @@ namespace DAL
             taiLieuORM.MaTaiLieu = newTaiLieu.MaTaiLieu;
             taiLieuORM.TenTaiLieu = newTaiLieu.TenTaiLieu;
             taiLieuORM.MaTheLoai = newTaiLieu.MaTheLoai;
-            taiLieuORM.SoLuong = newTaiLieu.SoLuong.ToString();
+            taiLieuORM.SoLuong = newTaiLieu.SoLuong;
             taiLieuORM.NhaXuatBan = newTaiLieu.NhaXuatBan;
-            taiLieuORM.NamXuatBan = newTaiLieu.NamXuatBan.ToString();
+            taiLieuORM.NamXuatBan = newTaiLieu.NamXuatBan;
             taiLieuORM.TacGia = newTaiLieu.TacGia;
             data.TaiLieus.InsertOnSubmit(taiLieuORM);
             data.SubmitChanges();
@@ -74,9 +78,9 @@ namespace DAL
             line.MaTaiLieu = taiLieu.MaTaiLieu;
             line.TenTaiLieu = taiLieu.TenTaiLieu;
             line.MaTheLoai = taiLieu.MaTheLoai;
-            line.SoLuong = taiLieu.SoLuong.ToString();
+            line.SoLuong = taiLieu.SoLuong;
             line.NhaXuatBan = taiLieu.NhaXuatBan;
-            line.NamXuatBan = taiLieu.NamXuatBan.ToString();
+            line.NamXuatBan = taiLieu.NamXuatBan;
             line.TacGia = taiLieu.TacGia;
             data.SubmitChanges();
             return true;

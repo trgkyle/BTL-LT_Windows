@@ -1,20 +1,23 @@
-﻿using System;
+﻿using DAL;
+using DTO;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace DAO
+namespace BUS
 {
-    class TheLoaiBUS
+    public class TheLoaiBUS
     {
-        private string maTheLoai;
-        private string tenTheLoai;
-        private string ghiChu;
-
-        public TheLoaiBUS(string maTheLoai, string tenTheLoai, string ghiChu)
+        TheLoaiDAL theLoaiDB = new TheLoaiDAL();
+        public Object getDataFromSource()
         {
-            this.maTheLoai = maTheLoai;
-            this.tenTheLoai = tenTheLoai;
-            this.ghiChu = ghiChu;
+            return theLoaiDB.loadFromDB();
+        }
+
+        public Boolean addNewData(TheLoaiDTO newTaiLieu)
+        {
+            theLoaiDB.AddNewToDB(newTaiLieu);
+            return true;
         }
     }
 }

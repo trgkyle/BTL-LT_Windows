@@ -9,12 +9,12 @@ namespace DTO
         private string maTaiLieu;
         private string tenTaiLieu;
         private string maTheLoai;
-        private int soLuong;
+        private short soLuong;
         private string nhaXuatBan;
-        private int namXuatBan;
+        private short namXuatBan;
         private string tacGia;
 
-        public TaiLieuDTO(string maTaiLieu, string tenTaiLieu, string maTheLoai, int soLuong, string nhaXuatBan, int namXuatBan, string tacGia)
+        public TaiLieuDTO(string maTaiLieu, string tenTaiLieu, string maTheLoai, short soLuong, string nhaXuatBan, short namXuatBan, string tacGia)
         {
             this.MaTaiLieu = maTaiLieu;
             this.TenTaiLieu = tenTaiLieu;
@@ -28,9 +28,9 @@ namespace DTO
         public string MaTaiLieu { get => maTaiLieu; set => maTaiLieu = value; }
         public string TenTaiLieu { get => tenTaiLieu; set => tenTaiLieu = value; }
         public string MaTheLoai { get => maTheLoai; set => maTheLoai = value; }
-        public int SoLuong { get => soLuong; set => soLuong = value; }
+        public short SoLuong { get => soLuong; set => soLuong = value; }
         public string NhaXuatBan { get => nhaXuatBan; set => nhaXuatBan = value; }
-        public int NamXuatBan { get => namXuatBan; set => namXuatBan = value; }
+        public short NamXuatBan { get => namXuatBan; set => namXuatBan = value; }
         public string TacGia { get => tacGia; set => tacGia = value; }
     }
 }

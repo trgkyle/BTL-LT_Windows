@@ -52,12 +52,12 @@ namespace BTL_LT_Windows
             this.button3 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
-            this.dgv = new System.Windows.Forms.DataGridView();
+            this.dgvTLieu = new System.Windows.Forms.DataGridView();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TenTaiLieu = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MaTheLoai = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SoLuong = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.NhaXuatBan = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabPage2 = new System.Windows.Forms.TabPage();
@@ -70,16 +70,19 @@ namespace BTL_LT_Windows
             this.button11 = new System.Windows.Forms.Button();
             this.button12 = new System.Windows.Forms.Button();
             this.button13 = new System.Windows.Forms.Button();
-            this.textBox21 = new System.Windows.Forms.TextBox();
-            this.textBox22 = new System.Windows.Forms.TextBox();
-            this.dataGridView4 = new System.Windows.Forms.DataGridView();
+            this.txtTenTheLoai2 = new System.Windows.Forms.TextBox();
+            this.txtMaTheLoai2 = new System.Windows.Forms.TextBox();
+            this.dgvTLoai = new System.Windows.Forms.DataGridView();
+            this.label10 = new System.Windows.Forms.Label();
+            this.txtGhiChu2 = new System.Windows.Forms.TextBox();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgv)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvTLieu)).BeginInit();
             this.tabPage2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvTLoai)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -115,7 +118,7 @@ namespace BTL_LT_Windows
             this.tabPage1.Controls.Add(this.button3);
             this.tabPage1.Controls.Add(this.button2);
             this.tabPage1.Controls.Add(this.button1);
-            this.tabPage1.Controls.Add(this.dgv);
+            this.tabPage1.Controls.Add(this.dgvTLieu);
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
@@ -123,6 +126,7 @@ namespace BTL_LT_Windows
             this.tabPage1.TabIndex = 2;
             this.tabPage1.Text = "Quản lý tài liệu";
             this.tabPage1.UseVisualStyleBackColor = true;
+            this.tabPage1.Click += new System.EventHandler(this.tabPage1_Click);
             // 
             // label8
             // 
@@ -290,6 +294,7 @@ namespace BTL_LT_Windows
             this.button2.TabIndex = 25;
             this.button2.Text = "Thêm";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // button1
             // 
@@ -300,69 +305,78 @@ namespace BTL_LT_Windows
             this.button1.Text = "Nhập lại";
             this.button1.UseVisualStyleBackColor = true;
             // 
-            // dgv
+            // dgvTLieu
             // 
-            this.dgv.AllowUserToAddRows = false;
-            this.dgv.AllowUserToDeleteRows = false;
-            this.dgv.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgv.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dgvTLieu.AllowUserToAddRows = false;
+            this.dgvTLieu.AllowUserToDeleteRows = false;
+            this.dgvTLieu.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvTLieu.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column1,
-            this.Column2,
-            this.Column3,
-            this.Column4,
-            this.Column5,
+            this.TenTaiLieu,
+            this.MaTheLoai,
+            this.SoLuong,
+            this.NhaXuatBan,
             this.Column6,
             this.Column7});
-            this.dgv.Location = new System.Drawing.Point(77, 460);
-            this.dgv.Name = "dgv";
-            this.dgv.ReadOnly = true;
-            this.dgv.Size = new System.Drawing.Size(745, 217);
-            this.dgv.TabIndex = 21;
+            this.dgvTLieu.Location = new System.Drawing.Point(77, 460);
+            this.dgvTLieu.Name = "dgvTLieu";
+            this.dgvTLieu.ReadOnly = true;
+            this.dgvTLieu.Size = new System.Drawing.Size(745, 217);
+            this.dgvTLieu.TabIndex = 21;
             // 
             // Column1
             // 
+            this.Column1.DataPropertyName = "MaTaiLieu";
             this.Column1.HeaderText = "Mã Tài Liệu";
             this.Column1.Name = "Column1";
             this.Column1.ReadOnly = true;
             // 
-            // Column2
+            // TenTaiLieu
             // 
-            this.Column2.HeaderText = "Tên Tài Liệu";
-            this.Column2.Name = "Column2";
-            this.Column2.ReadOnly = true;
+            this.TenTaiLieu.DataPropertyName = "TenTaiLieu";
+            this.TenTaiLieu.HeaderText = "Tên Tài Liệu";
+            this.TenTaiLieu.Name = "TenTaiLieu";
+            this.TenTaiLieu.ReadOnly = true;
             // 
-            // Column3
+            // MaTheLoai
             // 
-            this.Column3.HeaderText = "Mã Thể Loại";
-            this.Column3.Name = "Column3";
-            this.Column3.ReadOnly = true;
+            this.MaTheLoai.DataPropertyName = "MaTheLoai";
+            this.MaTheLoai.HeaderText = "Mã Thể Loại";
+            this.MaTheLoai.Name = "MaTheLoai";
+            this.MaTheLoai.ReadOnly = true;
             // 
-            // Column4
+            // SoLuong
             // 
-            this.Column4.HeaderText = "Số Lượng";
-            this.Column4.Name = "Column4";
-            this.Column4.ReadOnly = true;
+            this.SoLuong.DataPropertyName = "SoLuong";
+            this.SoLuong.HeaderText = "Số Lượng";
+            this.SoLuong.Name = "SoLuong";
+            this.SoLuong.ReadOnly = true;
             // 
-            // Column5
+            // NhaXuatBan
             // 
-            this.Column5.HeaderText = "Nhà Xuất Bản";
-            this.Column5.Name = "Column5";
-            this.Column5.ReadOnly = true;
+            this.NhaXuatBan.DataPropertyName = "NhaXuatBan";
+            this.NhaXuatBan.HeaderText = "Nhà Xuất Bản";
+            this.NhaXuatBan.Name = "NhaXuatBan";
+            this.NhaXuatBan.ReadOnly = true;
             // 
             // Column6
             // 
+            this.Column6.DataPropertyName = "NamXuatBan";
             this.Column6.HeaderText = "Năm Xuất Bản";
             this.Column6.Name = "Column6";
             this.Column6.ReadOnly = true;
             // 
             // Column7
             // 
+            this.Column7.DataPropertyName = "TacGia";
             this.Column7.HeaderText = "Tác Giả";
             this.Column7.Name = "Column7";
             this.Column7.ReadOnly = true;
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.txtGhiChu2);
+            this.tabPage2.Controls.Add(this.label10);
             this.tabPage2.Controls.Add(this.label9);
             this.tabPage2.Controls.Add(this.label25);
             this.tabPage2.Controls.Add(this.label26);
@@ -372,9 +386,9 @@ namespace BTL_LT_Windows
             this.tabPage2.Controls.Add(this.button11);
             this.tabPage2.Controls.Add(this.button12);
             this.tabPage2.Controls.Add(this.button13);
-            this.tabPage2.Controls.Add(this.textBox21);
-            this.tabPage2.Controls.Add(this.textBox22);
-            this.tabPage2.Controls.Add(this.dataGridView4);
+            this.tabPage2.Controls.Add(this.txtTenTheLoai2);
+            this.tabPage2.Controls.Add(this.txtMaTheLoai2);
+            this.tabPage2.Controls.Add(this.dgvTLoai);
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
@@ -383,6 +397,7 @@ namespace BTL_LT_Windows
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Quản lý thể loại";
             this.tabPage2.UseVisualStyleBackColor = true;
+            this.tabPage2.Click += new System.EventHandler(this.tabPage2_Click);
             // 
             // label9
             // 
@@ -456,6 +471,7 @@ namespace BTL_LT_Windows
             this.button12.TabIndex = 36;
             this.button12.Text = "Thêm";
             this.button12.UseVisualStyleBackColor = true;
+            this.button12.Click += new System.EventHandler(this.button12_Click);
             // 
             // button13
             // 
@@ -466,45 +482,71 @@ namespace BTL_LT_Windows
             this.button13.Text = "Nhập lại";
             this.button13.UseVisualStyleBackColor = true;
             // 
-            // textBox21
+            // txtTenTheLoai2
             // 
-            this.textBox21.Location = new System.Drawing.Point(270, 165);
-            this.textBox21.Name = "textBox21";
-            this.textBox21.Size = new System.Drawing.Size(135, 20);
-            this.textBox21.TabIndex = 34;
+            this.txtTenTheLoai2.Location = new System.Drawing.Point(270, 165);
+            this.txtTenTheLoai2.Name = "txtTenTheLoai2";
+            this.txtTenTheLoai2.Size = new System.Drawing.Size(135, 20);
+            this.txtTenTheLoai2.TabIndex = 34;
             // 
-            // textBox22
+            // txtMaTheLoai2
             // 
-            this.textBox22.Location = new System.Drawing.Point(270, 120);
-            this.textBox22.Name = "textBox22";
-            this.textBox22.Size = new System.Drawing.Size(135, 20);
-            this.textBox22.TabIndex = 33;
+            this.txtMaTheLoai2.Location = new System.Drawing.Point(270, 120);
+            this.txtMaTheLoai2.Name = "txtMaTheLoai2";
+            this.txtMaTheLoai2.Size = new System.Drawing.Size(135, 20);
+            this.txtMaTheLoai2.TabIndex = 33;
             // 
-            // dataGridView4
+            // dgvTLoai
             // 
-            this.dataGridView4.AllowUserToAddRows = false;
-            this.dataGridView4.AllowUserToDeleteRows = false;
-            this.dataGridView4.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView4.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dgvTLoai.AllowUserToAddRows = false;
+            this.dgvTLoai.AllowUserToDeleteRows = false;
+            this.dgvTLoai.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvTLoai.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dataGridViewTextBoxColumn1,
-            this.Column11});
-            this.dataGridView4.Location = new System.Drawing.Point(181, 209);
-            this.dataGridView4.Name = "dataGridView4";
-            this.dataGridView4.ReadOnly = true;
-            this.dataGridView4.Size = new System.Drawing.Size(244, 217);
-            this.dataGridView4.TabIndex = 32;
+            this.Column11,
+            this.Column2});
+            this.dgvTLoai.Location = new System.Drawing.Point(181, 258);
+            this.dgvTLoai.Name = "dgvTLoai";
+            this.dgvTLoai.ReadOnly = true;
+            this.dgvTLoai.Size = new System.Drawing.Size(344, 217);
+            this.dgvTLoai.TabIndex = 32;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(178, 219);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(44, 13);
+            this.label10.TabIndex = 44;
+            this.label10.Text = "Ghi chú";
+            // 
+            // txtGhiChu2
+            // 
+            this.txtGhiChu2.Location = new System.Drawing.Point(270, 216);
+            this.txtGhiChu2.Name = "txtGhiChu2";
+            this.txtGhiChu2.Size = new System.Drawing.Size(135, 20);
+            this.txtGhiChu2.TabIndex = 45;
             // 
             // dataGridViewTextBoxColumn1
             // 
+            this.dataGridViewTextBoxColumn1.DataPropertyName = "MaTheLoai";
             this.dataGridViewTextBoxColumn1.HeaderText = "Mã Thể Loại";
             this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
             this.dataGridViewTextBoxColumn1.ReadOnly = true;
             // 
             // Column11
             // 
+            this.Column11.DataPropertyName = "TenTheLoai";
             this.Column11.HeaderText = "Tên Thể Loại";
             this.Column11.Name = "Column11";
             this.Column11.ReadOnly = true;
+            // 
+            // Column2
+            // 
+            this.Column2.DataPropertyName = "GhiChu";
+            this.Column2.HeaderText = "Ghi chú";
+            this.Column2.Name = "Column2";
+            this.Column2.ReadOnly = true;
             // 
             // QLDanhMuc
             // 
@@ -514,13 +556,14 @@ namespace BTL_LT_Windows
             this.Controls.Add(this.tabControl1);
             this.Name = "QLDanhMuc";
             this.Text = "QLDanhMuc";
+            this.Load += new System.EventHandler(this.QLDanhMuc_Load);
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgv)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvTLieu)).EndInit();
             this.tabPage2.ResumeLayout(false);
             this.tabPage2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvTLoai)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -550,14 +593,7 @@ namespace BTL_LT_Windows
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.DataGridView dgv;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column7;
+        private System.Windows.Forms.DataGridView dgvTLieu;
         private System.Windows.Forms.Label label25;
         private System.Windows.Forms.Label label26;
         private System.Windows.Forms.Button button8;
@@ -566,12 +602,22 @@ namespace BTL_LT_Windows
         private System.Windows.Forms.Button button11;
         private System.Windows.Forms.Button button12;
         private System.Windows.Forms.Button button13;
-        private System.Windows.Forms.TextBox textBox21;
-        private System.Windows.Forms.TextBox textBox22;
-        private System.Windows.Forms.DataGridView dataGridView4;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column11;
+        private System.Windows.Forms.TextBox txtTenTheLoai2;
+        private System.Windows.Forms.TextBox txtMaTheLoai2;
+        private System.Windows.Forms.DataGridView dgvTLoai;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TenTaiLieu;
+        private System.Windows.Forms.DataGridViewTextBoxColumn MaTheLoai;
+        private System.Windows.Forms.DataGridViewTextBoxColumn SoLuong;
+        private System.Windows.Forms.DataGridViewTextBoxColumn NhaXuatBan;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column7;
+        private System.Windows.Forms.TextBox txtGhiChu2;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column11;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
     }
 }

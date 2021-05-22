@@ -1,22 +1,23 @@
-﻿using System;
+﻿using DAL;
+using DTO;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace DAO
+namespace BUS
 {
-    class PhieuMuonBUS
+    public class PhieuMuonBUS
     {
-        private string maPhieuMuon;
-        private string maDocGia;
-        private string ngayMuon;
-        private string maNhanVien;
-
-        public PhieuMuonBUS(string maPhieuMuon, string maDocGia, string ngayMuon, string maNhanVien)
+        PhieuMuonDAL phieuMuonDB = new PhieuMuonDAL();
+        public Object getDataFromSource()
         {
-            this.maPhieuMuon = maPhieuMuon;
-            this.maDocGia = maDocGia;
-            this.ngayMuon = ngayMuon;
-            this.maNhanVien = maNhanVien;
+            return phieuMuonDB.loadFromDB();
+        }
+
+        public Boolean addNewData(PhieuMuonDTO newPhieuMuon)
+        {
+            phieuMuonDB.AddNewToDB(newPhieuMuon);
+            return true;
         }
     }
 }
