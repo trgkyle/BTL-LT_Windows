@@ -50,8 +50,6 @@ namespace BTL_LT_Windows
             PhieuMuonDTO newPhieuMuon = new PhieuMuonDTO(maPhieuMuon, maDocGia, ngayMuon, maNhanVien, tenNhanVien,1);
             phieuMuonBUS.addNewData(newPhieuMuon);
             this.LoadInit();
-
-
         }
 
         private void txtMaDocGia_TextChanged(object sender, EventArgs e)

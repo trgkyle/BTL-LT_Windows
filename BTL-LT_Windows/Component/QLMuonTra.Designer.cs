@@ -67,11 +67,27 @@ namespace BTL_LT_Windows
             this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.textBox4 = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.txtSoLuongMuon = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.button8 = new System.Windows.Forms.Button();
+            this.dataGridView2 = new System.Windows.Forms.DataGridView();
+            this.label7 = new System.Windows.Forms.Label();
+            this.Column10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column14 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column15 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTaiLieuMuon)).BeginInit();
             this.tabPage2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -81,11 +97,20 @@ namespace BTL_LT_Windows
             this.tabControl1.Location = new System.Drawing.Point(2, 0);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(835, 802);
+            this.tabControl1.Size = new System.Drawing.Size(1175, 802);
             this.tabControl1.TabIndex = 0;
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.label7);
+            this.tabPage1.Controls.Add(this.dataGridView2);
+            this.tabPage1.Controls.Add(this.button8);
+            this.tabPage1.Controls.Add(this.txtSoLuongMuon);
+            this.tabPage1.Controls.Add(this.label6);
+            this.tabPage1.Controls.Add(this.textBox2);
+            this.tabPage1.Controls.Add(this.label4);
+            this.tabPage1.Controls.Add(this.textBox1);
+            this.tabPage1.Controls.Add(this.label3);
             this.tabPage1.Controls.Add(this.label1);
             this.tabPage1.Controls.Add(this.button2);
             this.tabPage1.Controls.Add(this.button6);
@@ -110,7 +135,7 @@ namespace BTL_LT_Windows
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(827, 776);
+            this.tabPage1.Size = new System.Drawing.Size(1167, 776);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Mượn sách";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -120,7 +145,7 @@ namespace BTL_LT_Windows
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(292, 45);
+            this.label1.Location = new System.Drawing.Point(438, 45);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(293, 29);
             this.label1.TabIndex = 38;
@@ -128,7 +153,7 @@ namespace BTL_LT_Windows
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(500, 236);
+            this.button2.Location = new System.Drawing.Point(468, 363);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(75, 23);
             this.button2.TabIndex = 37;
@@ -137,7 +162,7 @@ namespace BTL_LT_Windows
             // 
             // button6
             // 
-            this.button6.Location = new System.Drawing.Point(590, 275);
+            this.button6.Location = new System.Drawing.Point(468, 315);
             this.button6.Name = "button6";
             this.button6.Size = new System.Drawing.Size(75, 23);
             this.button6.TabIndex = 36;
@@ -146,7 +171,7 @@ namespace BTL_LT_Windows
             // 
             // button5
             // 
-            this.button5.Location = new System.Drawing.Point(590, 234);
+            this.button5.Location = new System.Drawing.Point(251, 411);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(75, 23);
             this.button5.TabIndex = 34;
@@ -155,7 +180,7 @@ namespace BTL_LT_Windows
             // 
             // button4
             // 
-            this.button4.Location = new System.Drawing.Point(590, 142);
+            this.button4.Location = new System.Drawing.Point(369, 315);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(75, 23);
             this.button4.TabIndex = 33;
@@ -164,7 +189,7 @@ namespace BTL_LT_Windows
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(590, 190);
+            this.button3.Location = new System.Drawing.Point(369, 363);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(75, 23);
             this.button3.TabIndex = 32;
@@ -173,7 +198,7 @@ namespace BTL_LT_Windows
             // 
             // btn
             // 
-            this.btn.Location = new System.Drawing.Point(500, 190);
+            this.btn.Location = new System.Drawing.Point(251, 363);
             this.btn.Name = "btn";
             this.btn.Size = new System.Drawing.Size(75, 23);
             this.btn.TabIndex = 31;
@@ -183,7 +208,7 @@ namespace BTL_LT_Windows
             // 
             // button7
             // 
-            this.button7.Location = new System.Drawing.Point(500, 142);
+            this.button7.Location = new System.Drawing.Point(251, 315);
             this.button7.Name = "button7";
             this.button7.Size = new System.Drawing.Size(75, 23);
             this.button7.TabIndex = 30;
@@ -199,10 +224,10 @@ namespace BTL_LT_Windows
             this.Column8,
             this.Column7,
             this.Column9});
-            this.dgvTaiLieuMuon.Location = new System.Drawing.Point(80, 473);
+            this.dgvTaiLieuMuon.Location = new System.Drawing.Point(702, 363);
             this.dgvTaiLieuMuon.Name = "dgvTaiLieuMuon";
             this.dgvTaiLieuMuon.ReadOnly = true;
-            this.dgvTaiLieuMuon.Size = new System.Drawing.Size(343, 150);
+            this.dgvTaiLieuMuon.Size = new System.Drawing.Size(346, 150);
             this.dgvTaiLieuMuon.TabIndex = 25;
             // 
             // Column8
@@ -226,14 +251,14 @@ namespace BTL_LT_Windows
             // txtTenNhanVien
             // 
             this.txtTenNhanVien.Enabled = false;
-            this.txtTenNhanVien.Location = new System.Drawing.Point(211, 376);
+            this.txtTenNhanVien.Location = new System.Drawing.Point(594, 226);
             this.txtTenNhanVien.Name = "txtTenNhanVien";
             this.txtTenNhanVien.Size = new System.Drawing.Size(198, 20);
             this.txtTenNhanVien.TabIndex = 24;
             // 
             // txtMaNhanVien
             // 
-            this.txtMaNhanVien.Location = new System.Drawing.Point(211, 328);
+            this.txtMaNhanVien.Location = new System.Drawing.Point(594, 179);
             this.txtMaNhanVien.Name = "txtMaNhanVien";
             this.txtMaNhanVien.Size = new System.Drawing.Size(198, 20);
             this.txtMaNhanVien.TabIndex = 22;
@@ -242,30 +267,30 @@ namespace BTL_LT_Windows
             // txtTenDocGia
             // 
             this.txtTenDocGia.Enabled = false;
-            this.txtTenDocGia.Location = new System.Drawing.Point(211, 236);
+            this.txtTenDocGia.Location = new System.Drawing.Point(345, 176);
             this.txtTenDocGia.Name = "txtTenDocGia";
-            this.txtTenDocGia.Size = new System.Drawing.Size(198, 20);
+            this.txtTenDocGia.Size = new System.Drawing.Size(122, 20);
             this.txtTenDocGia.TabIndex = 18;
             // 
             // txtMaDocGia
             // 
-            this.txtMaDocGia.Location = new System.Drawing.Point(211, 189);
+            this.txtMaDocGia.Location = new System.Drawing.Point(345, 138);
             this.txtMaDocGia.Name = "txtMaDocGia";
-            this.txtMaDocGia.Size = new System.Drawing.Size(198, 20);
+            this.txtMaDocGia.Size = new System.Drawing.Size(122, 20);
             this.txtMaDocGia.TabIndex = 16;
             this.txtMaDocGia.TextChanged += new System.EventHandler(this.txtMaDocGia_TextChanged);
             // 
             // txtMaPhieuMuon
             // 
-            this.txtMaPhieuMuon.Location = new System.Drawing.Point(211, 144);
+            this.txtMaPhieuMuon.Location = new System.Drawing.Point(113, 139);
             this.txtMaPhieuMuon.Name = "txtMaPhieuMuon";
-            this.txtMaPhieuMuon.Size = new System.Drawing.Size(198, 20);
+            this.txtMaPhieuMuon.Size = new System.Drawing.Size(108, 20);
             this.txtMaPhieuMuon.TabIndex = 13;
             // 
             // label19
             // 
             this.label19.AutoSize = true;
-            this.label19.Location = new System.Drawing.Point(77, 379);
+            this.label19.Location = new System.Drawing.Point(508, 229);
             this.label19.Name = "label19";
             this.label19.Size = new System.Drawing.Size(76, 13);
             this.label19.TabIndex = 23;
@@ -274,7 +299,7 @@ namespace BTL_LT_Windows
             // label18
             // 
             this.label18.AutoSize = true;
-            this.label18.Location = new System.Drawing.Point(77, 331);
+            this.label18.Location = new System.Drawing.Point(508, 182);
             this.label18.Name = "label18";
             this.label18.Size = new System.Drawing.Size(72, 13);
             this.label18.TabIndex = 21;
@@ -282,7 +307,7 @@ namespace BTL_LT_Windows
             // 
             // txtNgayMuon
             // 
-            this.txtNgayMuon.Location = new System.Drawing.Point(211, 278);
+            this.txtNgayMuon.Location = new System.Drawing.Point(594, 134);
             this.txtNgayMuon.Name = "txtNgayMuon";
             this.txtNgayMuon.Size = new System.Drawing.Size(198, 20);
             this.txtNgayMuon.TabIndex = 20;
@@ -290,7 +315,7 @@ namespace BTL_LT_Windows
             // label17
             // 
             this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(77, 285);
+            this.label17.Location = new System.Drawing.Point(508, 141);
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(61, 13);
             this.label17.TabIndex = 19;
@@ -299,7 +324,7 @@ namespace BTL_LT_Windows
             // label16
             // 
             this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(77, 239);
+            this.label16.Location = new System.Drawing.Point(259, 179);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(65, 13);
             this.label16.TabIndex = 17;
@@ -308,7 +333,7 @@ namespace BTL_LT_Windows
             // label15
             // 
             this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(77, 192);
+            this.label15.Location = new System.Drawing.Point(259, 141);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(61, 13);
             this.label15.TabIndex = 15;
@@ -317,7 +342,7 @@ namespace BTL_LT_Windows
             // label14
             // 
             this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(77, 147);
+            this.label14.Location = new System.Drawing.Point(27, 142);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(80, 13);
             this.label14.TabIndex = 14;
@@ -333,7 +358,7 @@ namespace BTL_LT_Windows
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(827, 776);
+            this.tabPage2.Size = new System.Drawing.Size(1167, 776);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Trả sách";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -427,11 +452,126 @@ namespace BTL_LT_Windows
             this.label5.TabIndex = 28;
             this.label5.Text = "Mã độc giả";
             // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(830, 137);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(55, 13);
+            this.label3.TabIndex = 39;
+            this.label3.Text = "Mã tài liệu";
+            // 
+            // textBox1
+            // 
+            this.textBox1.Enabled = false;
+            this.textBox1.Location = new System.Drawing.Point(919, 134);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(129, 20);
+            this.textBox1.TabIndex = 40;
+            // 
+            // textBox2
+            // 
+            this.textBox2.Enabled = false;
+            this.textBox2.Location = new System.Drawing.Point(919, 182);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(129, 20);
+            this.textBox2.TabIndex = 42;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(833, 185);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(59, 13);
+            this.label4.TabIndex = 41;
+            this.label4.Text = "Tên tài liệu";
+            // 
+            // txtSoLuongMuon
+            // 
+            this.txtSoLuongMuon.Enabled = false;
+            this.txtSoLuongMuon.Location = new System.Drawing.Point(919, 230);
+            this.txtSoLuongMuon.Name = "txtSoLuongMuon";
+            this.txtSoLuongMuon.Size = new System.Drawing.Size(129, 20);
+            this.txtSoLuongMuon.TabIndex = 44;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(835, 233);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(78, 13);
+            this.label6.TabIndex = 43;
+            this.label6.Text = "Số lượng mượn";
+            // 
+            // button8
+            // 
+            this.button8.Location = new System.Drawing.Point(836, 279);
+            this.button8.Name = "button8";
+            this.button8.Size = new System.Drawing.Size(162, 23);
+            this.button8.TabIndex = 45;
+            this.button8.Text = "Thêm vào danh sách mượn";
+            this.button8.UseVisualStyleBackColor = true;
+            // 
+            // dataGridView2
+            // 
+            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView2.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Column10,
+            this.Column11,
+            this.Column12,
+            this.Column13,
+            this.Column14,
+            this.Column15});
+            this.dataGridView2.Location = new System.Drawing.Point(149, 605);
+            this.dataGridView2.Name = "dataGridView2";
+            this.dataGridView2.Size = new System.Drawing.Size(643, 150);
+            this.dataGridView2.TabIndex = 46;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(144, 529);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(434, 29);
+            this.label7.TabIndex = 47;
+            this.label7.Text = "DANH SÁCH TÀI LIỆU ĐANG MƯỢN";
+            // 
+            // Column10
+            // 
+            this.Column10.HeaderText = "Mã Phiếu Mượn";
+            this.Column10.Name = "Column10";
+            // 
+            // Column11
+            // 
+            this.Column11.HeaderText = "Mã Độc Giả";
+            this.Column11.Name = "Column11";
+            // 
+            // Column12
+            // 
+            this.Column12.HeaderText = "Ngày Mượn";
+            this.Column12.Name = "Column12";
+            // 
+            // Column13
+            // 
+            this.Column13.HeaderText = "Mã Nhân Viên";
+            this.Column13.Name = "Column13";
+            // 
+            // Column14
+            // 
+            this.Column14.HeaderText = "Mã Tài Liệu";
+            this.Column14.Name = "Column14";
+            // 
+            // Column15
+            // 
+            this.Column15.HeaderText = "Số Lượng Mượn";
+            this.Column15.Name = "Column15";
+            // 
             // QLMuonTra
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(837, 798);
+            this.ClientSize = new System.Drawing.Size(1175, 798);
             this.Controls.Add(this.tabControl1);
             this.Name = "QLMuonTra";
             this.Text = "QLMuonTra";
@@ -443,6 +583,7 @@ namespace BTL_LT_Windows
             this.tabPage2.ResumeLayout(false);
             this.tabPage2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -487,5 +628,20 @@ namespace BTL_LT_Windows
         private System.Windows.Forms.DataGridViewTextBoxColumn Column8;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column7;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column9;
+        private System.Windows.Forms.TextBox txtSoLuongMuon;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.DataGridView dataGridView2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column10;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column11;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column12;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column13;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column14;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column15;
+        private System.Windows.Forms.Button button8;
     }
 }
