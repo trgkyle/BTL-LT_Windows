@@ -1,0 +1,84 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="QLThuVien" Class="dbDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=.;Initial Catalog=QLThuVien;Integrated Security=True" SettingsObjectName="DAL.Properties.Settings" SettingsPropertyName="QLThuVienConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.ChucVu" Member="ChucVus">
+    <Type Name="ChucVu">
+      <Column Name="MaChucVu" Type="System.String" DbType="Char(10) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="TenChucVu" Type="System.String" DbType="Char(10)" CanBeNull="true" />
+      <Association Name="ChucVu_NhanVien" Member="NhanViens" ThisKey="MaChucVu" OtherKey="MaChucVu" Type="NhanVien" />
+    </Type>
+  </Table>
+  <Table Name="dbo.DocGia" Member="DocGias">
+    <Type Name="DocGia">
+      <Column Name="MaDocGia" Type="System.String" DbType="Char(10) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="MaDoiTuong" Type="System.String" DbType="Char(10) NOT NULL" CanBeNull="false" />
+      <Column Name="HoTen" Type="System.String" DbType="Char(10)" CanBeNull="true" />
+      <Column Name="GioiTinh" Type="System.String" DbType="Char(10)" CanBeNull="true" />
+      <Column Name="NgaySinh" Type="System.String" DbType="Char(10)" CanBeNull="true" />
+      <Column Name="NgayCap" Type="System.String" DbType="Char(10)" CanBeNull="true" />
+      <Column Name="NgayHetHan" Type="System.String" DbType="Char(10)" CanBeNull="true" />
+      <Association Name="DocGia_PhieuMuon" Member="PhieuMuons" ThisKey="MaDocGia" OtherKey="MaDocGia" Type="PhieuMuon" />
+      <Association Name="DoiTuong_DocGia" Member="DoiTuong" ThisKey="MaDoiTuong" OtherKey="MaDoiTuong" Type="DoiTuong" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.DoiTuong" Member="DoiTuongs">
+    <Type Name="DoiTuong">
+      <Column Name="MaDoiTuong" Type="System.String" DbType="Char(10) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="TenDoiTuong" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Association Name="DoiTuong_DocGia" Member="DocGias" ThisKey="MaDoiTuong" OtherKey="MaDoiTuong" Type="DocGia" />
+    </Type>
+  </Table>
+  <Table Name="dbo.NhanVien" Member="NhanViens">
+    <Type Name="NhanVien">
+      <Column Name="MaNhanVien" Type="System.String" DbType="Char(10) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="MaChucVu" Type="System.String" DbType="Char(10) NOT NULL" CanBeNull="false" />
+      <Column Name="HoTen" Type="System.String" DbType="Char(10)" CanBeNull="true" />
+      <Column Name="TaiKhoan" Type="System.String" DbType="Char(10)" CanBeNull="true" />
+      <Column Name="MatKhau" Type="System.String" DbType="Char(10)" CanBeNull="true" />
+      <Column Name="Quyen" Type="System.String" DbType="Char(10)" CanBeNull="true" />
+      <Association Name="NhanVien_PhieuMuon" Member="PhieuMuons" ThisKey="MaNhanVien" OtherKey="MaNhanVien" Type="PhieuMuon" />
+      <Association Name="ChucVu_NhanVien" Member="ChucVu" ThisKey="MaChucVu" OtherKey="MaChucVu" Type="ChucVu" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.PhieuMuon" Member="PhieuMuons">
+    <Type Name="PhieuMuon">
+      <Column Name="MaPhieuMuon" Type="System.String" DbType="Char(10) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="MaNhanVien" Type="System.String" DbType="Char(10) NOT NULL" CanBeNull="false" />
+      <Column Name="MaDocGia" Type="System.String" DbType="Char(10) NOT NULL" CanBeNull="false" />
+      <Column Name="NgayMuon" Type="System.String" DbType="Char(10)" CanBeNull="true" />
+      <Association Name="PhieuMuon_PhieuMuonChiTiet" Member="PhieuMuonChiTiets" ThisKey="MaPhieuMuon" OtherKey="MaPhieuMuon" Type="PhieuMuonChiTiet" />
+      <Association Name="DocGia_PhieuMuon" Member="DocGia" ThisKey="MaDocGia" OtherKey="MaDocGia" Type="DocGia" IsForeignKey="true" />
+      <Association Name="NhanVien_PhieuMuon" Member="NhanVien" ThisKey="MaNhanVien" OtherKey="MaNhanVien" Type="NhanVien" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.PhieuMuonChiTiet" Member="PhieuMuonChiTiets">
+    <Type Name="PhieuMuonChiTiet">
+      <Column Name="MaPhieuMuon" Type="System.String" DbType="Char(10) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="MaTaiLieu" Type="System.String" DbType="Char(10) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="MaSach" Type="System.String" DbType="Char(10) NOT NULL" CanBeNull="false" />
+      <Column Name="SoLuongMuon" Type="System.String" DbType="Char(10)" CanBeNull="true" />
+      <Column Name="NgayTra" Type="System.String" DbType="Char(10)" CanBeNull="true" />
+      <Association Name="PhieuMuon_PhieuMuonChiTiet" Member="PhieuMuon" ThisKey="MaPhieuMuon" OtherKey="MaPhieuMuon" Type="PhieuMuon" IsForeignKey="true" />
+      <Association Name="TaiLieu_PhieuMuonChiTiet" Member="TaiLieu" ThisKey="MaTaiLieu" OtherKey="MaTaiLieu" Type="TaiLieu" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.TaiLieu" Member="TaiLieus">
+    <Type Name="TaiLieu">
+      <Column Name="MaTaiLieu" Type="System.String" DbType="Char(10) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="MaTheLoai" Type="System.String" DbType="Char(10) NOT NULL" CanBeNull="false" />
+      <Column Name="TenTaiLieu" Type="System.String" DbType="Char(10)" CanBeNull="true" />
+      <Column Name="SoLuong" Type="System.String" DbType="Char(10)" CanBeNull="true" />
+      <Column Name="NhaXuatBan" Type="System.String" DbType="Char(10)" CanBeNull="true" />
+      <Column Name="NamXuatBan" Type="System.String" DbType="Char(10)" CanBeNull="true" />
+      <Column Name="TacGia" Type="System.String" DbType="Char(10)" CanBeNull="true" />
+      <Association Name="TaiLieu_PhieuMuonChiTiet" Member="PhieuMuonChiTiets" ThisKey="MaTaiLieu" OtherKey="MaTaiLieu" Type="PhieuMuonChiTiet" />
+      <Association Name="TheLoai_TaiLieu" Member="TheLoai" ThisKey="MaTheLoai" OtherKey="MaTheLoai" Type="TheLoai" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.TheLoai" Member="TheLoais">
+    <Type Name="TheLoai">
+      <Column Name="MaTheLoai" Type="System.String" DbType="Char(10) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="TenTheLoai" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Association Name="TheLoai_TaiLieu" Member="TaiLieus" ThisKey="MaTheLoai" OtherKey="MaTheLoai" Type="TaiLieu" />
+    </Type>
+  </Table>
+</Database>
