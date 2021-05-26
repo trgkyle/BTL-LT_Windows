@@ -17,6 +17,7 @@ namespace BTL_LT_Windows
         PhieuMuonBUS phieuMuonBUS = new PhieuMuonBUS();
         NhanVienBUS nhanVienBUS = new NhanVienBUS();
         DocGiaBUS docGiaBUS = new DocGiaBUS();
+        TaiLieuBUS taiLieuBUS = new TaiLieuBUS();
         public QLMuonTra()
         {
             InitializeComponent();
@@ -24,7 +25,7 @@ namespace BTL_LT_Windows
 
         public void LoadInit()
         {
-            dgvTaiLieuMuon.DataSource = phieuMuonBUS.getDataFromSource();
+            dgvTaiLieuDangMuon.DataSource = phieuMuonBUS.getDataFromSource();
         }
 
         private void tabPage1_Click(object sender, EventArgs e)
@@ -60,7 +61,17 @@ namespace BTL_LT_Windows
         private void txtMaNhanVien_TextChanged(object sender, EventArgs e)
         {
             txtTenNhanVien.Text = nhanVienBUS.searchTenNhanVien(txtMaNhanVien.Text.ToString());
+        }
 
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+            txtTenTaiLieu.Text = taiLieuBUS.searchTenTaiLieu(txtMaTaiLieu.Text.ToString());
+        }
+
+        private void button8_Click(object sender, EventArgs e)
+        {
+           TaiLieuDTO taiLieu = taiLieuBUS.searchTaiLieu(txtMaTaiLieu.Text.ToString());
+           dgvTaiLieuMuon.Rows.Add(taiLieu.MaTaiLieu,taiLieu.TenTaiLieu,txtSoLuongMuon.Text);
         }
     }
 }

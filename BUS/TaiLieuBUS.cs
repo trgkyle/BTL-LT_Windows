@@ -8,16 +8,30 @@ namespace BUS
 {
     public class TaiLieuBUS
     {
-        TaiLieuDAL theLoaiDB = new TaiLieuDAL();
+        TaiLieuDAL taiLieuDAL = new TaiLieuDAL();
         public Object getDataFromSource()
         {
-            return theLoaiDB.loadFromDB();
+            return taiLieuDAL.loadFromDB();
         }
 
         public Boolean addNewData(TaiLieuDTO newTaiLieu)
         {
-            theLoaiDB.AddNewToDB(newTaiLieu);
+            taiLieuDAL.AddNewToDB(newTaiLieu);
             return true;
+        }
+
+        public String searchTenTaiLieu(string maTaiLieu)
+        {
+            return taiLieuDAL.TimTenTaiLieuVoiMa(maTaiLieu);
+        }
+        public TaiLieuDTO searchTaiLieu(string maTaiLieu)
+        {
+            if(this.searchTenTaiLieu(maTaiLieu).Length > 0)
+                return taiLieuDAL.TimTaiLieuVoiMa(maTaiLieu);
+            else
+            {
+                return null;
+            }
         }
     }
 }

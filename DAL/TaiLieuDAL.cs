@@ -10,6 +10,32 @@ namespace DAL
     {
         dbDataContext data = new dbDataContext();
 
+        public string TimTenTaiLieuVoiMa(string maTaiLieu)
+        {
+            try
+            {
+                var taiLieu = data.TaiLieus.Single(x => x.MaTaiLieu == maTaiLieu);
+                return taiLieu.TenTaiLieu;
+            }
+            catch (Exception)
+            {
+                return "";
+            }
+        }
+        public TaiLieuDTO TimTaiLieuVoiMa(string maTaiLieu)
+        {
+            try
+            {
+                var taiLieu = data.TaiLieus.Single(x => x.MaTaiLieu == maTaiLieu);
+                TaiLieuDTO newTaiLieu = new TaiLieuDTO(taiLieu.MaTaiLieu, taiLieu.TenTaiLieu, taiLieu.MaTheLoai, short.Parse(taiLieu.SoLuong.ToString()), taiLieu.NhaXuatBan, short.Parse(taiLieu.NamXuatBan.ToString()),taiLieu.TacGia);
+
+                return newTaiLieu;
+            }
+            catch (Exception)
+            {
+                return null;
+            }
+        }
         public Object loadFromDB()
         {
             return data.TaiLieus.Select(x => x).Select(x => new {x.MaTaiLieu, x.TenTaiLieu,x.MaTheLoai, x.SoLuong, x.NhaXuatBan,x.NamXuatBan,x.TacGia });
