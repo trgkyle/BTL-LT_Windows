@@ -61,6 +61,8 @@ namespace BTL_LT_Windows
             this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.txtGhiChu2 = new System.Windows.Forms.TextBox();
+            this.label10 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.label25 = new System.Windows.Forms.Label();
             this.label26 = new System.Windows.Forms.Label();
@@ -73,8 +75,6 @@ namespace BTL_LT_Windows
             this.txtTenTheLoai2 = new System.Windows.Forms.TextBox();
             this.txtMaTheLoai2 = new System.Windows.Forms.TextBox();
             this.dgvTLoai = new System.Windows.Forms.DataGridView();
-            this.label10 = new System.Windows.Forms.Label();
-            this.txtGhiChu2 = new System.Windows.Forms.TextBox();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -304,6 +304,7 @@ namespace BTL_LT_Windows
             this.button1.TabIndex = 24;
             this.button1.Text = "Nhập lại";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // dgvTLieu
             // 
@@ -323,6 +324,7 @@ namespace BTL_LT_Windows
             this.dgvTLieu.ReadOnly = true;
             this.dgvTLieu.Size = new System.Drawing.Size(745, 217);
             this.dgvTLieu.TabIndex = 21;
+            this.dgvTLieu.RowEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvTLieu_RowEnter);
             // 
             // Column1
             // 
@@ -398,6 +400,22 @@ namespace BTL_LT_Windows
             this.tabPage2.Text = "Quản lý thể loại";
             this.tabPage2.UseVisualStyleBackColor = true;
             this.tabPage2.Click += new System.EventHandler(this.tabPage2_Click);
+            // 
+            // txtGhiChu2
+            // 
+            this.txtGhiChu2.Location = new System.Drawing.Point(270, 216);
+            this.txtGhiChu2.Name = "txtGhiChu2";
+            this.txtGhiChu2.Size = new System.Drawing.Size(135, 20);
+            this.txtGhiChu2.TabIndex = 45;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(178, 219);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(44, 13);
+            this.label10.TabIndex = 44;
+            this.label10.Text = "Ghi chú";
             // 
             // label9
             // 
@@ -481,6 +499,7 @@ namespace BTL_LT_Windows
             this.button13.TabIndex = 35;
             this.button13.Text = "Nhập lại";
             this.button13.UseVisualStyleBackColor = true;
+            this.button13.Click += new System.EventHandler(this.button13_Click);
             // 
             // txtTenTheLoai2
             // 
@@ -510,22 +529,7 @@ namespace BTL_LT_Windows
             this.dgvTLoai.ReadOnly = true;
             this.dgvTLoai.Size = new System.Drawing.Size(344, 217);
             this.dgvTLoai.TabIndex = 32;
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(178, 219);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(44, 13);
-            this.label10.TabIndex = 44;
-            this.label10.Text = "Ghi chú";
-            // 
-            // txtGhiChu2
-            // 
-            this.txtGhiChu2.Location = new System.Drawing.Point(270, 216);
-            this.txtGhiChu2.Name = "txtGhiChu2";
-            this.txtGhiChu2.Size = new System.Drawing.Size(135, 20);
-            this.txtGhiChu2.TabIndex = 45;
+            this.dgvTLoai.RowEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvTLoai_RowEnter);
             // 
             // dataGridViewTextBoxColumn1
             // 

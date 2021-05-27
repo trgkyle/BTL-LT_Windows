@@ -67,5 +67,41 @@ namespace BTL_LT_Windows
             theLoaiBUS.addNewData(newTheLoai);
             this.LoadInit();
         }
+
+        private void dgvTLieu_RowEnter(object sender, DataGridViewCellEventArgs e)
+        {
+            txtMaTaiLieu.Text = dgvTLieu.Rows[e.RowIndex].Cells[0].Value.ToString();
+            txtTenTaiLieu.Text = dgvTLieu.Rows[e.RowIndex].Cells[1].Value.ToString();
+            txtTheLoai.Text = dgvTLieu.Rows[e.RowIndex].Cells[2].Value.ToString();
+            txtSoLuong.Text = dgvTLieu.Rows[e.RowIndex].Cells[3].Value.ToString();
+            txtNhaXuatBan.Text = dgvTLieu.Rows[e.RowIndex].Cells[4].Value.ToString();
+            txtNamXuatBan.Text = dgvTLieu.Rows[e.RowIndex].Cells[5].Value.ToString();
+            txtTacGia.Text = dgvTLieu.Rows[e.RowIndex].Cells[6].Value.ToString();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            txtMaTaiLieu.Text = "";
+            txtTenTaiLieu.Text = "";
+            txtTheLoai.Text = "";
+            txtSoLuong.Text = "";
+            txtNhaXuatBan.Text = "";
+            txtNamXuatBan.Text = "";
+            txtTacGia.Text = "";
+        }
+
+        private void dgvTLoai_RowEnter(object sender, DataGridViewCellEventArgs e)
+        {
+            txtMaTheLoai2.Text = dgvTLoai.Rows[e.RowIndex].Cells[0].Value.ToString();
+            txtTenTheLoai2.Text = dgvTLoai.Rows[e.RowIndex].Cells[1].Value.ToString();
+            txtGhiChu2.Text = dgvTLoai.Rows[e.RowIndex].Cells[2].Value.ToString();
+        }
+
+        private void button13_Click(object sender, EventArgs e)
+        {
+            txtMaTheLoai2.Text = "";
+            txtTenTheLoai2.Text = "";
+            txtGhiChu2.Text = "";
+        }
     }
 }

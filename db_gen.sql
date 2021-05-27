@@ -146,14 +146,16 @@ go
 INSERT INTO TheLoai(MaTheLoai,TenTheLoai, GhiChu) VALUES ('TL01',N'Lập Trình',N'Tets');
 GO
 INSERT INTO TaiLieu(MaTaiLieu,TenTaiLieu,MaTheLoai,SoLuong,NhaXuatBan, NamXuatBan, TacGia) VALUES ('TL01',N'Lập trình C#','TL01',3,N'Giác Dục',2021,N'Vũ Minh Hoàng');
-INSERT INTO TaiLieu(MaTaiLieu,TenTaiLieu,MaTheLoai,SoLuong,NhaXuatBan, NamXuatBan, TacGia) VALUES ('TL02',N'Lập trình C#','TL01',3,N'Giác Dục',2021,N'Vũ Minh Hoàng');
+INSERT INTO TaiLieu(MaTaiLieu,TenTaiLieu,MaTheLoai,SoLuong,NhaXuatBan, NamXuatBan, TacGia) VALUES ('TL02',N'Lập trình Java','TL01',3,N'Giác Dục',2021,N'Nguyễn Hoàng Thạch');
+INSERT INTO TaiLieu(MaTaiLieu,TenTaiLieu,MaTheLoai,SoLuong,NhaXuatBan, NamXuatBan, TacGia) VALUES ('TL03',N'Mạng máy tính','TL01',3,N'Giác Dục',2021,N'Trành Duy Nhất');
 GO
 
 INSERT INTO ChucVu(MaChucVu,TenChucVu) VALUES('CV01',N'Thủ Thư');
 INSERT INTO ChucVu(MaChucVu,TenChucVu) VALUES('CV02',N'Giảng Viên');
 GO
 
-INSERT INTO NhanVien(MaNhanVien, HoTen, MaChucVu, TaiKhoan, MatKhau, Quyen) VALUES ('NV01',N'Nguyễn Xuân Trường', 'CV01', 'truonghdpk','123','ADMIN');
+INSERT INTO NhanVien(MaNhanVien, HoTen, MaChucVu, TaiKhoan, MatKhau, Quyen) VALUES ('NV01',N'Nguyễn Xuân Trường', 'CV02', 'admin','admin','ADMIN');
+INSERT INTO NhanVien(MaNhanVien, HoTen, MaChucVu, TaiKhoan, MatKhau, Quyen) VALUES ('NV03',N'Trần Chí Công', 'CV01', 'truonghdpk','123','THUTHU');
 GO
 
 INSERT INTO DoiTuong(MaDoiTuong,TenDoiTuong) VALUES('DT01',N'Sinh viên');
