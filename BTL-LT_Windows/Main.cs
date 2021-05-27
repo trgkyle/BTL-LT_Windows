@@ -1,4 +1,6 @@
-﻿using System;
+﻿using BUS;
+using DTO;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,8 +14,13 @@ namespace BTL_LT_Windows
 {
     public partial class Main : Form
     {
-        public Main()
+        TaiKhoanBUS taiKhoan = new TaiKhoanBUS();
+        string tenTaiKhoan;
+        string matKhau;
+        public Main(string taiKhoan, string matKhau)
         {
+            this.tenTaiKhoan = taiKhoan;
+            this.matKhau = matKhau;
             InitializeComponent();
         }
 
@@ -44,9 +51,16 @@ namespace BTL_LT_Windows
         private void button4_Click(object sender, EventArgs e)
         {
             this.Enabled = false;
-            HoSo newForm = new HoSo();
+            HoSo newForm = new HoSo(tenTaiKhoan,matKhau);
             newForm.ShowDialog();
             this.Enabled = true;
+        }
+
+        private void Main_Load(object sender, EventArgs e)
+        {
+            TaiKhoanDTO thongTinTaiKhoan = taiKhoan.layThongTin(tenTaiKhoan, matKhau);
+            txtTenTaiKhoan.Text = thongTinTaiKhoan.TaiKhoan;
+            txtLoaiTaiKhoan.Text = thongTinTaiKhoan.Quyen;
         }
     }
 }

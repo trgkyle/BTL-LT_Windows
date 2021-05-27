@@ -11,7 +11,7 @@ namespace BUS
         PhieuMuonDAL phieuMuonDB = new PhieuMuonDAL();
         public Object getDataFromSource()
         {
-            return phieuMuonDB.loadFromDB();
+            return phieuMuonDB.LoadFromDB();
         }
 
         public Boolean addNewData(PhieuMuonDTO newPhieuMuon)

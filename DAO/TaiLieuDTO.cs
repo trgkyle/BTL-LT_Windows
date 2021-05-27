@@ -13,7 +13,10 @@ namespace DTO
         private string nhaXuatBan;
         private short namXuatBan;
         private string tacGia;
+        public TaiLieuDTO()
+        {
 
+        }
         public TaiLieuDTO(string maTaiLieu, string tenTaiLieu, string maTheLoai, short soLuong, string nhaXuatBan, short namXuatBan, string tacGia)
         {
             this.MaTaiLieu = maTaiLieu;

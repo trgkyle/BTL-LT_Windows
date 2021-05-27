@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BUS;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,6 +13,7 @@ namespace BTL_LT_Windows
 {
     public partial class Login : Form
     {
+        TaiKhoanBUS taiKhoan = new TaiKhoanBUS();
         public Login()
         {
             InitializeComponent();
@@ -24,8 +26,16 @@ namespace BTL_LT_Windows
 
         private void button1_Click(object sender, EventArgs e)
         {
+            string tenTaiKhoan = txtTaiKhoan.Text;
+            string matKhau = txtMatKhau.Text;
+            if (taiKhoan.Login(tenTaiKhoan, matKhau) == false)
+            {
+                MessageBox.Show("Sai tài khoản mật khẩu","Lỗi");
+                return;
+            }
             this.Enabled = false;
-            Main newForm = new Main();
+
+            Main newForm = new Main(tenTaiKhoan, matKhau);
             //QLThuVien newForm = new QLThuVien();
             this.Hide();
             newForm.ShowDialog();

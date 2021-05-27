@@ -10,9 +10,10 @@ namespace DAL
     {
         dbDataContext data = new dbDataContext();
 
-        public Object loadFromDB()
+        public Object LoadFromDB()
         {
-            return data.PhieuMuonChiTiets.Join(data.TaiLieus, pmct => pmct.MaTaiLieu, tl => tl.MaTaiLieu, (pmct, tl) => new { pmct.MaTaiLieu, tl.TenTaiLieu, pmct.SoLuongMuon}).Select(x => x);
+            var danhSachTaiLieuMuon =  data.PhieuMuonChiTiets.Join(data.PhieuMuons, pmct => pmct.MaPhieuMuon, pm => pm.MaPhieuMuon, (pmct, pm) => new { pmct.MaPhieuMuon, pm.MaDocGia, pm.NgayMuon, pm.MaNhanVien, pmct.MaTaiLieu, pmct.SoLuongMuon}).Select(x => x);
+            return danhSachTaiLieuMuon;
         }
         public Boolean SaveToDB(PhieuMuonDTO newPhieuMuon)
         {
@@ -58,13 +59,19 @@ namespace DAL
             phieuMuonORM.MaDocGia = newPhieuMuon.MaDocGia;
             phieuMuonORM.NgayMuon = newPhieuMuon.NgayMuon;
             phieuMuonORM.MaNhanVien = newPhieuMuon.MaNhanVien;
+            
+            foreach(PhieuTaiLieuDTO phieuTaiLieu in newPhieuMuon.DanhSachPhieuTaiLieu)
+            {
+                PhieuMuonChiTiet phieuMuonChiTietORM = new PhieuMuonChiTiet();
+                phieuMuonChiTietORM.MaPhieuMuon = newPhieuMuon.MaPhieuMuon;
+                phieuMuonChiTietORM.MaTaiLieu = phieuTaiLieu.taiLieu.MaTaiLieu;
+                phieuMuonChiTietORM.SoLuongMuon = phieuTaiLieu.soLuongMuon;
 
-            PhieuMuonChiTiet phieuMuonChiTietORM = new PhieuMuonChiTiet();
-            phieuMuonChiTietORM.MaPhieuMuon = newPhieuMuon.MaPhieuMuon;
-            phieuMuonChiTietORM.MaTaiLieu = newPhieuMuon.MaTaiLieu;
-            phieuMuonChiTietORM.SoLuongMuon = newPhieuMuon.SoLuongMuon;
+                data.PhieuMuonChiTiets.InsertOnSubmit(phieuMuonChiTietORM);
+
+            }
+
             data.PhieuMuons.InsertOnSubmit(phieuMuonORM);
-            data.PhieuMuonChiTiets.InsertOnSubmit(phieuMuonChiTietORM);
             data.SubmitChanges();
             
             

@@ -56,6 +56,7 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
+    <Compile Include="TaiKhoanDAL.cs" />
     <Compile Include="TaiLieuDAL.cs" />
     <Compile Include="TheLoaiDAL.cs" />
   </ItemGroup>

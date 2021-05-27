@@ -29,97 +29,88 @@ namespace BTL_LT_Windows
         /// </summary>
         private void InitializeComponent()
         {
-            this.textBox20 = new System.Windows.Forms.TextBox();
+            this.txtConfirmPassword = new System.Windows.Forms.TextBox();
             this.label24 = new System.Windows.Forms.Label();
-            this.textBox19 = new System.Windows.Forms.TextBox();
+            this.txtNewPassword = new System.Windows.Forms.TextBox();
             this.label23 = new System.Windows.Forms.Label();
-            this.textBox18 = new System.Windows.Forms.TextBox();
+            this.txtOldPassword = new System.Windows.Forms.TextBox();
             this.label22 = new System.Windows.Forms.Label();
-            this.label20 = new System.Windows.Forms.Label();
-            this.textBox17 = new System.Windows.Forms.TextBox();
-            this.textBox16 = new System.Windows.Forms.TextBox();
+            this.txtQuyen = new System.Windows.Forms.TextBox();
+            this.txtTenTaiKhoan = new System.Windows.Forms.TextBox();
             this.label21 = new System.Windows.Forms.Label();
             this.label = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // textBox20
+            // txtConfirmPassword
             // 
-            this.textBox20.Location = new System.Drawing.Point(218, 440);
-            this.textBox20.Name = "textBox20";
-            this.textBox20.Size = new System.Drawing.Size(129, 20);
-            this.textBox20.TabIndex = 21;
+            this.txtConfirmPassword.Location = new System.Drawing.Point(218, 380);
+            this.txtConfirmPassword.Name = "txtConfirmPassword";
+            this.txtConfirmPassword.Size = new System.Drawing.Size(129, 20);
+            this.txtConfirmPassword.TabIndex = 21;
             // 
             // label24
             // 
             this.label24.AutoSize = true;
-            this.label24.Location = new System.Drawing.Point(96, 443);
+            this.label24.Location = new System.Drawing.Point(96, 383);
             this.label24.Name = "label24";
             this.label24.Size = new System.Drawing.Size(116, 13);
             this.label24.TabIndex = 20;
             this.label24.Text = "Xác thực mật khẩu mới";
             // 
-            // textBox19
+            // txtNewPassword
             // 
-            this.textBox19.Location = new System.Drawing.Point(218, 391);
-            this.textBox19.Name = "textBox19";
-            this.textBox19.Size = new System.Drawing.Size(129, 20);
-            this.textBox19.TabIndex = 19;
+            this.txtNewPassword.Location = new System.Drawing.Point(218, 331);
+            this.txtNewPassword.Name = "txtNewPassword";
+            this.txtNewPassword.Size = new System.Drawing.Size(129, 20);
+            this.txtNewPassword.TabIndex = 19;
             // 
             // label23
             // 
             this.label23.AutoSize = true;
-            this.label23.Location = new System.Drawing.Point(96, 394);
+            this.label23.Location = new System.Drawing.Point(96, 334);
             this.label23.Name = "label23";
             this.label23.Size = new System.Drawing.Size(71, 13);
             this.label23.TabIndex = 18;
             this.label23.Text = "Mật khẩu mới";
             // 
-            // textBox18
+            // txtOldPassword
             // 
-            this.textBox18.Location = new System.Drawing.Point(218, 342);
-            this.textBox18.Name = "textBox18";
-            this.textBox18.Size = new System.Drawing.Size(129, 20);
-            this.textBox18.TabIndex = 17;
+            this.txtOldPassword.Location = new System.Drawing.Point(218, 282);
+            this.txtOldPassword.Name = "txtOldPassword";
+            this.txtOldPassword.Size = new System.Drawing.Size(129, 20);
+            this.txtOldPassword.TabIndex = 17;
             // 
             // label22
             // 
             this.label22.AutoSize = true;
-            this.label22.Location = new System.Drawing.Point(96, 345);
+            this.label22.Location = new System.Drawing.Point(96, 285);
             this.label22.Name = "label22";
             this.label22.Size = new System.Drawing.Size(67, 13);
             this.label22.TabIndex = 16;
             this.label22.Text = "Mật khẩu cũ";
             // 
-            // label20
+            // txtQuyen
             // 
-            this.label20.AutoSize = true;
-            this.label20.Location = new System.Drawing.Point(96, 303);
-            this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(70, 13);
-            this.label20.TabIndex = 15;
-            this.label20.Text = "Đổi mật khẩu";
+            this.txtQuyen.Location = new System.Drawing.Point(218, 180);
+            this.txtQuyen.Name = "txtQuyen";
+            this.txtQuyen.Size = new System.Drawing.Size(129, 20);
+            this.txtQuyen.TabIndex = 14;
             // 
-            // textBox17
+            // txtTenTaiKhoan
             // 
-            this.textBox17.Location = new System.Drawing.Point(218, 198);
-            this.textBox17.Name = "textBox17";
-            this.textBox17.Size = new System.Drawing.Size(129, 20);
-            this.textBox17.TabIndex = 14;
-            // 
-            // textBox16
-            // 
-            this.textBox16.Location = new System.Drawing.Point(218, 144);
-            this.textBox16.Name = "textBox16";
-            this.textBox16.Size = new System.Drawing.Size(129, 20);
-            this.textBox16.TabIndex = 13;
+            this.txtTenTaiKhoan.Location = new System.Drawing.Point(218, 126);
+            this.txtTenTaiKhoan.Name = "txtTenTaiKhoan";
+            this.txtTenTaiKhoan.Size = new System.Drawing.Size(129, 20);
+            this.txtTenTaiKhoan.TabIndex = 13;
             // 
             // label21
             // 
             this.label21.AutoSize = true;
-            this.label21.Location = new System.Drawing.Point(96, 204);
+            this.label21.Location = new System.Drawing.Point(96, 186);
             this.label21.Name = "label21";
             this.label21.Size = new System.Drawing.Size(74, 13);
             this.label21.TabIndex = 12;
@@ -128,7 +119,7 @@ namespace BTL_LT_Windows
             // label
             // 
             this.label.AutoSize = true;
-            this.label.Location = new System.Drawing.Point(96, 151);
+            this.label.Location = new System.Drawing.Point(96, 133);
             this.label.Name = "label";
             this.label.Size = new System.Drawing.Size(81, 13);
             this.label.TabIndex = 11;
@@ -148,7 +139,7 @@ namespace BTL_LT_Windows
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(96, 103);
+            this.label2.Location = new System.Drawing.Point(96, 85);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(59, 20);
             this.label2.TabIndex = 40;
@@ -158,33 +149,44 @@ namespace BTL_LT_Windows
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(95, 256);
+            this.label3.Location = new System.Drawing.Point(95, 230);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(160, 20);
             this.label3.TabIndex = 41;
             this.label3.Text = "Thay Đổi Mật Khẩu";
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(99, 425);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 42;
+            this.button1.Text = "Đổi mật khẩu";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // HoSo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 487);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.textBox20);
+            this.Controls.Add(this.txtConfirmPassword);
             this.Controls.Add(this.label24);
-            this.Controls.Add(this.textBox19);
+            this.Controls.Add(this.txtNewPassword);
             this.Controls.Add(this.label23);
-            this.Controls.Add(this.textBox18);
+            this.Controls.Add(this.txtOldPassword);
             this.Controls.Add(this.label22);
-            this.Controls.Add(this.label20);
-            this.Controls.Add(this.textBox17);
-            this.Controls.Add(this.textBox16);
+            this.Controls.Add(this.txtQuyen);
+            this.Controls.Add(this.txtTenTaiKhoan);
             this.Controls.Add(this.label21);
             this.Controls.Add(this.label);
             this.Name = "HoSo";
             this.Text = "HoSo";
+            this.Load += new System.EventHandler(this.HoSo_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -192,19 +194,19 @@ namespace BTL_LT_Windows
 
         #endregion
 
-        private System.Windows.Forms.TextBox textBox20;
+        private System.Windows.Forms.TextBox txtConfirmPassword;
         private System.Windows.Forms.Label label24;
-        private System.Windows.Forms.TextBox textBox19;
+        private System.Windows.Forms.TextBox txtNewPassword;
         private System.Windows.Forms.Label label23;
-        private System.Windows.Forms.TextBox textBox18;
+        private System.Windows.Forms.TextBox txtOldPassword;
         private System.Windows.Forms.Label label22;
-        private System.Windows.Forms.Label label20;
-        private System.Windows.Forms.TextBox textBox17;
-        private System.Windows.Forms.TextBox textBox16;
+        private System.Windows.Forms.TextBox txtQuyen;
+        private System.Windows.Forms.TextBox txtTenTaiKhoan;
         private System.Windows.Forms.Label label21;
         private System.Windows.Forms.Label label;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Button button1;
     }
 }

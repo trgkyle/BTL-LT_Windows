@@ -34,11 +34,15 @@ namespace BTL_LT_Windows
             this.button3 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.txtTenTaiKhoan = new System.Windows.Forms.Label();
+            this.txtLoaiTaiKhoan = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(242, 164);
+            this.button1.Location = new System.Drawing.Point(249, 201);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(117, 67);
             this.button1.TabIndex = 0;
@@ -48,7 +52,7 @@ namespace BTL_LT_Windows
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(436, 164);
+            this.button2.Location = new System.Drawing.Point(443, 201);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(117, 67);
             this.button2.TabIndex = 1;
@@ -58,7 +62,7 @@ namespace BTL_LT_Windows
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(242, 282);
+            this.button3.Location = new System.Drawing.Point(249, 319);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(117, 67);
             this.button3.TabIndex = 2;
@@ -68,7 +72,7 @@ namespace BTL_LT_Windows
             // 
             // button4
             // 
-            this.button4.Location = new System.Drawing.Point(436, 282);
+            this.button4.Location = new System.Drawing.Point(443, 319);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(117, 67);
             this.button4.TabIndex = 3;
@@ -80,17 +84,59 @@ namespace BTL_LT_Windows
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(298, 78);
+            this.label1.Location = new System.Drawing.Point(301, 26);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(242, 33);
             this.label1.TabIndex = 4;
             this.label1.Text = "Quản lý thư viện";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(150, 85);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(65, 13);
+            this.label2.TabIndex = 5;
+            this.label2.Text = "Xin chào, ";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(144, 124);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(88, 13);
+            this.label3.TabIndex = 6;
+            this.label3.Text = "Loại tài khoản";
+            // 
+            // txtTenTaiKhoan
+            // 
+            this.txtTenTaiKhoan.AutoSize = true;
+            this.txtTenTaiKhoan.Location = new System.Drawing.Point(246, 85);
+            this.txtTenTaiKhoan.Name = "txtTenTaiKhoan";
+            this.txtTenTaiKhoan.Size = new System.Drawing.Size(73, 13);
+            this.txtTenTaiKhoan.TabIndex = 7;
+            this.txtTenTaiKhoan.Text = "Tên tài khoản";
+            // 
+            // txtLoaiTaiKhoan
+            // 
+            this.txtLoaiTaiKhoan.AutoSize = true;
+            this.txtLoaiTaiKhoan.Location = new System.Drawing.Point(246, 124);
+            this.txtLoaiTaiKhoan.Name = "txtLoaiTaiKhoan";
+            this.txtLoaiTaiKhoan.Size = new System.Drawing.Size(74, 13);
+            this.txtLoaiTaiKhoan.TabIndex = 8;
+            this.txtLoaiTaiKhoan.Text = "Loại tài khoản";
             // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.txtLoaiTaiKhoan);
+            this.Controls.Add(this.txtTenTaiKhoan);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.button4);
             this.Controls.Add(this.button3);
@@ -98,6 +144,7 @@ namespace BTL_LT_Windows
             this.Controls.Add(this.button1);
             this.Name = "Main";
             this.Text = "Main";
+            this.Load += new System.EventHandler(this.Main_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -110,5 +157,9 @@ namespace BTL_LT_Windows
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label txtTenTaiKhoan;
+        private System.Windows.Forms.Label txtLoaiTaiKhoan;
     }
 }

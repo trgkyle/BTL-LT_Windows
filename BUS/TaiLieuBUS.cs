@@ -9,25 +9,28 @@ namespace BUS
     public class TaiLieuBUS
     {
         TaiLieuDAL taiLieuDAL = new TaiLieuDAL();
+
+        public TaiLieuDAL TaiLieuDAL { get => taiLieuDAL; set => taiLieuDAL = value; }
+
         public Object getDataFromSource()
         {
-            return taiLieuDAL.loadFromDB();
+            return TaiLieuDAL.loadFromDB();
         }
 
         public Boolean addNewData(TaiLieuDTO newTaiLieu)
         {
-            taiLieuDAL.AddNewToDB(newTaiLieu);
+            TaiLieuDAL.AddNewToDB(newTaiLieu);
             return true;
         }
 
         public String searchTenTaiLieu(string maTaiLieu)
         {
-            return taiLieuDAL.TimTenTaiLieuVoiMa(maTaiLieu);
+            return TaiLieuDAL.TimTenTaiLieuVoiMa(maTaiLieu);
         }
         public TaiLieuDTO searchTaiLieu(string maTaiLieu)
         {
             if(this.searchTenTaiLieu(maTaiLieu).Length > 0)
-                return taiLieuDAL.TimTaiLieuVoiMa(maTaiLieu);
+                return TaiLieuDAL.TimTaiLieuVoiMa(maTaiLieu);
             else
             {
                 return null;
