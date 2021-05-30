@@ -12,8 +12,20 @@ namespace DAL
 
         public Object LoadFromDB()
         {
-            var danhSachTaiLieuMuon =  data.PhieuMuonChiTiets.Join(data.PhieuMuons, pmct => pmct.MaPhieuMuon, pm => pm.MaPhieuMuon, (pmct, pm) => new { pmct.MaPhieuMuon, pm.MaDocGia, pm.NgayMuon, pm.MaNhanVien, pmct.MaTaiLieu, pmct.SoLuongMuon}).Select(x => x);
+            var danhSachTaiLieuMuon =  data.PhieuMuonChiTiets.Where(x => x.NgayTra == null).Join(data.PhieuMuons, pmct => pmct.MaPhieuMuon, pm => pm.MaPhieuMuon, (pmct, pm) => new { pmct.MaPhieuMuon, pm.MaDocGia, pm.NgayMuon, pm.MaNhanVien, pmct.MaTaiLieu, pmct.SoLuongMuon}).Select(x => x);
             return danhSachTaiLieuMuon;
+        }
+        public Object LoadThongKe(DateTime from, DateTime to)
+        {
+            //var danhSachTaiLieuMuon = data.PhieuMuonChiTiets.Where(x => x.NgayTra >= from && x.NgayTra <= to).Join(data.PhieuMuons, pmct => pmct.MaPhieuMuon, pm => pm.MaPhieuMuon, (pmct, pm) => new { pmct.MaPhieuMuon, pm.MaDocGia, pm.NgayMuon, pm.MaNhanVien, pmct.MaTaiLieu, pmct.SoLuongMuon }).Select(x => x);
+            var ThongKe = data.PhieuMuonChiTiets
+                .Where(x => x.NgayTra >= from && x.NgayTra <= to)
+                .Join(data.TaiLieus, pmct => pmct.MaTaiLieu, tl => tl.MaTaiLieu, (pmct, tl) => new { pmct.SoLuongMuon, tl.MaTheLoai })
+                .GroupBy(x => x.MaTheLoai)
+                .Select(x => new { MaTheLoai = x.Key, SoLuongMuon = x.Sum(item => item.SoLuongMuon)})
+                .Join(data.TheLoais, tlieu => tlieu.MaTheLoai, tloai => tloai.MaTheLoai, (tlieu, tloai) => new { tlieu.SoLuongMuon, tlieu.MaTheLoai, tloai.TenTheLoai });
+
+            return ThongKe;
         }
         public Boolean SaveToDB(PhieuMuonDTO newPhieuMuon)
         {
@@ -78,6 +90,22 @@ namespace DAL
             return true;
         }
 
+        public Boolean traSach(PhieuMuonDTO phieuMuon)
+        {
+            var line = data.PhieuMuons.Single(x => x.MaPhieuMuon == phieuMuon.MaPhieuMuon);
+
+            foreach (PhieuTaiLieuDTO phieuTaiLieu in phieuMuon.DanhSachPhieuTaiLieu)
+            {
+                var phieuMuonChiTietORM = data.PhieuMuonChiTiets.Single(x => x.MaPhieuMuon == line.MaPhieuMuon && x.MaTaiLieu == phieuTaiLieu.taiLieu.MaTaiLieu);
+                var taiLieu = data.TaiLieus.Single(x => x.MaTaiLieu == phieuTaiLieu.taiLieu.MaTaiLieu);
+                taiLieu.SoLuong += phieuMuonChiTietORM.SoLuongMuon;
+                data.PhieuMuonChiTiets.DeleteOnSubmit(phieuMuonChiTietORM);
+            }
+
+            data.SubmitChanges();
+            return true;
+        }
+
         public Boolean UpdateToDB(PhieuMuonDTO phieuMuon)
         {
             var line = data.PhieuMuons.Single(x => x.MaPhieuMuon == phieuMuon.MaPhieuMuon);
@@ -85,8 +113,50 @@ namespace DAL
             line.MaDocGia = phieuMuon.MaDocGia;
             line.NgayMuon = phieuMuon.NgayMuon;
             line.MaNhanVien = phieuMuon.MaNhanVien;
+
+            foreach (PhieuTaiLieuDTO phieuTaiLieu in phieuMuon.DanhSachPhieuTaiLieu)
+            {
+                var phieuMuonChiTietORM = data.PhieuMuonChiTiets.Single(x => x.MaPhieuMuon == line.MaPhieuMuon && x.MaTaiLieu == phieuTaiLieu.taiLieu.MaTaiLieu);
+                phieuMuonChiTietORM.SoLuongMuon = phieuTaiLieu.soLuongMuon;
+                if (phieuTaiLieu.ngayTra != null)
+                {
+                    phieuMuonChiTietORM.NgayTra = phieuTaiLieu.ngayTra;
+                    var taiLieu = data.TaiLieus.Single(x => x.MaTaiLieu == phieuTaiLieu.taiLieu.MaTaiLieu);
+                    taiLieu.SoLuong += phieuMuonChiTietORM.SoLuongMuon;
+                }
+
+            }
+
             data.SubmitChanges();
             return true;
+        }
+
+        public PhieuMuonDTO getPhieuMuonByMa(string maPhieuMuon,string maTaiLieu)
+        {
+            
+            var line = data.PhieuMuons.Single(x => x.MaPhieuMuon == maPhieuMuon);
+
+            PhieuMuonDTO newPhieuMuon = new PhieuMuonDTO(line.MaPhieuMuon,line.MaDocGia,line.MaNhanVien, DateTime.Parse(line.NgayMuon.ToString()));
+            var taiLieu = data.PhieuMuonChiTiets.Where(x => x.MaPhieuMuon == maPhieuMuon).Select(x => x);
+
+            if (maTaiLieu != null)
+            {
+                taiLieu = data.PhieuMuonChiTiets.Where(x => x.MaPhieuMuon == maPhieuMuon && x.MaTaiLieu == maTaiLieu).Select(x => x);
+            }
+
+            foreach (var phieuTaiLieu in taiLieu)
+            {
+                PhieuTaiLieuDTO newPhieuTaiLieu = new PhieuTaiLieuDTO();
+                newPhieuTaiLieu.soLuongMuon = short.Parse(phieuTaiLieu.SoLuongMuon.ToString());
+                newPhieuTaiLieu.taiLieu.MaTaiLieu = phieuTaiLieu.MaTaiLieu;
+                if(phieuTaiLieu.NgayTra != null)
+                {
+                    newPhieuTaiLieu.ngayTra = DateTime.Parse(phieuTaiLieu.NgayTra.ToString());
+                }
+                newPhieuMuon.DanhSachPhieuTaiLieu.Add(newPhieuTaiLieu);
+            }
+
+            return newPhieuMuon;
         }
     }
 }

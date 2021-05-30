@@ -12,5 +12,6 @@ namespace DTO
         }
         public TaiLieuDTO taiLieu;
         public short soLuongMuon;
+        public DateTime ngayTra;
     }
 }

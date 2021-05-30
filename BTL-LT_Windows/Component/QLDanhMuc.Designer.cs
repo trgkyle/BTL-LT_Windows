@@ -31,13 +31,13 @@ namespace BTL_LT_Windows
         {
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.cbxTheLoai = new System.Windows.Forms.ComboBox();
             this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.txtTacGia = new System.Windows.Forms.TextBox();
             this.txtNamXuatBan = new System.Windows.Forms.TextBox();
             this.txtNhaXuatBan = new System.Windows.Forms.TextBox();
             this.txtSoLuong = new System.Windows.Forms.TextBox();
-            this.txtTheLoai = new System.Windows.Forms.TextBox();
             this.txtTenTaiLieu = new System.Windows.Forms.TextBox();
             this.txtMaTaiLieu = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
@@ -97,13 +97,13 @@ namespace BTL_LT_Windows
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.cbxTheLoai);
             this.tabPage1.Controls.Add(this.label8);
             this.tabPage1.Controls.Add(this.label7);
             this.tabPage1.Controls.Add(this.txtTacGia);
             this.tabPage1.Controls.Add(this.txtNamXuatBan);
             this.tabPage1.Controls.Add(this.txtNhaXuatBan);
             this.tabPage1.Controls.Add(this.txtSoLuong);
-            this.tabPage1.Controls.Add(this.txtTheLoai);
             this.tabPage1.Controls.Add(this.txtTenTaiLieu);
             this.tabPage1.Controls.Add(this.txtMaTaiLieu);
             this.tabPage1.Controls.Add(this.label6);
@@ -127,6 +127,14 @@ namespace BTL_LT_Windows
             this.tabPage1.Text = "Quản lý tài liệu";
             this.tabPage1.UseVisualStyleBackColor = true;
             this.tabPage1.Click += new System.EventHandler(this.tabPage1_Click);
+            // 
+            // cbxTheLoai
+            // 
+            this.cbxTheLoai.FormattingEnabled = true;
+            this.cbxTheLoai.Location = new System.Drawing.Point(275, 190);
+            this.cbxTheLoai.Name = "cbxTheLoai";
+            this.cbxTheLoai.Size = new System.Drawing.Size(135, 21);
+            this.cbxTheLoai.TabIndex = 43;
             // 
             // label8
             // 
@@ -174,13 +182,6 @@ namespace BTL_LT_Windows
             this.txtSoLuong.Name = "txtSoLuong";
             this.txtSoLuong.Size = new System.Drawing.Size(135, 20);
             this.txtSoLuong.TabIndex = 34;
-            // 
-            // txtTheLoai
-            // 
-            this.txtTheLoai.Location = new System.Drawing.Point(275, 190);
-            this.txtTheLoai.Name = "txtTheLoai";
-            this.txtTheLoai.Size = new System.Drawing.Size(135, 20);
-            this.txtTheLoai.TabIndex = 33;
             // 
             // txtTenTaiLieu
             // 
@@ -582,7 +583,6 @@ namespace BTL_LT_Windows
         private System.Windows.Forms.TextBox txtNamXuatBan;
         private System.Windows.Forms.TextBox txtNhaXuatBan;
         private System.Windows.Forms.TextBox txtSoLuong;
-        private System.Windows.Forms.TextBox txtTheLoai;
         private System.Windows.Forms.TextBox txtTenTaiLieu;
         private System.Windows.Forms.TextBox txtMaTaiLieu;
         private System.Windows.Forms.Label label6;
@@ -623,5 +623,6 @@ namespace BTL_LT_Windows
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column11;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
+        private System.Windows.Forms.ComboBox cbxTheLoai;
     }
 }

@@ -63,14 +63,6 @@
       <Association Name="TheLoai_TaiLieu" Member="TheLoai" ThisKey="MaTheLoai" OtherKey="MaTheLoai" Type="TheLoai" IsForeignKey="true" />
     </Type>
   </Table>
-  <Table Name="dbo.TheLoai" Member="TheLoais">
-    <Type Name="TheLoai">
-      <Column Name="MaTheLoai" Type="System.String" DbType="Char(10) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="TenTheLoai" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
-      <Column Name="GhiChu" Type="System.String" DbType="Char(10)" CanBeNull="true" />
-      <Association Name="TheLoai_TaiLieu" Member="TaiLieus" ThisKey="MaTheLoai" OtherKey="MaTheLoai" Type="TaiLieu" />
-    </Type>
-  </Table>
   <Table Name="dbo.PhieuMuonChiTiet" Member="PhieuMuonChiTiets">
     <Type Name="PhieuMuonChiTiet">
       <Column Name="MaPhieuMuon" Type="System.String" DbType="Char(10) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
@@ -79,6 +71,14 @@
       <Column Name="NgayTra" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
       <Association Name="PhieuMuon_PhieuMuonChiTiet" Member="PhieuMuon" ThisKey="MaPhieuMuon" OtherKey="MaPhieuMuon" Type="PhieuMuon" IsForeignKey="true" />
       <Association Name="TaiLieu_PhieuMuonChiTiet" Member="TaiLieu" ThisKey="MaTaiLieu" OtherKey="MaTaiLieu" Type="TaiLieu" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.TheLoai" Member="TheLoais">
+    <Type Name="TheLoai">
+      <Column Name="MaTheLoai" Type="System.String" DbType="Char(10) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="TenTheLoai" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="GhiChu" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Association Name="TheLoai_TaiLieu" Member="TaiLieus" ThisKey="MaTheLoai" OtherKey="MaTheLoai" Type="TaiLieu" />
     </Type>
   </Table>
 </Database>

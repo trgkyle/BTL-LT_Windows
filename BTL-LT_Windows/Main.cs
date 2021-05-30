@@ -15,6 +15,7 @@ namespace BTL_LT_Windows
     public partial class Main : Form
     {
         TaiKhoanBUS taiKhoan = new TaiKhoanBUS();
+        TaiKhoanDTO thongTinTaiKhoan;
         string tenTaiKhoan;
         string matKhau;
         public Main(string taiKhoan, string matKhau)
@@ -43,7 +44,7 @@ namespace BTL_LT_Windows
         private void button3_Click(object sender, EventArgs e)
         {
             this.Enabled = false;
-            ThongKe newForm = new ThongKe();
+            ThongKe newForm = new ThongKe(thongTinTaiKhoan.HoTen);
             newForm.ShowDialog();
             this.Enabled = true;
         }
@@ -58,7 +59,7 @@ namespace BTL_LT_Windows
 
         private void Main_Load(object sender, EventArgs e)
         {
-            TaiKhoanDTO thongTinTaiKhoan = taiKhoan.layThongTin(tenTaiKhoan, matKhau);
+            thongTinTaiKhoan = taiKhoan.layThongTin(tenTaiKhoan, matKhau);
             txtTenTaiKhoan.Text = thongTinTaiKhoan.TaiKhoan;
             txtLoaiTaiKhoan.Text = thongTinTaiKhoan.Quyen;
         }

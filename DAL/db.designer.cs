@@ -48,12 +48,12 @@ namespace DAL
     partial void InsertTaiLieu(TaiLieu instance);
     partial void UpdateTaiLieu(TaiLieu instance);
     partial void DeleteTaiLieu(TaiLieu instance);
-    partial void InsertTheLoai(TheLoai instance);
-    partial void UpdateTheLoai(TheLoai instance);
-    partial void DeleteTheLoai(TheLoai instance);
     partial void InsertPhieuMuonChiTiet(PhieuMuonChiTiet instance);
     partial void UpdatePhieuMuonChiTiet(PhieuMuonChiTiet instance);
     partial void DeletePhieuMuonChiTiet(PhieuMuonChiTiet instance);
+    partial void InsertTheLoai(TheLoai instance);
+    partial void UpdateTheLoai(TheLoai instance);
+    partial void DeleteTheLoai(TheLoai instance);
     #endregion
 		
 		public dbDataContext() : 
@@ -134,19 +134,19 @@ namespace DAL
 			}
 		}
 		
-		public System.Data.Linq.Table<TheLoai> TheLoais
-		{
-			get
-			{
-				return this.GetTable<TheLoai>();
-			}
-		}
-		
 		public System.Data.Linq.Table<PhieuMuonChiTiet> PhieuMuonChiTiets
 		{
 			get
 			{
 				return this.GetTable<PhieuMuonChiTiet>();
+			}
+		}
+		
+		public System.Data.Linq.Table<TheLoai> TheLoais
+		{
+			get
+			{
+				return this.GetTable<TheLoai>();
 			}
 		}
 	}
@@ -1424,144 +1424,6 @@ namespace DAL
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.TheLoai")]
-	public partial class TheLoai : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private string _MaTheLoai;
-		
-		private string _TenTheLoai;
-		
-		private string _GhiChu;
-		
-		private EntitySet<TaiLieu> _TaiLieus;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnMaTheLoaiChanging(string value);
-    partial void OnMaTheLoaiChanged();
-    partial void OnTenTheLoaiChanging(string value);
-    partial void OnTenTheLoaiChanged();
-    partial void OnGhiChuChanging(string value);
-    partial void OnGhiChuChanged();
-    #endregion
-		
-		public TheLoai()
-		{
-			this._TaiLieus = new EntitySet<TaiLieu>(new Action<TaiLieu>(this.attach_TaiLieus), new Action<TaiLieu>(this.detach_TaiLieus));
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MaTheLoai", DbType="Char(10) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
-		public string MaTheLoai
-		{
-			get
-			{
-				return this._MaTheLoai;
-			}
-			set
-			{
-				if ((this._MaTheLoai != value))
-				{
-					this.OnMaTheLoaiChanging(value);
-					this.SendPropertyChanging();
-					this._MaTheLoai = value;
-					this.SendPropertyChanged("MaTheLoai");
-					this.OnMaTheLoaiChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TenTheLoai", DbType="NVarChar(20)")]
-		public string TenTheLoai
-		{
-			get
-			{
-				return this._TenTheLoai;
-			}
-			set
-			{
-				if ((this._TenTheLoai != value))
-				{
-					this.OnTenTheLoaiChanging(value);
-					this.SendPropertyChanging();
-					this._TenTheLoai = value;
-					this.SendPropertyChanged("TenTheLoai");
-					this.OnTenTheLoaiChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_GhiChu", DbType="Char(10)")]
-		public string GhiChu
-		{
-			get
-			{
-				return this._GhiChu;
-			}
-			set
-			{
-				if ((this._GhiChu != value))
-				{
-					this.OnGhiChuChanging(value);
-					this.SendPropertyChanging();
-					this._GhiChu = value;
-					this.SendPropertyChanged("GhiChu");
-					this.OnGhiChuChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="TheLoai_TaiLieu", Storage="_TaiLieus", ThisKey="MaTheLoai", OtherKey="MaTheLoai")]
-		public EntitySet<TaiLieu> TaiLieus
-		{
-			get
-			{
-				return this._TaiLieus;
-			}
-			set
-			{
-				this._TaiLieus.Assign(value);
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-		
-		private void attach_TaiLieus(TaiLieu entity)
-		{
-			this.SendPropertyChanging();
-			entity.TheLoai = this;
-		}
-		
-		private void detach_TaiLieus(TaiLieu entity)
-		{
-			this.SendPropertyChanging();
-			entity.TheLoai = null;
-		}
-	}
-	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.PhieuMuonChiTiet")]
 	public partial class PhieuMuonChiTiet : INotifyPropertyChanging, INotifyPropertyChanged
 	{
@@ -1775,6 +1637,144 @@ namespace DAL
 			{
 				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.TheLoai")]
+	public partial class TheLoai : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private string _MaTheLoai;
+		
+		private string _TenTheLoai;
+		
+		private string _GhiChu;
+		
+		private EntitySet<TaiLieu> _TaiLieus;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnMaTheLoaiChanging(string value);
+    partial void OnMaTheLoaiChanged();
+    partial void OnTenTheLoaiChanging(string value);
+    partial void OnTenTheLoaiChanged();
+    partial void OnGhiChuChanging(string value);
+    partial void OnGhiChuChanged();
+    #endregion
+		
+		public TheLoai()
+		{
+			this._TaiLieus = new EntitySet<TaiLieu>(new Action<TaiLieu>(this.attach_TaiLieus), new Action<TaiLieu>(this.detach_TaiLieus));
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MaTheLoai", DbType="Char(10) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
+		public string MaTheLoai
+		{
+			get
+			{
+				return this._MaTheLoai;
+			}
+			set
+			{
+				if ((this._MaTheLoai != value))
+				{
+					this.OnMaTheLoaiChanging(value);
+					this.SendPropertyChanging();
+					this._MaTheLoai = value;
+					this.SendPropertyChanged("MaTheLoai");
+					this.OnMaTheLoaiChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TenTheLoai", DbType="NVarChar(20)")]
+		public string TenTheLoai
+		{
+			get
+			{
+				return this._TenTheLoai;
+			}
+			set
+			{
+				if ((this._TenTheLoai != value))
+				{
+					this.OnTenTheLoaiChanging(value);
+					this.SendPropertyChanging();
+					this._TenTheLoai = value;
+					this.SendPropertyChanged("TenTheLoai");
+					this.OnTenTheLoaiChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_GhiChu", DbType="NVarChar(20)")]
+		public string GhiChu
+		{
+			get
+			{
+				return this._GhiChu;
+			}
+			set
+			{
+				if ((this._GhiChu != value))
+				{
+					this.OnGhiChuChanging(value);
+					this.SendPropertyChanging();
+					this._GhiChu = value;
+					this.SendPropertyChanged("GhiChu");
+					this.OnGhiChuChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="TheLoai_TaiLieu", Storage="_TaiLieus", ThisKey="MaTheLoai", OtherKey="MaTheLoai")]
+		public EntitySet<TaiLieu> TaiLieus
+		{
+			get
+			{
+				return this._TaiLieus;
+			}
+			set
+			{
+				this._TaiLieus.Assign(value);
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+		
+		private void attach_TaiLieus(TaiLieu entity)
+		{
+			this.SendPropertyChanging();
+			entity.TheLoai = this;
+		}
+		
+		private void detach_TaiLieus(TaiLieu entity)
+		{
+			this.SendPropertyChanging();
+			entity.TheLoai = null;
 		}
 	}
 }

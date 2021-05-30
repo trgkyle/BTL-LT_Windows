@@ -30,6 +30,9 @@ namespace BTL_LT_Windows
         {
             dgvTLieu.DataSource = taiLieuBUS.getDataFromSource();
             dgvTLoai.DataSource = theLoaiBUS.getDataFromSource();
+            cbxTheLoai.DataSource = theLoaiBUS.getDataFromSource();
+            cbxTheLoai.DisplayMember = "TenTheLoai";
+            cbxTheLoai.ValueMember = "MaTheLoai";
         }
 
         private void QLDanhMuc_Load(object sender, EventArgs e)
@@ -41,7 +44,7 @@ namespace BTL_LT_Windows
         {
             string maTaiLieu = txtMaTaiLieu.Text.ToString();
             string tenTaiLieu = txtTenTaiLieu.Text.ToString();
-            string maTheLoai = txtTheLoai.Text.ToString();
+            string maTheLoai = cbxTheLoai.SelectedValue.ToString();
             string soLuong = txtSoLuong.Text.ToString();
             string nhaXuatBan = txtNhaXuatBan.Text.ToString();
             string namXuatBan = txtNamXuatBan.Text.ToString();
@@ -72,7 +75,7 @@ namespace BTL_LT_Windows
         {
             txtMaTaiLieu.Text = dgvTLieu.Rows[e.RowIndex].Cells[0].Value.ToString();
             txtTenTaiLieu.Text = dgvTLieu.Rows[e.RowIndex].Cells[1].Value.ToString();
-            txtTheLoai.Text = dgvTLieu.Rows[e.RowIndex].Cells[2].Value.ToString();
+            cbxTheLoai.SelectedValue = dgvTLieu.Rows[e.RowIndex].Cells[2].Value.ToString();
             txtSoLuong.Text = dgvTLieu.Rows[e.RowIndex].Cells[3].Value.ToString();
             txtNhaXuatBan.Text = dgvTLieu.Rows[e.RowIndex].Cells[4].Value.ToString();
             txtNamXuatBan.Text = dgvTLieu.Rows[e.RowIndex].Cells[5].Value.ToString();
@@ -83,7 +86,7 @@ namespace BTL_LT_Windows
         {
             txtMaTaiLieu.Text = "";
             txtTenTaiLieu.Text = "";
-            txtTheLoai.Text = "";
+            
             txtSoLuong.Text = "";
             txtNhaXuatBan.Text = "";
             txtNamXuatBan.Text = "";

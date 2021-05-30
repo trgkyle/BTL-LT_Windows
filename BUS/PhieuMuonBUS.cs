@@ -14,10 +14,31 @@ namespace BUS
             return phieuMuonDB.LoadFromDB();
         }
 
+        public PhieuMuonDTO getPhieuByMa(string maPhieuMuon, string maSach)
+        {
+            return phieuMuonDB.getPhieuMuonByMa(maPhieuMuon, maSach);
+        }
+
         public Boolean addNewData(PhieuMuonDTO newPhieuMuon)
         {
             phieuMuonDB.AddNewToDB(newPhieuMuon);
             return true;
+        }
+
+        public Boolean updateData(PhieuMuonDTO phieuMuon)
+        {
+            phieuMuonDB.UpdateToDB(phieuMuon);
+            return true;
+        }
+
+        public Object getThongKe(DateTime fromParams, DateTime to)
+        {
+            DateTime from = fromParams;
+            if(from == null)
+            {
+                from = DateTime.MinValue;
+            }
+            return phieuMuonDB.LoadThongKe(from,to);
         }
     }
 }

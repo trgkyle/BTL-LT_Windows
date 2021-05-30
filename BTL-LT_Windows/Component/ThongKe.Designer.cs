@@ -30,49 +30,44 @@ namespace BTL_LT_Windows
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ThongKe));
-            this.textBox10 = new System.Windows.Forms.TextBox();
-            this.textBox9 = new System.Windows.Forms.TextBox();
-            this.textBox8 = new System.Windows.Forms.TextBox();
+            this.txtThuVien = new System.Windows.Forms.TextBox();
+            this.txtNguoiLap = new System.Windows.Forms.TextBox();
             this.label13 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.dgvThongKe = new System.Windows.Forms.DataGridView();
-            this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.button7 = new System.Windows.Forms.Button();
-            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
+            this.dateTo = new System.Windows.Forms.DateTimePicker();
             this.label10 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.dateFrom = new System.Windows.Forms.DateTimePicker();
             this.label8 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.printDocument1 = new System.Drawing.Printing.PrintDocument();
             this.printPreviewDialog1 = new System.Windows.Forms.PrintPreviewDialog();
+            this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.txtNgayLap = new System.Windows.Forms.DateTimePicker();
             ((System.ComponentModel.ISupportInitialize)(this.dgvThongKe)).BeginInit();
             this.SuspendLayout();
             // 
-            // textBox10
+            // txtThuVien
             // 
-            this.textBox10.Location = new System.Drawing.Point(290, 350);
-            this.textBox10.Name = "textBox10";
-            this.textBox10.Size = new System.Drawing.Size(172, 20);
-            this.textBox10.TabIndex = 25;
+            this.txtThuVien.Enabled = false;
+            this.txtThuVien.Location = new System.Drawing.Point(290, 354);
+            this.txtThuVien.Name = "txtThuVien";
+            this.txtThuVien.Size = new System.Drawing.Size(258, 20);
+            this.txtThuVien.TabIndex = 25;
             // 
-            // textBox9
+            // txtNguoiLap
             // 
-            this.textBox9.Location = new System.Drawing.Point(290, 429);
-            this.textBox9.Name = "textBox9";
-            this.textBox9.Size = new System.Drawing.Size(172, 20);
-            this.textBox9.TabIndex = 23;
-            // 
-            // textBox8
-            // 
-            this.textBox8.Location = new System.Drawing.Point(290, 389);
-            this.textBox8.Name = "textBox8";
-            this.textBox8.Size = new System.Drawing.Size(172, 20);
-            this.textBox8.TabIndex = 22;
+            this.txtNguoiLap.Enabled = false;
+            this.txtNguoiLap.Location = new System.Drawing.Point(290, 433);
+            this.txtNguoiLap.Name = "txtNguoiLap";
+            this.txtNguoiLap.Size = new System.Drawing.Size(200, 20);
+            this.txtNguoiLap.TabIndex = 23;
             // 
             // label13
             // 
@@ -95,7 +90,7 @@ namespace BTL_LT_Windows
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(197, 396);
+            this.label11.Location = new System.Drawing.Point(197, 401);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(49, 13);
             this.label11.TabIndex = 20;
@@ -113,26 +108,8 @@ namespace BTL_LT_Windows
             this.dgvThongKe.Location = new System.Drawing.Point(200, 478);
             this.dgvThongKe.Name = "dgvThongKe";
             this.dgvThongKe.ReadOnly = true;
-            this.dgvThongKe.Size = new System.Drawing.Size(347, 150);
+            this.dgvThongKe.Size = new System.Drawing.Size(348, 150);
             this.dgvThongKe.TabIndex = 19;
-            // 
-            // Column8
-            // 
-            this.Column8.HeaderText = "Mã thể loại";
-            this.Column8.Name = "Column8";
-            this.Column8.ReadOnly = true;
-            // 
-            // Column9
-            // 
-            this.Column9.HeaderText = "Tên Thể Loại";
-            this.Column9.Name = "Column9";
-            this.Column9.ReadOnly = true;
-            // 
-            // Column10
-            // 
-            this.Column10.HeaderText = "Số lần mượn";
-            this.Column10.Name = "Column10";
-            this.Column10.ReadOnly = true;
             // 
             // button7
             // 
@@ -144,12 +121,12 @@ namespace BTL_LT_Windows
             this.button7.UseVisualStyleBackColor = true;
             this.button7.Click += new System.EventHandler(this.button7_Click);
             // 
-            // dateTimePicker2
+            // dateTo
             // 
-            this.dateTimePicker2.Location = new System.Drawing.Point(338, 210);
-            this.dateTimePicker2.Name = "dateTimePicker2";
-            this.dateTimePicker2.Size = new System.Drawing.Size(200, 20);
-            this.dateTimePicker2.TabIndex = 17;
+            this.dateTo.Location = new System.Drawing.Point(338, 210);
+            this.dateTo.Name = "dateTo";
+            this.dateTo.Size = new System.Drawing.Size(200, 20);
+            this.dateTo.TabIndex = 17;
             // 
             // label10
             // 
@@ -169,12 +146,12 @@ namespace BTL_LT_Windows
             this.label9.TabIndex = 15;
             this.label9.Text = "Từ ngày";
             // 
-            // dateTimePicker1
+            // dateFrom
             // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(338, 171);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(200, 20);
-            this.dateTimePicker1.TabIndex = 14;
+            this.dateFrom.Location = new System.Drawing.Point(338, 171);
+            this.dateFrom.Name = "dateFrom";
+            this.dateFrom.Size = new System.Drawing.Size(200, 20);
+            this.dateFrom.TabIndex = 14;
             // 
             // label8
             // 
@@ -221,25 +198,54 @@ namespace BTL_LT_Windows
             this.printPreviewDialog1.Name = "printPreviewDialog1";
             this.printPreviewDialog1.Visible = false;
             // 
+            // Column8
+            // 
+            this.Column8.DataPropertyName = "MaTheLoai";
+            this.Column8.HeaderText = "Mã thể loại";
+            this.Column8.Name = "Column8";
+            this.Column8.ReadOnly = true;
+            // 
+            // Column9
+            // 
+            this.Column9.DataPropertyName = "TenTheLoai";
+            this.Column9.HeaderText = "Tên Thể Loại";
+            this.Column9.Name = "Column9";
+            this.Column9.ReadOnly = true;
+            // 
+            // Column10
+            // 
+            this.Column10.DataPropertyName = "SoLuongMuon";
+            this.Column10.HeaderText = "Số lần mượn";
+            this.Column10.Name = "Column10";
+            this.Column10.ReadOnly = true;
+            // 
+            // txtNgayLap
+            // 
+            this.txtNgayLap.Enabled = false;
+            this.txtNgayLap.Location = new System.Drawing.Point(290, 395);
+            this.txtNgayLap.Name = "txtNgayLap";
+            this.txtNgayLap.Size = new System.Drawing.Size(200, 20);
+            this.txtNgayLap.TabIndex = 41;
+            // 
             // ThongKe
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 655);
+            this.Controls.Add(this.txtNgayLap);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.textBox10);
-            this.Controls.Add(this.textBox9);
-            this.Controls.Add(this.textBox8);
+            this.Controls.Add(this.txtThuVien);
+            this.Controls.Add(this.txtNguoiLap);
             this.Controls.Add(this.label13);
             this.Controls.Add(this.label12);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.dgvThongKe);
             this.Controls.Add(this.button7);
-            this.Controls.Add(this.dateTimePicker2);
+            this.Controls.Add(this.dateTo);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.label9);
-            this.Controls.Add(this.dateTimePicker1);
+            this.Controls.Add(this.dateFrom);
             this.Controls.Add(this.label8);
             this.Name = "ThongKe";
             this.Text = "ThongKe";
@@ -252,25 +258,25 @@ namespace BTL_LT_Windows
 
         #endregion
 
-        private System.Windows.Forms.TextBox textBox10;
-        private System.Windows.Forms.TextBox textBox9;
-        private System.Windows.Forms.TextBox textBox8;
+        private System.Windows.Forms.TextBox txtThuVien;
+        private System.Windows.Forms.TextBox txtNguoiLap;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.DataGridView dgvThongKe;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column8;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column9;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column10;
         private System.Windows.Forms.Button button7;
-        private System.Windows.Forms.DateTimePicker dateTimePicker2;
+        private System.Windows.Forms.DateTimePicker dateTo;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.DateTimePicker dateFrom;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Drawing.Printing.PrintDocument printDocument1;
         private System.Windows.Forms.PrintPreviewDialog printPreviewDialog1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column8;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column9;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column10;
+        private System.Windows.Forms.DateTimePicker txtNgayLap;
     }
 }

@@ -56,6 +56,7 @@ namespace DAL
             TheLoai theLoaiORM = new TheLoai();
             theLoaiORM.MaTheLoai = newTheLoai.MaTheLoai;
             theLoaiORM.TenTheLoai = newTheLoai.TenTheLoai;
+            theLoaiORM.GhiChu = newTheLoai.GhiChu;
             data.TheLoais.InsertOnSubmit(theLoaiORM);
             data.SubmitChanges();
             return true;

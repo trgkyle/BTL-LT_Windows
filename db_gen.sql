@@ -22,7 +22,7 @@ GO
 
 /*
 Created		5/18/2021
-Modified		5/22/2021
+Modified		5/29/2021
 Project		
 Model		
 Company		
@@ -31,12 +31,10 @@ Version
 Database		MS SQL 7 
 */
 
-
-
 Create table [TheLoai] (
 	[MaTheLoai] Char(10) NOT NULL,
 	[TenTheLoai] Nvarchar(20) NULL,
-	[GhiChu] Char(10) NULL,
+	[GhiChu] Nvarchar(20) NULL,
 Primary Key  ([MaTheLoai])
 ) 
 go
@@ -137,6 +135,7 @@ go
 
 
 /* Users permissions */
+
 
 
 
