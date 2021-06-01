@@ -41,5 +41,10 @@ namespace BTL_LT_Windows
             newForm.ShowDialog();
             this.Close();
         }
+
+        private void btnThoat_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

@@ -29,23 +29,24 @@ namespace BTL_LT_Windows
         /// </summary>
         private void InitializeComponent()
         {
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnDangNhap = new System.Windows.Forms.Button();
             this.txtTaiKhoan = new System.Windows.Forms.TextBox();
             this.txtMatKhau = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
+            this.btnThoat = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // button1
+            // btnDangNhap
             // 
-            this.button1.Location = new System.Drawing.Point(192, 298);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(108, 28);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "Đăng Nhập";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.btnDangNhap.Location = new System.Drawing.Point(140, 280);
+            this.btnDangNhap.Name = "btnDangNhap";
+            this.btnDangNhap.Size = new System.Drawing.Size(108, 28);
+            this.btnDangNhap.TabIndex = 0;
+            this.btnDangNhap.Text = "Đăng Nhập";
+            this.btnDangNhap.UseVisualStyleBackColor = true;
+            this.btnDangNhap.Click += new System.EventHandler(this.button1_Click);
             // 
             // txtTaiKhoan
             // 
@@ -89,19 +90,30 @@ namespace BTL_LT_Windows
             this.label3.TabIndex = 5;
             this.label3.Text = "ĐĂNG NHẬP HỆ THỐNG";
             // 
+            // btnThoat
+            // 
+            this.btnThoat.Location = new System.Drawing.Point(287, 280);
+            this.btnThoat.Name = "btnThoat";
+            this.btnThoat.Size = new System.Drawing.Size(108, 28);
+            this.btnThoat.TabIndex = 6;
+            this.btnThoat.Text = "Thoát";
+            this.btnThoat.UseVisualStyleBackColor = true;
+            this.btnThoat.Click += new System.EventHandler(this.btnThoat_Click);
+            // 
             // Login
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(511, 459);
+            this.Controls.Add(this.btnThoat);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.txtMatKhau);
             this.Controls.Add(this.txtTaiKhoan);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btnDangNhap);
             this.Name = "Login";
-            this.Text = "Form1";
+            this.Text = "Đăng nhập";
             this.Load += new System.EventHandler(this.Login_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -110,12 +122,13 @@ namespace BTL_LT_Windows
 
         #endregion
 
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnDangNhap;
         private System.Windows.Forms.TextBox txtTaiKhoan;
         private System.Windows.Forms.TextBox txtMatKhau;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Button btnThoat;
     }
 }
 
