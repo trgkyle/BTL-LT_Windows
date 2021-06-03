@@ -36,7 +36,10 @@ namespace BTL_LT_Windows
             this.label12 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.dgvThongKe = new System.Windows.Forms.DataGridView();
-            this.button7 = new System.Windows.Forms.Button();
+            this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btnPrint = new System.Windows.Forms.Button();
             this.dateTo = new System.Windows.Forms.DateTimePicker();
             this.label10 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
@@ -46,9 +49,6 @@ namespace BTL_LT_Windows
             this.label1 = new System.Windows.Forms.Label();
             this.printDocument1 = new System.Drawing.Printing.PrintDocument();
             this.printPreviewDialog1 = new System.Windows.Forms.PrintPreviewDialog();
-            this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.txtNgayLap = new System.Windows.Forms.DateTimePicker();
             ((System.ComponentModel.ISupportInitialize)(this.dgvThongKe)).BeginInit();
             this.SuspendLayout();
@@ -111,15 +111,36 @@ namespace BTL_LT_Windows
             this.dgvThongKe.Size = new System.Drawing.Size(348, 150);
             this.dgvThongKe.TabIndex = 19;
             // 
-            // button7
+            // Column8
             // 
-            this.button7.Location = new System.Drawing.Point(575, 207);
-            this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(75, 23);
-            this.button7.TabIndex = 18;
-            this.button7.Text = "In ra";
-            this.button7.UseVisualStyleBackColor = true;
-            this.button7.Click += new System.EventHandler(this.button7_Click);
+            this.Column8.DataPropertyName = "MaTheLoai";
+            this.Column8.HeaderText = "Mã thể loại";
+            this.Column8.Name = "Column8";
+            this.Column8.ReadOnly = true;
+            // 
+            // Column9
+            // 
+            this.Column9.DataPropertyName = "TenTheLoai";
+            this.Column9.HeaderText = "Tên Thể Loại";
+            this.Column9.Name = "Column9";
+            this.Column9.ReadOnly = true;
+            // 
+            // Column10
+            // 
+            this.Column10.DataPropertyName = "SoLuongMuon";
+            this.Column10.HeaderText = "Số lần mượn";
+            this.Column10.Name = "Column10";
+            this.Column10.ReadOnly = true;
+            // 
+            // btnPrint
+            // 
+            this.btnPrint.Location = new System.Drawing.Point(575, 207);
+            this.btnPrint.Name = "btnPrint";
+            this.btnPrint.Size = new System.Drawing.Size(75, 23);
+            this.btnPrint.TabIndex = 18;
+            this.btnPrint.Text = "In ra";
+            this.btnPrint.UseVisualStyleBackColor = true;
+            this.btnPrint.Click += new System.EventHandler(this.button7_Click);
             // 
             // dateTo
             // 
@@ -198,27 +219,6 @@ namespace BTL_LT_Windows
             this.printPreviewDialog1.Name = "printPreviewDialog1";
             this.printPreviewDialog1.Visible = false;
             // 
-            // Column8
-            // 
-            this.Column8.DataPropertyName = "MaTheLoai";
-            this.Column8.HeaderText = "Mã thể loại";
-            this.Column8.Name = "Column8";
-            this.Column8.ReadOnly = true;
-            // 
-            // Column9
-            // 
-            this.Column9.DataPropertyName = "TenTheLoai";
-            this.Column9.HeaderText = "Tên Thể Loại";
-            this.Column9.Name = "Column9";
-            this.Column9.ReadOnly = true;
-            // 
-            // Column10
-            // 
-            this.Column10.DataPropertyName = "SoLuongMuon";
-            this.Column10.HeaderText = "Số lần mượn";
-            this.Column10.Name = "Column10";
-            this.Column10.ReadOnly = true;
-            // 
             // txtNgayLap
             // 
             this.txtNgayLap.Enabled = false;
@@ -241,7 +241,7 @@ namespace BTL_LT_Windows
             this.Controls.Add(this.label12);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.dgvThongKe);
-            this.Controls.Add(this.button7);
+            this.Controls.Add(this.btnPrint);
             this.Controls.Add(this.dateTo);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.label9);
@@ -264,7 +264,7 @@ namespace BTL_LT_Windows
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.DataGridView dgvThongKe;
-        private System.Windows.Forms.Button button7;
+        private System.Windows.Forms.Button btnPrint;
         private System.Windows.Forms.DateTimePicker dateTo;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label9;

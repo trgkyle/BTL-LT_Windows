@@ -9,6 +9,10 @@ namespace BUS
     public class PhieuMuonBUS
     {
         PhieuMuonDAL phieuMuonDB = new PhieuMuonDAL();
+        public Object getDataFromSource(String maPhieuMuon)
+        {
+            return phieuMuonDB.LoadFromDB(maPhieuMuon);
+        }
         public Object getDataFromSource()
         {
             return phieuMuonDB.LoadFromDB();
@@ -39,6 +43,11 @@ namespace BUS
                 from = DateTime.MinValue;
             }
             return phieuMuonDB.LoadThongKe(from,to);
+        }
+
+        public Boolean deleteTaiLieuPhieuByMa(PhieuMuonDTO phieuMuon)
+        {
+            return phieuMuonDB.deletePhieuByMa(phieuMuon);
         }
     }
 }

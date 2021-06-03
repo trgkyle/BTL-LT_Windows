@@ -106,5 +106,15 @@ namespace BTL_LT_Windows
             txtTenTheLoai2.Text = "";
             txtGhiChu2.Text = "";
         }
+
+        private void btnXem_Click(object sender, EventArgs e)
+        {
+            this.LoadInit();
+        }
+
+        private void btnXem2_Click(object sender, EventArgs e)
+        {
+            this.LoadInit();
+        }
     }
 }

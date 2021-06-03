@@ -62,6 +62,11 @@ namespace BTL_LT_Windows
             thongTinTaiKhoan = taiKhoan.layThongTin(tenTaiKhoan, matKhau);
             txtTenTaiKhoan.Text = thongTinTaiKhoan.TaiKhoan;
             txtLoaiTaiKhoan.Text = thongTinTaiKhoan.Quyen;
+            if (thongTinTaiKhoan.Quyen.Equals("ADMIN"))
+            {
+                Console.WriteLine(thongTinTaiKhoan.Quyen);
+                btnDanhMuc.Enabled = false;
+            }
         }
     }
 }

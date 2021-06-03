@@ -26,12 +26,16 @@ namespace BTL_LT_Windows
 
         public void LoadInit()
         {
-            dgvTaiLieuMuon.Rows.Clear();
+            txtMaTaiLieu.Enabled = true;
+            txtMaPhieuMuon.Enabled = true;
 
-            foreach(PhieuTaiLieuDTO phieuTaiLieu in danhSachPhieuTaiLieu)
-            {
-                dgvTaiLieuMuon.Rows.Add(phieuTaiLieu.taiLieu.MaTaiLieu, phieuTaiLieu.taiLieu.TenTaiLieu, phieuTaiLieu.soLuongMuon);
-            }
+            // No load danh sách tài liệu mượn so it commented
+            //dgvTaiLieuMuon.Rows.Clear();
+
+            //foreach(PhieuTaiLieuDTO phieuTaiLieu in danhSachPhieuTaiLieu)
+            //{
+            //    dgvTaiLieuMuon.Rows.Add(phieuTaiLieu.taiLieu.MaTaiLieu, phieuTaiLieu.taiLieu.TenTaiLieu, phieuTaiLieu.soLuongMuon);
+            //}
             dgvTaiLieuDangMuon.DataSource = phieuMuonBUS.getDataFromSource();
 
         }
@@ -52,25 +56,37 @@ namespace BTL_LT_Windows
 
         private void dgvTaiLieuDangMuon_RowEnter_1(object sender, DataGridViewCellEventArgs e)
         {
+            txtMaTaiLieu.Enabled = false;
+            txtMaPhieuMuon.Enabled = false;
             txtMaPhieuMuon.Text = dgvTaiLieuDangMuon.Rows[e.RowIndex].Cells[0].Value.ToString().Trim();
             txtMaDocGia.Text = dgvTaiLieuDangMuon.Rows[e.RowIndex].Cells[1].Value.ToString().Trim();
             txtNgayMuon.Text = dgvTaiLieuDangMuon.Rows[e.RowIndex].Cells[2].Value.ToString().Trim();
             txtMaNhanVien.Text = dgvTaiLieuDangMuon.Rows[e.RowIndex].Cells[3].Value.ToString().Trim();
             txtMaTaiLieu.Text = dgvTaiLieuDangMuon.Rows[e.RowIndex].Cells[4].Value.ToString().Trim();
             txtSoLuongMuon.Text = dgvTaiLieuDangMuon.Rows[e.RowIndex].Cells[5].Value.ToString().Trim();
+            string ngayTra = dgvTaiLieuDangMuon.Rows[e.RowIndex].Cells[6].Value?.ToString().Trim();
+            dgvTaiLieuMuon.Rows.Clear();
+            danhSachPhieuTaiLieu.Clear();
+            PhieuTaiLieuDTO newPhieuTaiLieu = new PhieuTaiLieuDTO();
 
-            //dgvTaiLieuMuon.Rows.Clear();
-            //PhieuTaiLieuDTO newPhieuTaiLieu = new PhieuTaiLieuDTO();
-
-            //newPhieuTaiLieu.taiLieu.MaTaiLieu = txtMaTaiLieu.Text;
-            //newPhieuTaiLieu.taiLieu.TenTaiLieu = txtTenTaiLieu.Text;
-            //newPhieuTaiLieu.soLuongMuon = short.Parse(txtSoLuongMuon.Text);
-
-            //danhSachPhieuTaiLieu.Add(newPhieuTaiLieu);
-            //foreach (PhieuTaiLieuDTO phieuTaiLieu in danhSachPhieuTaiLieu)
-            //{
-            //    dgvTaiLieuMuon.Rows.Add(phieuTaiLieu.taiLieu.MaTaiLieu, phieuTaiLieu.taiLieu.TenTaiLieu, phieuTaiLieu.soLuongMuon);
-            //}
+            newPhieuTaiLieu.taiLieu.MaTaiLieu = txtMaTaiLieu.Text;
+            newPhieuTaiLieu.taiLieu.TenTaiLieu = txtTenTaiLieu.Text;
+            newPhieuTaiLieu.soLuongMuon = short.Parse(txtSoLuongMuon.Text);
+            if(ngayTra != null) newPhieuTaiLieu.ngayTra = DateTime.Parse(ngayTra);
+            danhSachPhieuTaiLieu.Add(newPhieuTaiLieu);
+            foreach (PhieuTaiLieuDTO phieuTaiLieu in danhSachPhieuTaiLieu)
+            {
+                dgvTaiLieuMuon.Rows.Add(phieuTaiLieu.taiLieu.MaTaiLieu, phieuTaiLieu.taiLieu.TenTaiLieu, phieuTaiLieu.soLuongMuon);
+                Console.WriteLine(phieuTaiLieu.ngayTra);
+                if (phieuTaiLieu.ngayTra.ToString().Equals("1/1/0001 12:00:00 AM")) 
+                {
+                    btnTraSach.Enabled = true;
+                }
+                else
+                {
+                    btnTraSach.Enabled = false;
+                }
+            }
         }
 
         private void txtMaDocGia_TextChanged(object sender, EventArgs e)
@@ -97,7 +113,12 @@ namespace BTL_LT_Windows
             newPhieuTaiLieu.taiLieu.MaTaiLieu = txtMaTaiLieu.Text;
             newPhieuTaiLieu.taiLieu.TenTaiLieu = txtTenTaiLieu.Text;
             danhSachPhieuTaiLieu.Add(newPhieuTaiLieu);
-            this.LoadInit();
+            dgvTaiLieuMuon.Rows.Clear();
+            foreach (PhieuTaiLieuDTO phieuTaiLieu in danhSachPhieuTaiLieu)
+            {
+                dgvTaiLieuMuon.Rows.Add(phieuTaiLieu.taiLieu.MaTaiLieu, phieuTaiLieu.taiLieu.TenTaiLieu, phieuTaiLieu.soLuongMuon);
+            }
+            //this.LoadInit();
         }
 
         private void btn_Click_1(object sender, EventArgs e)
@@ -116,6 +137,8 @@ namespace BTL_LT_Windows
 
         private void btnNhapLai_Click(object sender, EventArgs e)
         {
+            txtMaTaiLieu.Enabled = true;
+            txtMaPhieuMuon.Enabled = true;
             txtMaPhieuMuon.Text = "";
             txtMaDocGia.Text = "";
             txtNgayMuon.Value = DateTime.Today;
@@ -140,6 +163,47 @@ namespace BTL_LT_Windows
                 currentPhieuMuuon.DanhSachPhieuTaiLieu[i].ngayTra = DateTime.Now;
             }
             phieuMuonBUS.updateData(currentPhieuMuuon);
+            this.LoadInit();
+        }
+
+        private void btnXem_Click(object sender, EventArgs e)
+        {
+            this.LoadInit();
+        }
+
+        private void btnTim_Click(object sender, EventArgs e)
+        {
+            string maPhieuMuon = txtMaPhieuMuon.Text.ToString();
+            dgvTaiLieuDangMuon.DataSource = phieuMuonBUS.getDataFromSource(maPhieuMuon);
+        }
+
+        private void btnSua_Click(object sender, EventArgs e)
+        {
+            string maPhieuMuon = txtMaPhieuMuon.Text.ToString();
+            string maDocGia = txtMaDocGia.Text.ToString();
+            DateTime ngayMuon = txtNgayMuon.Value;
+            string maNhanVien = txtMaNhanVien.Text.ToString();
+
+            PhieuMuonDTO phieuMuon = new PhieuMuonDTO(maPhieuMuon, maDocGia, maNhanVien, ngayMuon);
+
+            PhieuTaiLieuDTO newPhieuTaiLieu = new PhieuTaiLieuDTO();
+            newPhieuTaiLieu.taiLieu.MaTaiLieu = txtMaTaiLieu.Text;
+            newPhieuTaiLieu.taiLieu.TenTaiLieu = txtTenTaiLieu.Text;
+            newPhieuTaiLieu.soLuongMuon = short.Parse(txtSoLuongMuon.Text);
+            
+            danhSachPhieuTaiLieu.Add(newPhieuTaiLieu);
+            phieuMuon.DanhSachPhieuTaiLieu = danhSachPhieuTaiLieu;
+
+            phieuMuonBUS.updateData(phieuMuon);
+            this.LoadInit();
+        }
+
+        private void btnXoa_Click(object sender, EventArgs e)
+        {
+            string maPhieuMuon = txtMaPhieuMuon.Text.ToString();
+            string maTaiLieu =  txtMaTaiLieu.Text.ToString();
+            PhieuMuonDTO currentPhieuMuuon = phieuMuonBUS.getPhieuByMa(maPhieuMuon, maTaiLieu);
+            Boolean isSuccess = phieuMuonBUS.deleteTaiLieuPhieuByMa(currentPhieuMuuon);
             this.LoadInit();
         }
     }

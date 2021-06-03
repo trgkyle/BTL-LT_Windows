@@ -31,10 +31,10 @@ namespace BTL_LT_Windows
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Main));
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
+            this.btnDanhMuc = new System.Windows.Forms.Button();
+            this.btnMuonTra = new System.Windows.Forms.Button();
+            this.btnThongKe = new System.Windows.Forms.Button();
+            this.btnHoSo = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -45,45 +45,45 @@ namespace BTL_LT_Windows
             this.imageList3 = new System.Windows.Forms.ImageList(this.components);
             this.SuspendLayout();
             // 
-            // button1
+            // btnDanhMuc
             // 
-            this.button1.Location = new System.Drawing.Point(249, 201);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(117, 67);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "Quản lý danh mục";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.btnDanhMuc.Location = new System.Drawing.Point(249, 201);
+            this.btnDanhMuc.Name = "btnDanhMuc";
+            this.btnDanhMuc.Size = new System.Drawing.Size(117, 67);
+            this.btnDanhMuc.TabIndex = 0;
+            this.btnDanhMuc.Text = "Quản lý danh mục";
+            this.btnDanhMuc.UseVisualStyleBackColor = true;
+            this.btnDanhMuc.Click += new System.EventHandler(this.button1_Click);
             // 
-            // button2
+            // btnMuonTra
             // 
-            this.button2.Location = new System.Drawing.Point(443, 201);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(117, 67);
-            this.button2.TabIndex = 1;
-            this.button2.Text = "Quản lý mượn trả";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.btnMuonTra.Location = new System.Drawing.Point(443, 201);
+            this.btnMuonTra.Name = "btnMuonTra";
+            this.btnMuonTra.Size = new System.Drawing.Size(117, 67);
+            this.btnMuonTra.TabIndex = 1;
+            this.btnMuonTra.Text = "Quản lý mượn trả";
+            this.btnMuonTra.UseVisualStyleBackColor = true;
+            this.btnMuonTra.Click += new System.EventHandler(this.button2_Click);
             // 
-            // button3
+            // btnThongKe
             // 
-            this.button3.Location = new System.Drawing.Point(249, 319);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(117, 67);
-            this.button3.TabIndex = 2;
-            this.button3.Text = "Thống kê báo cáo";
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
+            this.btnThongKe.Location = new System.Drawing.Point(249, 319);
+            this.btnThongKe.Name = "btnThongKe";
+            this.btnThongKe.Size = new System.Drawing.Size(117, 67);
+            this.btnThongKe.TabIndex = 2;
+            this.btnThongKe.Text = "Thống kê báo cáo";
+            this.btnThongKe.UseVisualStyleBackColor = true;
+            this.btnThongKe.Click += new System.EventHandler(this.button3_Click);
             // 
-            // button4
+            // btnHoSo
             // 
-            this.button4.Location = new System.Drawing.Point(443, 319);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(117, 67);
-            this.button4.TabIndex = 3;
-            this.button4.Text = "Hồ sơ cá nhân";
-            this.button4.UseVisualStyleBackColor = true;
-            this.button4.Click += new System.EventHandler(this.button4_Click);
+            this.btnHoSo.Location = new System.Drawing.Point(443, 319);
+            this.btnHoSo.Name = "btnHoSo";
+            this.btnHoSo.Size = new System.Drawing.Size(117, 67);
+            this.btnHoSo.TabIndex = 3;
+            this.btnHoSo.Text = "Hồ sơ cá nhân";
+            this.btnHoSo.UseVisualStyleBackColor = true;
+            this.btnHoSo.Click += new System.EventHandler(this.button4_Click);
             // 
             // label1
             // 
@@ -161,10 +161,10 @@ namespace BTL_LT_Windows
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.button4);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btnHoSo);
+            this.Controls.Add(this.btnThongKe);
+            this.Controls.Add(this.btnMuonTra);
+            this.Controls.Add(this.btnDanhMuc);
             this.Name = "Main";
             this.Text = "Chương trình quản lý thư viện";
             this.Load += new System.EventHandler(this.Main_Load);
@@ -175,10 +175,10 @@ namespace BTL_LT_Windows
 
         #endregion
 
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button btnDanhMuc;
+        private System.Windows.Forms.Button btnMuonTra;
+        private System.Windows.Forms.Button btnThongKe;
+        private System.Windows.Forms.Button btnHoSo;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;

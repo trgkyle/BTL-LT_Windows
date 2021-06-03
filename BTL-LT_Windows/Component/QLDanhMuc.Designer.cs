@@ -46,12 +46,12 @@ namespace BTL_LT_Windows
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.button6 = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnXem = new System.Windows.Forms.Button();
+            this.btmTim = new System.Windows.Forms.Button();
+            this.btnXoa = new System.Windows.Forms.Button();
+            this.btnSua = new System.Windows.Forms.Button();
+            this.btnThem = new System.Windows.Forms.Button();
+            this.btnNhapLai = new System.Windows.Forms.Button();
             this.dgvTLieu = new System.Windows.Forms.DataGridView();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TenTaiLieu = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -66,12 +66,12 @@ namespace BTL_LT_Windows
             this.label9 = new System.Windows.Forms.Label();
             this.label25 = new System.Windows.Forms.Label();
             this.label26 = new System.Windows.Forms.Label();
-            this.button8 = new System.Windows.Forms.Button();
-            this.button9 = new System.Windows.Forms.Button();
-            this.button10 = new System.Windows.Forms.Button();
-            this.button11 = new System.Windows.Forms.Button();
-            this.button12 = new System.Windows.Forms.Button();
-            this.button13 = new System.Windows.Forms.Button();
+            this.btnXem2 = new System.Windows.Forms.Button();
+            this.btmTim2 = new System.Windows.Forms.Button();
+            this.btnXoa2 = new System.Windows.Forms.Button();
+            this.btnSua2 = new System.Windows.Forms.Button();
+            this.btnThem2 = new System.Windows.Forms.Button();
+            this.btnNhapLai2 = new System.Windows.Forms.Button();
             this.txtTenTheLoai2 = new System.Windows.Forms.TextBox();
             this.txtMaTheLoai2 = new System.Windows.Forms.TextBox();
             this.dgvTLoai = new System.Windows.Forms.DataGridView();
@@ -112,12 +112,12 @@ namespace BTL_LT_Windows
             this.tabPage1.Controls.Add(this.label3);
             this.tabPage1.Controls.Add(this.label2);
             this.tabPage1.Controls.Add(this.label1);
-            this.tabPage1.Controls.Add(this.button6);
-            this.tabPage1.Controls.Add(this.button5);
-            this.tabPage1.Controls.Add(this.button4);
-            this.tabPage1.Controls.Add(this.button3);
-            this.tabPage1.Controls.Add(this.button2);
-            this.tabPage1.Controls.Add(this.button1);
+            this.tabPage1.Controls.Add(this.btnXem);
+            this.tabPage1.Controls.Add(this.btmTim);
+            this.tabPage1.Controls.Add(this.btnXoa);
+            this.tabPage1.Controls.Add(this.btnSua);
+            this.tabPage1.Controls.Add(this.btnThem);
+            this.tabPage1.Controls.Add(this.btnNhapLai);
             this.tabPage1.Controls.Add(this.dgvTLieu);
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
@@ -251,61 +251,62 @@ namespace BTL_LT_Windows
             this.label1.TabIndex = 30;
             this.label1.Text = "Mã tài liệu";
             // 
-            // button6
+            // btnXem
             // 
-            this.button6.Location = new System.Drawing.Point(536, 188);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(75, 23);
-            this.button6.TabIndex = 29;
-            this.button6.Text = "Xem";
-            this.button6.UseVisualStyleBackColor = true;
+            this.btnXem.Location = new System.Drawing.Point(536, 188);
+            this.btnXem.Name = "btnXem";
+            this.btnXem.Size = new System.Drawing.Size(75, 23);
+            this.btnXem.TabIndex = 29;
+            this.btnXem.Text = "Xem";
+            this.btnXem.UseVisualStyleBackColor = true;
+            this.btnXem.Click += new System.EventHandler(this.btnXem_Click);
             // 
-            // button5
+            // btmTim
             // 
-            this.button5.Location = new System.Drawing.Point(626, 188);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(75, 23);
-            this.button5.TabIndex = 28;
-            this.button5.Text = "Tìm";
-            this.button5.UseVisualStyleBackColor = true;
+            this.btmTim.Location = new System.Drawing.Point(626, 188);
+            this.btmTim.Name = "btmTim";
+            this.btmTim.Size = new System.Drawing.Size(75, 23);
+            this.btmTim.TabIndex = 28;
+            this.btmTim.Text = "Tìm";
+            this.btmTim.UseVisualStyleBackColor = true;
             // 
-            // button4
+            // btnXoa
             // 
-            this.button4.Location = new System.Drawing.Point(626, 96);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(75, 23);
-            this.button4.TabIndex = 27;
-            this.button4.Text = "Xóa";
-            this.button4.UseVisualStyleBackColor = true;
+            this.btnXoa.Location = new System.Drawing.Point(626, 96);
+            this.btnXoa.Name = "btnXoa";
+            this.btnXoa.Size = new System.Drawing.Size(75, 23);
+            this.btnXoa.TabIndex = 27;
+            this.btnXoa.Text = "Xóa";
+            this.btnXoa.UseVisualStyleBackColor = true;
             // 
-            // button3
+            // btnSua
             // 
-            this.button3.Location = new System.Drawing.Point(626, 144);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(75, 23);
-            this.button3.TabIndex = 26;
-            this.button3.Text = "Sửa";
-            this.button3.UseVisualStyleBackColor = true;
+            this.btnSua.Location = new System.Drawing.Point(626, 144);
+            this.btnSua.Name = "btnSua";
+            this.btnSua.Size = new System.Drawing.Size(75, 23);
+            this.btnSua.TabIndex = 26;
+            this.btnSua.Text = "Sửa";
+            this.btnSua.UseVisualStyleBackColor = true;
             // 
-            // button2
+            // btnThem
             // 
-            this.button2.Location = new System.Drawing.Point(536, 144);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 25;
-            this.button2.Text = "Thêm";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.btnThem.Location = new System.Drawing.Point(536, 144);
+            this.btnThem.Name = "btnThem";
+            this.btnThem.Size = new System.Drawing.Size(75, 23);
+            this.btnThem.TabIndex = 25;
+            this.btnThem.Text = "Thêm";
+            this.btnThem.UseVisualStyleBackColor = true;
+            this.btnThem.Click += new System.EventHandler(this.button2_Click);
             // 
-            // button1
+            // btnNhapLai
             // 
-            this.button1.Location = new System.Drawing.Point(536, 96);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 24;
-            this.button1.Text = "Nhập lại";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.btnNhapLai.Location = new System.Drawing.Point(536, 96);
+            this.btnNhapLai.Name = "btnNhapLai";
+            this.btnNhapLai.Size = new System.Drawing.Size(75, 23);
+            this.btnNhapLai.TabIndex = 24;
+            this.btnNhapLai.Text = "Nhập lại";
+            this.btnNhapLai.UseVisualStyleBackColor = true;
+            this.btnNhapLai.Click += new System.EventHandler(this.button1_Click);
             // 
             // dgvTLieu
             // 
@@ -383,12 +384,12 @@ namespace BTL_LT_Windows
             this.tabPage2.Controls.Add(this.label9);
             this.tabPage2.Controls.Add(this.label25);
             this.tabPage2.Controls.Add(this.label26);
-            this.tabPage2.Controls.Add(this.button8);
-            this.tabPage2.Controls.Add(this.button9);
-            this.tabPage2.Controls.Add(this.button10);
-            this.tabPage2.Controls.Add(this.button11);
-            this.tabPage2.Controls.Add(this.button12);
-            this.tabPage2.Controls.Add(this.button13);
+            this.tabPage2.Controls.Add(this.btnXem2);
+            this.tabPage2.Controls.Add(this.btmTim2);
+            this.tabPage2.Controls.Add(this.btnXoa2);
+            this.tabPage2.Controls.Add(this.btnSua2);
+            this.tabPage2.Controls.Add(this.btnThem2);
+            this.tabPage2.Controls.Add(this.btnNhapLai2);
             this.tabPage2.Controls.Add(this.txtTenTheLoai2);
             this.tabPage2.Controls.Add(this.txtMaTheLoai2);
             this.tabPage2.Controls.Add(this.dgvTLoai);
@@ -446,61 +447,62 @@ namespace BTL_LT_Windows
             this.label26.TabIndex = 41;
             this.label26.Text = "Mã thể loại";
             // 
-            // button8
+            // btnXem2
             // 
-            this.button8.Location = new System.Drawing.Point(531, 209);
-            this.button8.Name = "button8";
-            this.button8.Size = new System.Drawing.Size(75, 23);
-            this.button8.TabIndex = 40;
-            this.button8.Text = "Xem";
-            this.button8.UseVisualStyleBackColor = true;
+            this.btnXem2.Location = new System.Drawing.Point(531, 209);
+            this.btnXem2.Name = "btnXem2";
+            this.btnXem2.Size = new System.Drawing.Size(75, 23);
+            this.btnXem2.TabIndex = 40;
+            this.btnXem2.Text = "Xem";
+            this.btnXem2.UseVisualStyleBackColor = true;
+            this.btnXem2.Click += new System.EventHandler(this.btnXem2_Click);
             // 
-            // button9
+            // btmTim2
             // 
-            this.button9.Location = new System.Drawing.Point(621, 209);
-            this.button9.Name = "button9";
-            this.button9.Size = new System.Drawing.Size(75, 23);
-            this.button9.TabIndex = 39;
-            this.button9.Text = "Tìm";
-            this.button9.UseVisualStyleBackColor = true;
+            this.btmTim2.Location = new System.Drawing.Point(621, 209);
+            this.btmTim2.Name = "btmTim2";
+            this.btmTim2.Size = new System.Drawing.Size(75, 23);
+            this.btmTim2.TabIndex = 39;
+            this.btmTim2.Text = "Tìm";
+            this.btmTim2.UseVisualStyleBackColor = true;
             // 
-            // button10
+            // btnXoa2
             // 
-            this.button10.Location = new System.Drawing.Point(621, 117);
-            this.button10.Name = "button10";
-            this.button10.Size = new System.Drawing.Size(75, 23);
-            this.button10.TabIndex = 38;
-            this.button10.Text = "Xóa";
-            this.button10.UseVisualStyleBackColor = true;
+            this.btnXoa2.Location = new System.Drawing.Point(621, 117);
+            this.btnXoa2.Name = "btnXoa2";
+            this.btnXoa2.Size = new System.Drawing.Size(75, 23);
+            this.btnXoa2.TabIndex = 38;
+            this.btnXoa2.Text = "Xóa";
+            this.btnXoa2.UseVisualStyleBackColor = true;
             // 
-            // button11
+            // btnSua2
             // 
-            this.button11.Location = new System.Drawing.Point(621, 165);
-            this.button11.Name = "button11";
-            this.button11.Size = new System.Drawing.Size(75, 23);
-            this.button11.TabIndex = 37;
-            this.button11.Text = "Sửa";
-            this.button11.UseVisualStyleBackColor = true;
+            this.btnSua2.Location = new System.Drawing.Point(621, 165);
+            this.btnSua2.Name = "btnSua2";
+            this.btnSua2.Size = new System.Drawing.Size(75, 23);
+            this.btnSua2.TabIndex = 37;
+            this.btnSua2.Text = "Sửa";
+            this.btnSua2.UseVisualStyleBackColor = true;
             // 
-            // button12
+            // btnThem2
             // 
-            this.button12.Location = new System.Drawing.Point(531, 165);
-            this.button12.Name = "button12";
-            this.button12.Size = new System.Drawing.Size(75, 23);
-            this.button12.TabIndex = 36;
-            this.button12.Text = "Thêm";
-            this.button12.UseVisualStyleBackColor = true;
-            this.button12.Click += new System.EventHandler(this.button12_Click);
+            this.btnThem2.Location = new System.Drawing.Point(531, 165);
+            this.btnThem2.Name = "btnThem2";
+            this.btnThem2.Size = new System.Drawing.Size(75, 23);
+            this.btnThem2.TabIndex = 36;
+            this.btnThem2.Text = "Thêm";
+            this.btnThem2.UseVisualStyleBackColor = true;
+            this.btnThem2.Click += new System.EventHandler(this.button12_Click);
             // 
-            // button13
+            // btnNhapLai2
             // 
-            this.button13.Location = new System.Drawing.Point(531, 117);
-            this.button13.Name = "button13";
-            this.button13.Size = new System.Drawing.Size(75, 23);
-            this.button13.TabIndex = 35;
-            this.button13.Text = "Nhập lại";
-            this.button13.UseVisualStyleBackColor = true;
-            this.button13.Click += new System.EventHandler(this.button13_Click);
+            this.btnNhapLai2.Location = new System.Drawing.Point(531, 117);
+            this.btnNhapLai2.Name = "btnNhapLai2";
+            this.btnNhapLai2.Size = new System.Drawing.Size(75, 23);
+            this.btnNhapLai2.TabIndex = 35;
+            this.btnNhapLai2.Text = "Nhập lại";
+            this.btnNhapLai2.UseVisualStyleBackColor = true;
+            this.btnNhapLai2.Click += new System.EventHandler(this.button13_Click);
             // 
             // txtTenTheLoai2
             // 
@@ -591,21 +593,21 @@ namespace BTL_LT_Windows
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button button6;
-        private System.Windows.Forms.Button button5;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnXem;
+        private System.Windows.Forms.Button btmTim;
+        private System.Windows.Forms.Button btnXoa;
+        private System.Windows.Forms.Button btnSua;
+        private System.Windows.Forms.Button btnThem;
+        private System.Windows.Forms.Button btnNhapLai;
         private System.Windows.Forms.DataGridView dgvTLieu;
         private System.Windows.Forms.Label label25;
         private System.Windows.Forms.Label label26;
-        private System.Windows.Forms.Button button8;
-        private System.Windows.Forms.Button button9;
-        private System.Windows.Forms.Button button10;
-        private System.Windows.Forms.Button button11;
-        private System.Windows.Forms.Button button12;
-        private System.Windows.Forms.Button button13;
+        private System.Windows.Forms.Button btnXem2;
+        private System.Windows.Forms.Button btmTim2;
+        private System.Windows.Forms.Button btnXoa2;
+        private System.Windows.Forms.Button btnSua2;
+        private System.Windows.Forms.Button btnThem2;
+        private System.Windows.Forms.Button btnNhapLai2;
         private System.Windows.Forms.TextBox txtTenTheLoai2;
         private System.Windows.Forms.TextBox txtMaTheLoai2;
         private System.Windows.Forms.DataGridView dgvTLoai;

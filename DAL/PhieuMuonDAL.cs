@@ -12,7 +12,12 @@ namespace DAL
 
         public Object LoadFromDB()
         {
-            var danhSachTaiLieuMuon =  data.PhieuMuonChiTiets.Where(x => x.NgayTra == null).Join(data.PhieuMuons, pmct => pmct.MaPhieuMuon, pm => pm.MaPhieuMuon, (pmct, pm) => new { pmct.MaPhieuMuon, pm.MaDocGia, pm.NgayMuon, pm.MaNhanVien, pmct.MaTaiLieu, pmct.SoLuongMuon}).Select(x => x);
+            var danhSachTaiLieuMuon = data.PhieuMuonChiTiets.Join(data.PhieuMuons, pmct => pmct.MaPhieuMuon, pm => pm.MaPhieuMuon, (pmct, pm) => new { pmct.MaPhieuMuon, pm.MaDocGia, pm.NgayMuon, pm.MaNhanVien, pmct.MaTaiLieu, pmct.SoLuongMuon, pmct.NgayTra }).Select(x => x);
+            return danhSachTaiLieuMuon;
+        }
+        public Object LoadFromDB(String maPhieuMuon)
+        {
+            var danhSachTaiLieuMuon = data.PhieuMuonChiTiets.Where(x => x.MaPhieuMuon == maPhieuMuon).Join(data.PhieuMuons, pmct => pmct.MaPhieuMuon, pm => pm.MaPhieuMuon, (pmct, pm) => new { pmct.MaPhieuMuon, pm.MaDocGia, pm.NgayMuon, pm.MaNhanVien, pmct.MaTaiLieu, pmct.SoLuongMuon, pmct.NgayTra }).Select(x => x);
             return danhSachTaiLieuMuon;
         }
         public Object LoadThongKe(DateTime from, DateTime to)
@@ -109,7 +114,6 @@ namespace DAL
         public Boolean UpdateToDB(PhieuMuonDTO phieuMuon)
         {
             var line = data.PhieuMuons.Single(x => x.MaPhieuMuon == phieuMuon.MaPhieuMuon);
-            line.MaPhieuMuon = phieuMuon.MaPhieuMuon;
             line.MaDocGia = phieuMuon.MaDocGia;
             line.NgayMuon = phieuMuon.NgayMuon;
             line.MaNhanVien = phieuMuon.MaNhanVien;
@@ -118,7 +122,7 @@ namespace DAL
             {
                 var phieuMuonChiTietORM = data.PhieuMuonChiTiets.Single(x => x.MaPhieuMuon == line.MaPhieuMuon && x.MaTaiLieu == phieuTaiLieu.taiLieu.MaTaiLieu);
                 phieuMuonChiTietORM.SoLuongMuon = phieuTaiLieu.soLuongMuon;
-                if (phieuTaiLieu.ngayTra != null)
+                if (phieuTaiLieu.ngayTra != null && !phieuTaiLieu.ngayTra.ToString().Equals("1/1/0001 12:00:00 AM"))
                 {
                     phieuMuonChiTietORM.NgayTra = phieuTaiLieu.ngayTra;
                     var taiLieu = data.TaiLieus.Single(x => x.MaTaiLieu == phieuTaiLieu.taiLieu.MaTaiLieu);
@@ -157,6 +161,35 @@ namespace DAL
             }
 
             return newPhieuMuon;
+        }
+        public Boolean deletePhieuByMa(PhieuMuonDTO phieuMuon)
+        {
+            var line = data.PhieuMuons.Single(x => x.MaPhieuMuon == phieuMuon.MaPhieuMuon);
+            line.MaDocGia = phieuMuon.MaDocGia;
+            line.NgayMuon = phieuMuon.NgayMuon;
+            line.MaNhanVien = phieuMuon.MaNhanVien;
+
+            var taiLieu = data.PhieuMuonChiTiets.Where(x => x.MaPhieuMuon == line.MaPhieuMuon).Select(x => x);
+            if(taiLieu.ToArray().Length == phieuMuon.DanhSachPhieuTaiLieu.Count)
+            {
+                Console.WriteLine("Delete phieu muon");
+                data.PhieuMuons.DeleteOnSubmit(line);
+            }
+
+            foreach (PhieuTaiLieuDTO phieuTaiLieu in phieuMuon.DanhSachPhieuTaiLieu)
+            {
+                var phieuMuonChiTietORM = data.PhieuMuonChiTiets.Single(x => x.MaPhieuMuon == line.MaPhieuMuon && x.MaTaiLieu == phieuTaiLieu.taiLieu.MaTaiLieu);
+                data.PhieuMuonChiTiets.DeleteOnSubmit(phieuMuonChiTietORM);
+                var taiLieuDb = data.TaiLieus.Single(x => x.MaTaiLieu == phieuTaiLieu.taiLieu.MaTaiLieu);
+                if (phieuMuonChiTietORM.NgayTra == null)
+                {
+                    taiLieuDb.SoLuong += phieuMuonChiTietORM.SoLuongMuon;
+                }
+
+            }
+
+            data.SubmitChanges();
+            return true;
         }
     }
 }
