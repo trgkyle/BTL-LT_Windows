@@ -65,7 +65,13 @@ namespace DAL
             theLoaiORM.TenTheLoai = newTheLoai.TenTheLoai;
             theLoaiORM.GhiChu = newTheLoai.GhiChu;
             data.TheLoais.InsertOnSubmit(theLoaiORM);
-            data.SubmitChanges();
+            try { 
+                data.SubmitChanges();
+            }
+            catch(Exception expect)
+            {
+                throw new Exception("Lỗi trùng mã thể loại");
+            }
             return true;
         }
 

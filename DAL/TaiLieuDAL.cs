@@ -101,7 +101,13 @@ namespace DAL
             taiLieuORM.NamXuatBan = newTaiLieu.NamXuatBan;
             taiLieuORM.TacGia = newTaiLieu.TacGia;
             data.TaiLieus.InsertOnSubmit(taiLieuORM);
-            data.SubmitChanges();
+            try { 
+                data.SubmitChanges();
+            }
+            catch(Exception expect)
+            {
+                throw new Exception("Lỗi trùng mã tài liệu");
+            }
             return true;
         }
 
@@ -122,8 +128,14 @@ namespace DAL
         public Boolean DeleteToDB(String maTaiLieu)
         {
             var line = data.TaiLieus.Single(x => x.MaTaiLieu == maTaiLieu);
-            data.TaiLieus.DeleteOnSubmit(line);
-            data.SubmitChanges();
+            try { 
+                data.TaiLieus.DeleteOnSubmit(line);
+                data.SubmitChanges();
+            }
+            catch(Exception expect)
+            {
+                throw new Exception("Có lỗi khi xóa tài liệu");
+            }
             return true;
         }
 

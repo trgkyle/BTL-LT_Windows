@@ -101,9 +101,15 @@ namespace DAL
             }
 
             data.PhieuMuons.InsertOnSubmit(phieuMuonORM);
-            data.SubmitChanges();
-            
-            
+            try { 
+                data.SubmitChanges();
+            }
+            catch(Exception expect)
+            {
+                throw new Exception("Lỗi trùng mã phiếu mượn");
+            }
+
+
             return true;
         }
 

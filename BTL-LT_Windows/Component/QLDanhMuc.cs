@@ -51,7 +51,13 @@ namespace BTL_LT_Windows
             string tacGia = txtTacGia.Text.ToString();
 
             TaiLieuDTO newTaiLieu = new TaiLieuDTO(maTaiLieu, tenTaiLieu, maTheLoai, short.Parse(soLuong), nhaXuatBan, short.Parse(namXuatBan), tacGia);
-            taiLieuBUS.addNewData(newTaiLieu);
+            try { 
+                taiLieuBUS.addNewData(newTaiLieu);
+            }
+            catch(Exception expect)
+            {
+                MessageBox.Show(expect.Message);
+            }
             this.LoadInit();
         }
 
@@ -67,12 +73,20 @@ namespace BTL_LT_Windows
             string ghiChu = txtGhiChu2.Text.ToString();
 
             TheLoaiDTO newTheLoai = new TheLoaiDTO(maTheLoai,tenTheLoai,ghiChu);
-            theLoaiBUS.addNewData(newTheLoai);
+            try
+            {
+                theLoaiBUS.addNewData(newTheLoai);
+            }
+            catch (Exception expect)
+            {
+                MessageBox.Show(expect.Message);
+            }
             this.LoadInit();
         }
 
         private void dgvTLieu_RowEnter(object sender, DataGridViewCellEventArgs e)
         {
+            txtMaTaiLieu.Enabled = false;
             txtMaTaiLieu.Text = dgvTLieu.Rows[e.RowIndex].Cells[0].Value.ToString().Trim();
             txtTenTaiLieu.Text = dgvTLieu.Rows[e.RowIndex].Cells[1].Value.ToString().Trim();
             cbxTheLoai.SelectedValue = dgvTLieu.Rows[e.RowIndex].Cells[2].Value.ToString();
@@ -84,6 +98,7 @@ namespace BTL_LT_Windows
 
         private void button1_Click(object sender, EventArgs e)
         {
+            txtMaTaiLieu.Enabled = true;
             txtMaTaiLieu.Text = "";
             txtTenTaiLieu.Text = "";
             
@@ -95,6 +110,7 @@ namespace BTL_LT_Windows
 
         private void dgvTLoai_RowEnter(object sender, DataGridViewCellEventArgs e)
         {
+            txtMaTheLoai2.Enabled = false;
             txtMaTheLoai2.Text = dgvTLoai.Rows[e.RowIndex].Cells[0].Value.ToString().Trim();
             txtTenTheLoai2.Text = dgvTLoai.Rows[e.RowIndex].Cells[1].Value.ToString().Trim();
             txtGhiChu2.Text = dgvTLoai.Rows[e.RowIndex].Cells[2].Value.ToString().Trim();
@@ -102,6 +118,7 @@ namespace BTL_LT_Windows
 
         private void button13_Click(object sender, EventArgs e)
         {
+            txtMaTheLoai2.Enabled = true;
             txtMaTheLoai2.Text = "";
             txtTenTheLoai2.Text = "";
             txtGhiChu2.Text = "";
@@ -119,16 +136,40 @@ namespace BTL_LT_Windows
 
         private void btnXoa_Click(object sender, EventArgs e)
         {
-            string maTaiLieu = txtMaTaiLieu.Text.ToString();
-            taiLieuBUS.deleteData(maTaiLieu);
-            this.LoadInit();
+            try {
+                var result = MessageBox.Show("Xác nhận xóa tài liệu", "Cảnh báo", MessageBoxButtons.YesNo);
+                if(result == DialogResult.Yes)
+                {
+                    string maTaiLieu = txtMaTaiLieu.Text.ToString();
+                    taiLieuBUS.deleteData(maTaiLieu);
+                    this.LoadInit();
+                }
+                
+            }
+            catch(Exception expect)
+            {
+                MessageBox.Show(expect.Message, "Có lỗi");
+            }
         }
 
         private void btnXoa2_Click(object sender, EventArgs e)
         {
-            string maTheLoai = txtMaTheLoai2.Text.ToString();
-            theLoaiBUS.deleteData(maTheLoai);
-            this.LoadInit();
+            
+            try
+            {
+                var result = MessageBox.Show("Xác nhận xóa thể loại", "Cảnh báo", MessageBoxButtons.YesNo);
+                if (result == DialogResult.Yes)
+                {
+                    string maTheLoai = txtMaTheLoai2.Text.ToString();
+                    theLoaiBUS.deleteData(maTheLoai);
+                    this.LoadInit();
+                }
+
+            }
+            catch (Exception expect)
+            {
+                MessageBox.Show(expect.Message, "Có lỗi");
+            }
         }
 
         private void btnSua_Click(object sender, EventArgs e)

@@ -108,9 +108,10 @@ namespace BTL_LT_Windows
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.Location = new System.Drawing.Point(194, 482);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(434, 29);
+            this.label7.Size = new System.Drawing.Size(396, 29);
             this.label7.TabIndex = 78;
-            this.label7.Text = "DANH SÁCH TÀI LIỆU ĐANG MƯỢN";
+            this.label7.Text = "DANH SÁCH TÀI LIỆU ĐÃ MƯỢN";
+            this.label7.Click += new System.EventHandler(this.label7_Click);
             // 
             // dgvTaiLieuDangMuon
             // 
@@ -244,11 +245,11 @@ namespace BTL_LT_Windows
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(488, 55);
+            this.label1.Location = new System.Drawing.Point(427, 59);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(293, 29);
+            this.label1.Size = new System.Drawing.Size(377, 29);
             this.label1.TabIndex = 69;
-            this.label1.Text = "MƯỢN SÁCH THƯ VIỆN";
+            this.label1.Text = "QUẢN LÝ MƯỢN TRẢ TÀI LIỆU";
             // 
             // btnXem
             // 
