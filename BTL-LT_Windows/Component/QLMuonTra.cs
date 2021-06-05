@@ -124,14 +124,20 @@ namespace BTL_LT_Windows
         private void btn_Click_1(object sender, EventArgs e)
         {
             // Lưu button
-            string maPhieuMuon = txtMaPhieuMuon.Text.ToString();
-            string maDocGia = txtMaDocGia.Text.ToString();
-            DateTime ngayMuon = txtNgayMuon.Value;
-            string maNhanVien = txtMaNhanVien.Text.ToString();
+            try
+            {
+                string maPhieuMuon = txtMaPhieuMuon.Text.ToString();
+                string maDocGia = txtMaDocGia.Text.ToString();
+                DateTime ngayMuon = txtNgayMuon.Value;
+                string maNhanVien = txtMaNhanVien.Text.ToString();
 
-            PhieuMuonDTO newPhieuMuon = new PhieuMuonDTO(maPhieuMuon, maDocGia, maNhanVien, ngayMuon);
-            newPhieuMuon.DanhSachPhieuTaiLieu = danhSachPhieuTaiLieu;
-            phieuMuonBUS.addNewData(newPhieuMuon);
+                PhieuMuonDTO newPhieuMuon = new PhieuMuonDTO(maPhieuMuon, maDocGia, maNhanVien, ngayMuon);
+                newPhieuMuon.DanhSachPhieuTaiLieu = danhSachPhieuTaiLieu;
+                phieuMuonBUS.addNewData(newPhieuMuon);
+            }
+            catch (Exception expect) {
+                MessageBox.Show(expect.Message);
+            }
             this.LoadInit();
         }
 
@@ -179,22 +185,34 @@ namespace BTL_LT_Windows
 
         private void btnSua_Click(object sender, EventArgs e)
         {
-            string maPhieuMuon = txtMaPhieuMuon.Text.ToString();
-            string maDocGia = txtMaDocGia.Text.ToString();
-            DateTime ngayMuon = txtNgayMuon.Value;
-            string maNhanVien = txtMaNhanVien.Text.ToString();
+            try { 
+                string maPhieuMuon = txtMaPhieuMuon.Text.ToString();
+                string maDocGia = txtMaDocGia.Text.ToString();
+                DateTime ngayMuon = txtNgayMuon.Value;
+                string maNhanVien = txtMaNhanVien.Text.ToString();
 
-            PhieuMuonDTO phieuMuon = new PhieuMuonDTO(maPhieuMuon, maDocGia, maNhanVien, ngayMuon);
+                PhieuMuonDTO phieuMuon = new PhieuMuonDTO(maPhieuMuon, maDocGia, maNhanVien, ngayMuon);
 
-            PhieuTaiLieuDTO newPhieuTaiLieu = new PhieuTaiLieuDTO();
-            newPhieuTaiLieu.taiLieu.MaTaiLieu = txtMaTaiLieu.Text;
-            newPhieuTaiLieu.taiLieu.TenTaiLieu = txtTenTaiLieu.Text;
-            newPhieuTaiLieu.soLuongMuon = short.Parse(txtSoLuongMuon.Text);
-            
-            danhSachPhieuTaiLieu.Add(newPhieuTaiLieu);
-            phieuMuon.DanhSachPhieuTaiLieu = danhSachPhieuTaiLieu;
-
-            phieuMuonBUS.updateData(phieuMuon);
+                PhieuTaiLieuDTO newPhieuTaiLieu = new PhieuTaiLieuDTO();
+                newPhieuTaiLieu.taiLieu.MaTaiLieu = txtMaTaiLieu.Text;
+                newPhieuTaiLieu.taiLieu.TenTaiLieu = txtTenTaiLieu.Text;
+                try
+                {
+                    newPhieuTaiLieu.soLuongMuon = short.Parse(txtSoLuongMuon.Text);
+                }
+                catch(Exception)
+                {
+                    MessageBox.Show("Vượt quá số lượng");
+                    return;
+                }
+                danhSachPhieuTaiLieu.Clear();
+                danhSachPhieuTaiLieu.Add(newPhieuTaiLieu);
+                phieuMuon.DanhSachPhieuTaiLieu = danhSachPhieuTaiLieu;
+                phieuMuonBUS.updateData(phieuMuon);
+            }
+            catch (Exception expect) {
+                MessageBox.Show(expect.Message);
+            }
             this.LoadInit();
         }
 

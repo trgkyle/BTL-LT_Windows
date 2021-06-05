@@ -269,6 +269,7 @@ namespace BTL_LT_Windows
             this.btmTim.TabIndex = 28;
             this.btmTim.Text = "Tìm";
             this.btmTim.UseVisualStyleBackColor = true;
+            this.btmTim.Click += new System.EventHandler(this.btmTim_Click);
             // 
             // btnXoa
             // 
@@ -278,6 +279,7 @@ namespace BTL_LT_Windows
             this.btnXoa.TabIndex = 27;
             this.btnXoa.Text = "Xóa";
             this.btnXoa.UseVisualStyleBackColor = true;
+            this.btnXoa.Click += new System.EventHandler(this.btnXoa_Click);
             // 
             // btnSua
             // 
@@ -287,6 +289,7 @@ namespace BTL_LT_Windows
             this.btnSua.TabIndex = 26;
             this.btnSua.Text = "Sửa";
             this.btnSua.UseVisualStyleBackColor = true;
+            this.btnSua.Click += new System.EventHandler(this.btnSua_Click);
             // 
             // btnThem
             // 
@@ -465,6 +468,7 @@ namespace BTL_LT_Windows
             this.btmTim2.TabIndex = 39;
             this.btmTim2.Text = "Tìm";
             this.btmTim2.UseVisualStyleBackColor = true;
+            this.btmTim2.Click += new System.EventHandler(this.btmTim2_Click);
             // 
             // btnXoa2
             // 
@@ -474,6 +478,7 @@ namespace BTL_LT_Windows
             this.btnXoa2.TabIndex = 38;
             this.btnXoa2.Text = "Xóa";
             this.btnXoa2.UseVisualStyleBackColor = true;
+            this.btnXoa2.Click += new System.EventHandler(this.btnXoa2_Click);
             // 
             // btnSua2
             // 
@@ -483,6 +488,7 @@ namespace BTL_LT_Windows
             this.btnSua2.TabIndex = 37;
             this.btnSua2.Text = "Sửa";
             this.btnSua2.UseVisualStyleBackColor = true;
+            this.btnSua2.Click += new System.EventHandler(this.btnSua2_Click);
             // 
             // btnThem2
             // 
@@ -562,7 +568,7 @@ namespace BTL_LT_Windows
             this.ClientSize = new System.Drawing.Size(892, 746);
             this.Controls.Add(this.tabControl1);
             this.Name = "QLDanhMuc";
-            this.Text = "QLDanhMuc";
+            this.Text = "Quản lý danh mục";
             this.Load += new System.EventHandler(this.QLDanhMuc_Load);
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);

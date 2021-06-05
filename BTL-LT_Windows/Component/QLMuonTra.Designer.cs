@@ -35,6 +35,13 @@ namespace BTL_LT_Windows
             this.btnTraSach = new System.Windows.Forms.Button();
             this.label7 = new System.Windows.Forms.Label();
             this.dgvTaiLieuDangMuon = new System.Windows.Forms.DataGridView();
+            this.Column10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column14 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column15 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.button8 = new System.Windows.Forms.Button();
             this.txtSoLuongMuon = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
@@ -66,13 +73,6 @@ namespace BTL_LT_Windows
             this.label16 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
-            this.Column10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column14 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column15 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTaiLieuDangMuon)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTaiLieuMuon)).BeginInit();
             this.SuspendLayout();
@@ -131,6 +131,55 @@ namespace BTL_LT_Windows
             this.dgvTaiLieuDangMuon.Size = new System.Drawing.Size(764, 212);
             this.dgvTaiLieuDangMuon.TabIndex = 77;
             this.dgvTaiLieuDangMuon.RowEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvTaiLieuDangMuon_RowEnter_1);
+            // 
+            // Column10
+            // 
+            this.Column10.DataPropertyName = "MaPhieuMuon";
+            this.Column10.HeaderText = "Mã Phiếu Mượn";
+            this.Column10.Name = "Column10";
+            this.Column10.ReadOnly = true;
+            // 
+            // Column11
+            // 
+            this.Column11.DataPropertyName = "MaDocGia";
+            this.Column11.HeaderText = "Mã Độc Giả";
+            this.Column11.Name = "Column11";
+            this.Column11.ReadOnly = true;
+            // 
+            // Column12
+            // 
+            this.Column12.DataPropertyName = "NgayMuon";
+            this.Column12.HeaderText = "Ngày Mượn";
+            this.Column12.Name = "Column12";
+            this.Column12.ReadOnly = true;
+            // 
+            // Column13
+            // 
+            this.Column13.DataPropertyName = "MaNhanVien";
+            this.Column13.HeaderText = "Mã Nhân Viên";
+            this.Column13.Name = "Column13";
+            this.Column13.ReadOnly = true;
+            // 
+            // Column14
+            // 
+            this.Column14.DataPropertyName = "MaTaiLieu";
+            this.Column14.HeaderText = "Mã Tài Liệu";
+            this.Column14.Name = "Column14";
+            this.Column14.ReadOnly = true;
+            // 
+            // Column15
+            // 
+            this.Column15.DataPropertyName = "SoLuongMuon";
+            this.Column15.HeaderText = "Số Lượng Mượn";
+            this.Column15.Name = "Column15";
+            this.Column15.ReadOnly = true;
+            // 
+            // Column1
+            // 
+            this.Column1.DataPropertyName = "NgayTra";
+            this.Column1.HeaderText = "Ngày trả";
+            this.Column1.Name = "Column1";
+            this.Column1.ReadOnly = true;
             // 
             // button8
             // 
@@ -405,55 +454,6 @@ namespace BTL_LT_Windows
             this.label14.TabIndex = 50;
             this.label14.Text = "Mã phiếu mượn";
             // 
-            // Column10
-            // 
-            this.Column10.DataPropertyName = "MaPhieuMuon";
-            this.Column10.HeaderText = "Mã Phiếu Mượn";
-            this.Column10.Name = "Column10";
-            this.Column10.ReadOnly = true;
-            // 
-            // Column11
-            // 
-            this.Column11.DataPropertyName = "MaDocGia";
-            this.Column11.HeaderText = "Mã Độc Giả";
-            this.Column11.Name = "Column11";
-            this.Column11.ReadOnly = true;
-            // 
-            // Column12
-            // 
-            this.Column12.DataPropertyName = "NgayMuon";
-            this.Column12.HeaderText = "Ngày Mượn";
-            this.Column12.Name = "Column12";
-            this.Column12.ReadOnly = true;
-            // 
-            // Column13
-            // 
-            this.Column13.DataPropertyName = "MaNhanVien";
-            this.Column13.HeaderText = "Mã Nhân Viên";
-            this.Column13.Name = "Column13";
-            this.Column13.ReadOnly = true;
-            // 
-            // Column14
-            // 
-            this.Column14.DataPropertyName = "MaTaiLieu";
-            this.Column14.HeaderText = "Mã Tài Liệu";
-            this.Column14.Name = "Column14";
-            this.Column14.ReadOnly = true;
-            // 
-            // Column15
-            // 
-            this.Column15.DataPropertyName = "SoLuongMuon";
-            this.Column15.HeaderText = "Số Lượng Mượn";
-            this.Column15.Name = "Column15";
-            this.Column15.ReadOnly = true;
-            // 
-            // Column1
-            // 
-            this.Column1.DataPropertyName = "NgayTra";
-            this.Column1.HeaderText = "Ngày trả";
-            this.Column1.Name = "Column1";
-            this.Column1.ReadOnly = true;
-            // 
             // QLMuonTra
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -491,7 +491,7 @@ namespace BTL_LT_Windows
             this.Controls.Add(this.label15);
             this.Controls.Add(this.label14);
             this.Name = "QLMuonTra";
-            this.Text = "QLMuonTra";
+            this.Text = "Quản lý mượn trả";
             this.Load += new System.EventHandler(this.QLMuonTra_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvTaiLieuDangMuon)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTaiLieuMuon)).EndInit();

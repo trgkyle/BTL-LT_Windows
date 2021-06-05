@@ -17,9 +17,26 @@ namespace BUS
             return TaiLieuDAL.loadFromDB();
         }
 
+        public Object getDataFromSource(String maTaiLieu)
+        {
+            return TaiLieuDAL.loadFromDB(maTaiLieu);
+        }
+
         public Boolean addNewData(TaiLieuDTO newTaiLieu)
         {
             TaiLieuDAL.AddNewToDB(newTaiLieu);
+            return true;
+        }
+
+        public Boolean updateData(TaiLieuDTO taiLieu)
+        {
+            TaiLieuDAL.UpdateToDB(taiLieu);
+            return true;
+        }
+
+        public Boolean deleteData(String maTaiLieu)
+        {
+            TaiLieuDAL.DeleteToDB(maTaiLieu);
             return true;
         }
 

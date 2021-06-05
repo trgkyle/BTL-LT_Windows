@@ -68,5 +68,13 @@ namespace BTL_LT_Windows
                 btnDanhMuc.Enabled = false;
             }
         }
+
+        private void btnDangXuat_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Login newForm = new Login();
+            newForm.ShowDialog();
+
+        }
     }
 }

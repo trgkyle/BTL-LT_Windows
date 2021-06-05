@@ -27,8 +27,10 @@ namespace BTL_LT_Windows
         private void HoSo_Load(object sender, EventArgs e)
         {
             TaiKhoanDTO thongTinTaiKhoan = taiKhoan.layThongTin(tenTaiKhoan, matKhau);
+            txtHoTen.Text = thongTinTaiKhoan.HoTen;
             txtTenTaiKhoan.Text = thongTinTaiKhoan.TaiKhoan;
             txtQuyen.Text = thongTinTaiKhoan.Quyen;
+            txtHoTen.Enabled = false;
             txtTenTaiKhoan.Enabled = false;
             txtQuyen.Enabled = false;
         }

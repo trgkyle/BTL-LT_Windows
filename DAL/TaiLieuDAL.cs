@@ -38,8 +38,16 @@ namespace DAL
         }
         public Object loadFromDB()
         {
-            return data.TaiLieus.Select(x => x).Select(x => new {x.MaTaiLieu, x.TenTaiLieu,x.MaTheLoai, x.SoLuong, x.NhaXuatBan,x.NamXuatBan,x.TacGia });
+            return data.TaiLieus
+                .Select(x => new {x.MaTaiLieu, x.TenTaiLieu,x.MaTheLoai, x.SoLuong, x.NhaXuatBan,x.NamXuatBan,x.TacGia });
         }
+        public Object loadFromDB(String maTaiLieu)
+        {
+            return data.TaiLieus
+                .Where(x => x.MaTaiLieu == maTaiLieu)
+                .Select(x => new { x.MaTaiLieu, x.TenTaiLieu, x.MaTheLoai, x.SoLuong, x.NhaXuatBan, x.NamXuatBan, x.TacGia });
+        }
+
         public Boolean SaveToDB(TaiLieuDTO newTaiLieu)
         {
             // check if doc gia exist
@@ -101,13 +109,20 @@ namespace DAL
         {
             var line = data.TaiLieus.Single(x => x.MaTaiLieu == taiLieu.MaTaiLieu);
 
-            line.MaTaiLieu = taiLieu.MaTaiLieu;
             line.TenTaiLieu = taiLieu.TenTaiLieu;
             line.MaTheLoai = taiLieu.MaTheLoai;
             line.SoLuong = taiLieu.SoLuong;
             line.NhaXuatBan = taiLieu.NhaXuatBan;
             line.NamXuatBan = taiLieu.NamXuatBan;
             line.TacGia = taiLieu.TacGia;
+            data.SubmitChanges();
+            return true;
+        }
+
+        public Boolean DeleteToDB(String maTaiLieu)
+        {
+            var line = data.TaiLieus.Single(x => x.MaTaiLieu == maTaiLieu);
+            data.TaiLieus.DeleteOnSubmit(line);
             data.SubmitChanges();
             return true;
         }

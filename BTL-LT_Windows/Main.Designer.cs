@@ -43,6 +43,7 @@ namespace BTL_LT_Windows
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.imageList2 = new System.Windows.Forms.ImageList(this.components);
             this.imageList3 = new System.Windows.Forms.ImageList(this.components);
+            this.btnDangXuat = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnDanhMuc
@@ -99,7 +100,7 @@ namespace BTL_LT_Windows
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(150, 85);
+            this.label2.Location = new System.Drawing.Point(280, 97);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(65, 13);
             this.label2.TabIndex = 5;
@@ -109,7 +110,7 @@ namespace BTL_LT_Windows
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(144, 124);
+            this.label3.Location = new System.Drawing.Point(274, 136);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(88, 13);
             this.label3.TabIndex = 6;
@@ -118,7 +119,7 @@ namespace BTL_LT_Windows
             // txtTenTaiKhoan
             // 
             this.txtTenTaiKhoan.AutoSize = true;
-            this.txtTenTaiKhoan.Location = new System.Drawing.Point(246, 85);
+            this.txtTenTaiKhoan.Location = new System.Drawing.Point(376, 97);
             this.txtTenTaiKhoan.Name = "txtTenTaiKhoan";
             this.txtTenTaiKhoan.Size = new System.Drawing.Size(73, 13);
             this.txtTenTaiKhoan.TabIndex = 7;
@@ -127,7 +128,7 @@ namespace BTL_LT_Windows
             // txtLoaiTaiKhoan
             // 
             this.txtLoaiTaiKhoan.AutoSize = true;
-            this.txtLoaiTaiKhoan.Location = new System.Drawing.Point(246, 124);
+            this.txtLoaiTaiKhoan.Location = new System.Drawing.Point(376, 136);
             this.txtLoaiTaiKhoan.Name = "txtLoaiTaiKhoan";
             this.txtLoaiTaiKhoan.Size = new System.Drawing.Size(74, 13);
             this.txtLoaiTaiKhoan.TabIndex = 8;
@@ -151,11 +152,22 @@ namespace BTL_LT_Windows
             this.imageList3.TransparentColor = System.Drawing.Color.Transparent;
             this.imageList3.Images.SetKeyName(0, "Screenshot 2021-02-27 055750.png");
             // 
+            // btnDangXuat
+            // 
+            this.btnDangXuat.Location = new System.Drawing.Point(485, 92);
+            this.btnDangXuat.Name = "btnDangXuat";
+            this.btnDangXuat.Size = new System.Drawing.Size(75, 23);
+            this.btnDangXuat.TabIndex = 9;
+            this.btnDangXuat.Text = "Đăng xuất";
+            this.btnDangXuat.UseVisualStyleBackColor = true;
+            this.btnDangXuat.Click += new System.EventHandler(this.btnDangXuat_Click);
+            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.btnDangXuat);
             this.Controls.Add(this.txtLoaiTaiKhoan);
             this.Controls.Add(this.txtTenTaiKhoan);
             this.Controls.Add(this.label3);
@@ -187,5 +199,6 @@ namespace BTL_LT_Windows
         private System.Windows.Forms.ImageList imageList1;
         private System.Windows.Forms.ImageList imageList2;
         private System.Windows.Forms.ImageList imageList3;
+        private System.Windows.Forms.Button btnDangXuat;
     }
 }

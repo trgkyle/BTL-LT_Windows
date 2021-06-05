@@ -43,11 +43,13 @@ namespace BTL_LT_Windows
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.btnChangePass = new System.Windows.Forms.Button();
+            this.label4 = new System.Windows.Forms.Label();
+            this.txtHoTen = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // txtConfirmPassword
             // 
-            this.txtConfirmPassword.Location = new System.Drawing.Point(218, 380);
+            this.txtConfirmPassword.Location = new System.Drawing.Point(218, 435);
             this.txtConfirmPassword.Name = "txtConfirmPassword";
             this.txtConfirmPassword.Size = new System.Drawing.Size(129, 20);
             this.txtConfirmPassword.TabIndex = 21;
@@ -55,7 +57,7 @@ namespace BTL_LT_Windows
             // label24
             // 
             this.label24.AutoSize = true;
-            this.label24.Location = new System.Drawing.Point(96, 383);
+            this.label24.Location = new System.Drawing.Point(96, 438);
             this.label24.Name = "label24";
             this.label24.Size = new System.Drawing.Size(116, 13);
             this.label24.TabIndex = 20;
@@ -63,7 +65,7 @@ namespace BTL_LT_Windows
             // 
             // txtNewPassword
             // 
-            this.txtNewPassword.Location = new System.Drawing.Point(218, 331);
+            this.txtNewPassword.Location = new System.Drawing.Point(218, 386);
             this.txtNewPassword.Name = "txtNewPassword";
             this.txtNewPassword.Size = new System.Drawing.Size(129, 20);
             this.txtNewPassword.TabIndex = 19;
@@ -71,7 +73,7 @@ namespace BTL_LT_Windows
             // label23
             // 
             this.label23.AutoSize = true;
-            this.label23.Location = new System.Drawing.Point(96, 334);
+            this.label23.Location = new System.Drawing.Point(96, 389);
             this.label23.Name = "label23";
             this.label23.Size = new System.Drawing.Size(71, 13);
             this.label23.TabIndex = 18;
@@ -79,7 +81,7 @@ namespace BTL_LT_Windows
             // 
             // txtOldPassword
             // 
-            this.txtOldPassword.Location = new System.Drawing.Point(218, 282);
+            this.txtOldPassword.Location = new System.Drawing.Point(218, 337);
             this.txtOldPassword.Name = "txtOldPassword";
             this.txtOldPassword.Size = new System.Drawing.Size(129, 20);
             this.txtOldPassword.TabIndex = 17;
@@ -87,7 +89,7 @@ namespace BTL_LT_Windows
             // label22
             // 
             this.label22.AutoSize = true;
-            this.label22.Location = new System.Drawing.Point(96, 285);
+            this.label22.Location = new System.Drawing.Point(96, 340);
             this.label22.Name = "label22";
             this.label22.Size = new System.Drawing.Size(67, 13);
             this.label22.TabIndex = 16;
@@ -95,14 +97,14 @@ namespace BTL_LT_Windows
             // 
             // txtQuyen
             // 
-            this.txtQuyen.Location = new System.Drawing.Point(218, 180);
+            this.txtQuyen.Location = new System.Drawing.Point(218, 233);
             this.txtQuyen.Name = "txtQuyen";
             this.txtQuyen.Size = new System.Drawing.Size(129, 20);
             this.txtQuyen.TabIndex = 14;
             // 
             // txtTenTaiKhoan
             // 
-            this.txtTenTaiKhoan.Location = new System.Drawing.Point(218, 126);
+            this.txtTenTaiKhoan.Location = new System.Drawing.Point(218, 179);
             this.txtTenTaiKhoan.Name = "txtTenTaiKhoan";
             this.txtTenTaiKhoan.Size = new System.Drawing.Size(129, 20);
             this.txtTenTaiKhoan.TabIndex = 13;
@@ -110,7 +112,7 @@ namespace BTL_LT_Windows
             // label21
             // 
             this.label21.AutoSize = true;
-            this.label21.Location = new System.Drawing.Point(96, 186);
+            this.label21.Location = new System.Drawing.Point(96, 239);
             this.label21.Name = "label21";
             this.label21.Size = new System.Drawing.Size(74, 13);
             this.label21.TabIndex = 12;
@@ -119,7 +121,7 @@ namespace BTL_LT_Windows
             // label
             // 
             this.label.AutoSize = true;
-            this.label.Location = new System.Drawing.Point(96, 133);
+            this.label.Location = new System.Drawing.Point(96, 186);
             this.label.Name = "label";
             this.label.Size = new System.Drawing.Size(81, 13);
             this.label.TabIndex = 11;
@@ -149,7 +151,7 @@ namespace BTL_LT_Windows
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(95, 230);
+            this.label3.Location = new System.Drawing.Point(95, 285);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(160, 20);
             this.label3.TabIndex = 41;
@@ -157,7 +159,7 @@ namespace BTL_LT_Windows
             // 
             // btnChangePass
             // 
-            this.btnChangePass.Location = new System.Drawing.Point(99, 425);
+            this.btnChangePass.Location = new System.Drawing.Point(99, 480);
             this.btnChangePass.Name = "btnChangePass";
             this.btnChangePass.Size = new System.Drawing.Size(75, 23);
             this.btnChangePass.TabIndex = 42;
@@ -165,11 +167,29 @@ namespace BTL_LT_Windows
             this.btnChangePass.UseVisualStyleBackColor = true;
             this.btnChangePass.Click += new System.EventHandler(this.button1_Click);
             // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(97, 134);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(54, 13);
+            this.label4.TabIndex = 43;
+            this.label4.Text = "Họ và tên";
+            // 
+            // txtHoTen
+            // 
+            this.txtHoTen.Location = new System.Drawing.Point(218, 131);
+            this.txtHoTen.Name = "txtHoTen";
+            this.txtHoTen.Size = new System.Drawing.Size(129, 20);
+            this.txtHoTen.TabIndex = 44;
+            // 
             // HoSo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 487);
+            this.ClientSize = new System.Drawing.Size(800, 595);
+            this.Controls.Add(this.txtHoTen);
+            this.Controls.Add(this.label4);
             this.Controls.Add(this.btnChangePass);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
@@ -185,7 +205,7 @@ namespace BTL_LT_Windows
             this.Controls.Add(this.label21);
             this.Controls.Add(this.label);
             this.Name = "HoSo";
-            this.Text = "HoSo";
+            this.Text = "Hồ sơ";
             this.Load += new System.EventHandler(this.HoSo_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -208,5 +228,7 @@ namespace BTL_LT_Windows
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button btnChangePass;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.TextBox txtHoTen;
     }
 }

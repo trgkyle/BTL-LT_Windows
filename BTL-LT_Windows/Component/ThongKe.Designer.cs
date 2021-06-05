@@ -50,12 +50,13 @@ namespace BTL_LT_Windows
             this.printDocument1 = new System.Drawing.Printing.PrintDocument();
             this.printPreviewDialog1 = new System.Windows.Forms.PrintPreviewDialog();
             this.txtNgayLap = new System.Windows.Forms.DateTimePicker();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvThongKe)).BeginInit();
             this.SuspendLayout();
             // 
             // txtThuVien
             // 
-            this.txtThuVien.Enabled = false;
             this.txtThuVien.Location = new System.Drawing.Point(290, 354);
             this.txtThuVien.Name = "txtThuVien";
             this.txtThuVien.Size = new System.Drawing.Size(258, 20);
@@ -105,10 +106,10 @@ namespace BTL_LT_Windows
             this.Column8,
             this.Column9,
             this.Column10});
-            this.dgvThongKe.Location = new System.Drawing.Point(200, 478);
+            this.dgvThongKe.Location = new System.Drawing.Point(200, 532);
             this.dgvThongKe.Name = "dgvThongKe";
             this.dgvThongKe.ReadOnly = true;
-            this.dgvThongKe.Size = new System.Drawing.Size(348, 150);
+            this.dgvThongKe.Size = new System.Drawing.Size(348, 237);
             this.dgvThongKe.TabIndex = 19;
             // 
             // Column8
@@ -227,11 +228,29 @@ namespace BTL_LT_Windows
             this.txtNgayLap.Size = new System.Drawing.Size(200, 20);
             this.txtNgayLap.TabIndex = 41;
             // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(290, 474);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(200, 20);
+            this.textBox1.TabIndex = 43;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(197, 477);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(44, 13);
+            this.label3.TabIndex = 42;
+            this.label3.Text = "Ghi chú";
+            // 
             // ThongKe
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 655);
+            this.ClientSize = new System.Drawing.Size(800, 846);
+            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.label3);
             this.Controls.Add(this.txtNgayLap);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.label2);
@@ -248,7 +267,7 @@ namespace BTL_LT_Windows
             this.Controls.Add(this.dateFrom);
             this.Controls.Add(this.label8);
             this.Name = "ThongKe";
-            this.Text = "ThongKe";
+            this.Text = "Thống kê";
             this.Load += new System.EventHandler(this.ThongKe_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvThongKe)).EndInit();
             this.ResumeLayout(false);
@@ -278,5 +297,7 @@ namespace BTL_LT_Windows
         private System.Windows.Forms.DataGridViewTextBoxColumn Column9;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column10;
         private System.Windows.Forms.DateTimePicker txtNgayLap;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Label label3;
     }
 }

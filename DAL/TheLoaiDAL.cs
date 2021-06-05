@@ -14,6 +14,13 @@ namespace DAL
         {
             return data.TheLoais.Select(x => x).Select(x => new { x.MaTheLoai, x.TenTheLoai, x.GhiChu });
         }
+
+        public Object loadFromDB(String maTheLoai)
+        {
+            return data.TheLoais.Where(x => x.MaTheLoai == maTheLoai).Select(x => x).Select(x => new { x.MaTheLoai, x.TenTheLoai, x.GhiChu });
+        }
+
+        
         public Boolean SaveToDB(TheLoaiDTO newTheLoai)
         {
             // check if doc gia exist
@@ -65,8 +72,16 @@ namespace DAL
         public Boolean UpdateToDB(TheLoaiDTO theLoai)
         {
             var line = data.TheLoais.Single(x => x.MaTheLoai == theLoai.MaTheLoai);
-            line.MaTheLoai = theLoai.MaTheLoai;
             line.TenTheLoai = theLoai.TenTheLoai;
+            line.GhiChu = theLoai.GhiChu;
+            data.SubmitChanges();
+            return true;
+        }
+
+        public Boolean DeleteToDB(String maTheLoai)
+        {
+            var line = data.TheLoais.Single(x => x.MaTheLoai == maTheLoai);
+            data.TheLoais.DeleteOnSubmit(line);
             data.SubmitChanges();
             return true;
         }

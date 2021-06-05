@@ -24,7 +24,8 @@ namespace DAL
         {
             //var danhSachTaiLieuMuon = data.PhieuMuonChiTiets.Where(x => x.NgayTra >= from && x.NgayTra <= to).Join(data.PhieuMuons, pmct => pmct.MaPhieuMuon, pm => pm.MaPhieuMuon, (pmct, pm) => new { pmct.MaPhieuMuon, pm.MaDocGia, pm.NgayMuon, pm.MaNhanVien, pmct.MaTaiLieu, pmct.SoLuongMuon }).Select(x => x);
             var ThongKe = data.PhieuMuonChiTiets
-                .Where(x => x.NgayTra >= from && x.NgayTra <= to)
+                .Join(data.PhieuMuons, pmct => pmct.MaPhieuMuon, pm => pm.MaPhieuMuon, (pmct, pm) => new { pmct.MaTaiLieu, pmct.SoLuongMuon, pm.NgayMuon })
+                .Where(x => x.NgayMuon >= from && x.NgayMuon <= to)
                 .Join(data.TaiLieus, pmct => pmct.MaTaiLieu, tl => tl.MaTaiLieu, (pmct, tl) => new { pmct.SoLuongMuon, tl.MaTheLoai })
                 .GroupBy(x => x.MaTheLoai)
                 .Select(x => new { MaTheLoai = x.Key, SoLuongMuon = x.Sum(item => item.SoLuongMuon)})
@@ -82,7 +83,18 @@ namespace DAL
                 PhieuMuonChiTiet phieuMuonChiTietORM = new PhieuMuonChiTiet();
                 phieuMuonChiTietORM.MaPhieuMuon = newPhieuMuon.MaPhieuMuon;
                 phieuMuonChiTietORM.MaTaiLieu = phieuTaiLieu.taiLieu.MaTaiLieu;
-                phieuMuonChiTietORM.SoLuongMuon = phieuTaiLieu.soLuongMuon;
+                
+
+                var line = data.TaiLieus.Single(x => x.MaTaiLieu == phieuTaiLieu.taiLieu.MaTaiLieu);
+                if (phieuTaiLieu.soLuongMuon <= line.SoLuong)
+                {
+                    phieuMuonChiTietORM.SoLuongMuon = phieuTaiLieu.soLuongMuon;
+                    line.SoLuong -= phieuTaiLieu.soLuongMuon;
+                }
+                else
+                {
+                    throw new Exception("Không đủ số lượng của tài liệu");
+                }
 
                 data.PhieuMuonChiTiets.InsertOnSubmit(phieuMuonChiTietORM);
 
@@ -114,19 +126,36 @@ namespace DAL
         public Boolean UpdateToDB(PhieuMuonDTO phieuMuon)
         {
             var line = data.PhieuMuons.Single(x => x.MaPhieuMuon == phieuMuon.MaPhieuMuon);
-            line.MaDocGia = phieuMuon.MaDocGia;
             line.NgayMuon = phieuMuon.NgayMuon;
             line.MaNhanVien = phieuMuon.MaNhanVien;
 
             foreach (PhieuTaiLieuDTO phieuTaiLieu in phieuMuon.DanhSachPhieuTaiLieu)
             {
                 var phieuMuonChiTietORM = data.PhieuMuonChiTiets.Single(x => x.MaPhieuMuon == line.MaPhieuMuon && x.MaTaiLieu == phieuTaiLieu.taiLieu.MaTaiLieu);
-                phieuMuonChiTietORM.SoLuongMuon = phieuTaiLieu.soLuongMuon;
+                // Trường hợp đã trả sách
                 if (phieuTaiLieu.ngayTra != null && !phieuTaiLieu.ngayTra.ToString().Equals("1/1/0001 12:00:00 AM"))
                 {
                     phieuMuonChiTietORM.NgayTra = phieuTaiLieu.ngayTra;
-                    var taiLieu = data.TaiLieus.Single(x => x.MaTaiLieu == phieuTaiLieu.taiLieu.MaTaiLieu);
-                    taiLieu.SoLuong += phieuMuonChiTietORM.SoLuongMuon;
+                    phieuMuonChiTietORM.SoLuongMuon = phieuTaiLieu.soLuongMuon;
+
+                }
+                else
+                {
+                    Console.WriteLine("Trường hợp chưa trả sách");
+                    // Trường hợp chưa trả sách
+                    var currentTaiLieuTrongThuVien = data.TaiLieus.Single(x => x.MaTaiLieu == phieuTaiLieu.taiLieu.MaTaiLieu);
+                    short soLuongDangMuon = short.Parse(phieuMuonChiTietORM.SoLuongMuon.ToString());
+                    // Tính số lượng cần mượn thêm sau đó trừ đi
+                    short soLuongSachCanMuonThem = (short)(short.Parse(phieuTaiLieu.soLuongMuon.ToString()) - soLuongDangMuon);
+                    if (soLuongSachCanMuonThem <= currentTaiLieuTrongThuVien.SoLuong)
+                    {
+                        phieuMuonChiTietORM.SoLuongMuon = phieuTaiLieu.soLuongMuon;
+                        currentTaiLieuTrongThuVien.SoLuong -= soLuongSachCanMuonThem;
+                    }
+                    else
+                    {
+                        throw new Exception("Không đủ số lượng của tài liệu");
+                    }
                 }
 
             }
