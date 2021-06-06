@@ -42,23 +42,25 @@ namespace BTL_LT_Windows
 
         private void button2_Click(object sender, EventArgs e)
         {
-            string maTaiLieu = txtMaTaiLieu.Text.ToString();
-            string tenTaiLieu = txtTenTaiLieu.Text.ToString();
-            string maTheLoai = cbxTheLoai.SelectedValue.ToString();
-            string soLuong = txtSoLuong.Text.ToString();
-            string nhaXuatBan = txtNhaXuatBan.Text.ToString();
-            string namXuatBan = txtNamXuatBan.Text.ToString();
-            string tacGia = txtTacGia.Text.ToString();
+            
+            try {
+                string maTaiLieu = txtMaTaiLieu.Text.ToString();
+                string tenTaiLieu = txtTenTaiLieu.Text.ToString();
+                string maTheLoai = cbxTheLoai.SelectedValue.ToString();
+                string soLuong = txtSoLuong.Text.ToString();
+                string nhaXuatBan = txtNhaXuatBan.Text.ToString();
+                string namXuatBan = txtNamXuatBan.Text.ToString();
+                string tacGia = txtTacGia.Text.ToString();
 
-            TaiLieuDTO newTaiLieu = new TaiLieuDTO(maTaiLieu, tenTaiLieu, maTheLoai, short.Parse(soLuong), nhaXuatBan, short.Parse(namXuatBan), tacGia);
-            try { 
+                TaiLieuDTO newTaiLieu = new TaiLieuDTO(maTaiLieu, tenTaiLieu, maTheLoai, short.Parse(soLuong), nhaXuatBan, short.Parse(namXuatBan), tacGia);
                 taiLieuBUS.addNewData(newTaiLieu);
+                this.LoadInit();
             }
             catch(Exception expect)
             {
-                MessageBox.Show(expect.Message);
+                MessageBox.Show(expect.Message,"Có lỗi");
             }
-            this.LoadInit();
+            
         }
 
         private void tabPage2_Click(object sender, EventArgs e)
@@ -76,12 +78,13 @@ namespace BTL_LT_Windows
             try
             {
                 theLoaiBUS.addNewData(newTheLoai);
+                this.LoadInit();
             }
             catch (Exception expect)
             {
-                MessageBox.Show(expect.Message);
+                MessageBox.Show(expect.Message, "Có lỗi");
             }
-            this.LoadInit();
+            
         }
 
         private void dgvTLieu_RowEnter(object sender, DataGridViewCellEventArgs e)
@@ -140,7 +143,7 @@ namespace BTL_LT_Windows
                 var result = MessageBox.Show("Xác nhận xóa tài liệu", "Cảnh báo", MessageBoxButtons.YesNo);
                 if(result == DialogResult.Yes)
                 {
-                    string maTaiLieu = txtMaTaiLieu.Text.ToString();
+                    string maTaiLieu = txtMaTaiLieu.Text.ToString().Trim();
                     taiLieuBUS.deleteData(maTaiLieu);
                     this.LoadInit();
                 }
@@ -174,39 +177,56 @@ namespace BTL_LT_Windows
 
         private void btnSua_Click(object sender, EventArgs e)
         {
-            string maTaiLieu = txtMaTaiLieu.Text.ToString();
-            string tenTaiLieu = txtTenTaiLieu.Text.ToString();
-            string maTheLoai = cbxTheLoai.SelectedValue.ToString();
-            string soLuong = txtSoLuong.Text.ToString();
-            string nhaXuatBan = txtNhaXuatBan.Text.ToString();
-            string namXuatBan = txtNamXuatBan.Text.ToString();
-            string tacGia = txtTacGia.Text.ToString();
+            try
+            {
+                string maTaiLieu = txtMaTaiLieu.Text.ToString().Trim();
+                string tenTaiLieu = txtTenTaiLieu.Text.ToString().Trim();
+                string maTheLoai = cbxTheLoai.SelectedValue.ToString().Trim();
+                string soLuong = txtSoLuong.Text.ToString().Trim();
+                string nhaXuatBan = txtNhaXuatBan.Text.ToString().Trim();
+                string namXuatBan = txtNamXuatBan.Text.ToString().Trim();
+                string tacGia = txtTacGia.Text.ToString().Trim();
 
-            TaiLieuDTO taiLieu = new TaiLieuDTO(maTaiLieu, tenTaiLieu, maTheLoai, short.Parse(soLuong), nhaXuatBan, short.Parse(namXuatBan), tacGia);
-            taiLieuBUS.updateData(taiLieu);
-            this.LoadInit();
+                TaiLieuDTO taiLieu = new TaiLieuDTO(maTaiLieu, tenTaiLieu, maTheLoai, short.Parse(soLuong), nhaXuatBan, short.Parse(namXuatBan), tacGia);
+                taiLieuBUS.updateData(taiLieu);
+                this.LoadInit();
+
+            }
+            catch (Exception expect)
+            {
+                MessageBox.Show(expect.Message, "Có lỗi");
+            }
+            
         }
 
         private void btnSua2_Click(object sender, EventArgs e)
         {
-            string maTheLoai = txtMaTheLoai2.Text.ToString();
-            string tenTheLoai = txtTenTheLoai2.Text.ToString();
-            string ghiChu = txtGhiChu2.Text.ToString();
+            try
+            {
+                string maTheLoai = txtMaTheLoai2.Text.ToString().Trim();
+                string tenTheLoai = txtTenTheLoai2.Text.ToString().Trim();
+                string ghiChu = txtGhiChu2.Text.ToString().Trim();
 
-            TheLoaiDTO theLoai = new TheLoaiDTO(maTheLoai, tenTheLoai, ghiChu);
-            theLoaiBUS.updateData(theLoai);
-            this.LoadInit();
+                TheLoaiDTO theLoai = new TheLoaiDTO(maTheLoai, tenTheLoai, ghiChu);
+                theLoaiBUS.updateData(theLoai);
+                this.LoadInit();
+            }
+            catch (Exception expect)
+            {
+                MessageBox.Show(expect.Message, "Có lỗi");
+            }
+            
         }
 
         private void btmTim2_Click(object sender, EventArgs e)
         {
-            string maTheLoai = txtMaTheLoai2.Text.ToString();
+            string maTheLoai = txtMaTheLoai2.Text.ToString().Trim();
             dgvTLoai.DataSource = theLoaiBUS.getDataFromSource(maTheLoai);
         }
 
         private void btmTim_Click(object sender, EventArgs e)
         {
-            string maTaiLieu = txtMaTaiLieu.Text.ToString();
+            string maTaiLieu = txtMaTaiLieu.Text.ToString().Trim();
             dgvTLieu.DataSource = taiLieuBUS.getDataFromSource(maTaiLieu);
         }
     }

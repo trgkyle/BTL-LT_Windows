@@ -11,7 +11,10 @@ namespace DAL
 
         public string TimTenDocGiaVoiMa(string maDocGia)
         {
-            try { 
+            data = new dbDataContext();
+
+            try
+            { 
                 var docGia = data.DocGias.Single(x => x.MaDocGia == maDocGia);
                 return docGia.HoTen;
             }
@@ -22,6 +25,8 @@ namespace DAL
         }
         public Boolean SaveToDB(DocGiaDTO newDocGia)
         {
+            data = new dbDataContext();
+
             // check if doc gia exist
             DocGia docGiaORM = new DocGia();
             //docGiaORM.MaDocGia = newDocGia.;
@@ -63,6 +68,8 @@ namespace DAL
 
         public Boolean AddNewToDB(DocGiaDTO newDocGia)
         {
+            data = new dbDataContext();
+
             DocGia docGiaORM = new DocGia();
             docGiaORM.MaDocGia = newDocGia.MaDocGia;
             docGiaORM.HoTen = newDocGia.HoTen;
@@ -78,6 +85,8 @@ namespace DAL
 
         public Boolean UpdateToDB(DocGiaDTO docGia)
         {
+            data = new dbDataContext();
+
             var line = data.DocGias.Single(x => x.MaDocGia == docGia.MaDocGia);
 
             line.MaDocGia = docGia.MaDocGia;

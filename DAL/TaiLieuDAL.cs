@@ -12,6 +12,8 @@ namespace DAL
 
         public string TimTenTaiLieuVoiMa(string maTaiLieu)
         {
+            data = new dbDataContext();
+
             try
             {
                 var taiLieu = data.TaiLieus.Single(x => x.MaTaiLieu == maTaiLieu);
@@ -24,6 +26,8 @@ namespace DAL
         }
         public TaiLieuDTO TimTaiLieuVoiMa(string maTaiLieu)
         {
+            data = new dbDataContext();
+
             try
             {
                 var taiLieu = data.TaiLieus.Single(x => x.MaTaiLieu == maTaiLieu);
@@ -38,11 +42,15 @@ namespace DAL
         }
         public Object loadFromDB()
         {
+            data = new dbDataContext();
+
             return data.TaiLieus
                 .Select(x => new {x.MaTaiLieu, x.TenTaiLieu,x.MaTheLoai, x.SoLuong, x.NhaXuatBan,x.NamXuatBan,x.TacGia });
         }
         public Object loadFromDB(String maTaiLieu)
         {
+            data = new dbDataContext();
+
             return data.TaiLieus
                 .Where(x => x.MaTaiLieu == maTaiLieu)
                 .Select(x => new { x.MaTaiLieu, x.TenTaiLieu, x.MaTheLoai, x.SoLuong, x.NhaXuatBan, x.NamXuatBan, x.TacGia });
@@ -50,6 +58,8 @@ namespace DAL
 
         public Boolean SaveToDB(TaiLieuDTO newTaiLieu)
         {
+            data = new dbDataContext();
+
             // check if doc gia exist
             TaiLieu taiLieuORM = new TaiLieu();
             taiLieuORM.MaTaiLieu = newTaiLieu.MaTaiLieu;
@@ -92,6 +102,8 @@ namespace DAL
 
         public Boolean AddNewToDB(TaiLieuDTO newTaiLieu)
         {
+            data = new dbDataContext();
+
             TaiLieu taiLieuORM = new TaiLieu();
             taiLieuORM.MaTaiLieu = newTaiLieu.MaTaiLieu;
             taiLieuORM.TenTaiLieu = newTaiLieu.TenTaiLieu;
@@ -113,6 +125,8 @@ namespace DAL
 
         public Boolean UpdateToDB(TaiLieuDTO taiLieu)
         {
+            data = new dbDataContext();
+
             var line = data.TaiLieus.Single(x => x.MaTaiLieu == taiLieu.MaTaiLieu);
 
             line.TenTaiLieu = taiLieu.TenTaiLieu;
@@ -127,6 +141,8 @@ namespace DAL
 
         public Boolean DeleteToDB(String maTaiLieu)
         {
+            data = new dbDataContext();
+
             var line = data.TaiLieus.Single(x => x.MaTaiLieu == maTaiLieu);
             try { 
                 data.TaiLieus.DeleteOnSubmit(line);
@@ -134,7 +150,7 @@ namespace DAL
             }
             catch(Exception expect)
             {
-                throw new Exception("Có lỗi khi xóa tài liệu");
+                throw new Exception("Lỗi không thể xóa, tài liệu này đang được sử dụng");
             }
             return true;
         }

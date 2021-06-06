@@ -13,7 +13,10 @@ namespace DAL
 
         public Boolean dangNhap(string taiKhoan,string password)
         {
-            try {
+            data = new dbDataContext();
+
+            try
+            {
                 var nhanVienRes = data.NhanViens.Single(nhanVien => nhanVien.TaiKhoan == taiKhoan && nhanVien.MatKhau == password);
                 return true;
             }
@@ -25,6 +28,8 @@ namespace DAL
         }
         public TaiKhoanDTO layThongTinTaiKhoan(string taiKhoan, string password)
         {
+            data = new dbDataContext();
+
             try
             {
                 var nhanVienRes = data.NhanViens.Single(nhanVien => nhanVien.TaiKhoan == taiKhoan && nhanVien.MatKhau == password);
@@ -38,6 +43,8 @@ namespace DAL
         }
         public Boolean doiMatKhau(string taiKhoan, string password, string newPassword)
         {
+            data = new dbDataContext();
+
             try
             {
                 var nhanVienRes = data.NhanViens.Single(nhanVien => nhanVien.TaiKhoan == taiKhoan && nhanVien.MatKhau == password);

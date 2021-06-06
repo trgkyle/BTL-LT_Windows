@@ -91,22 +91,22 @@ namespace BTL_LT_Windows
 
         private void txtMaDocGia_TextChanged(object sender, EventArgs e)
         {
-            txtTenDocGia.Text = docGiaBUS.searchTenDocGia(txtMaDocGia.Text.ToString());
+            txtTenDocGia.Text = docGiaBUS.searchTenDocGia(txtMaDocGia.Text.ToString().Trim());
         }
 
         private void txtMaNhanVien_TextChanged_1(object sender, EventArgs e)
         {
-            txtTenNhanVien.Text = nhanVienBUS.searchTenNhanVien(txtMaNhanVien.Text.ToString());
+            txtTenNhanVien.Text = nhanVienBUS.searchTenNhanVien(txtMaNhanVien.Text.ToString().Trim());
         }
 
         private void txtMaTaiLieu_TextChanged_1(object sender, EventArgs e)
         {
-            txtTenTaiLieu.Text = taiLieuBUS.searchTenTaiLieu(txtMaTaiLieu.Text.ToString());
+            txtTenTaiLieu.Text = taiLieuBUS.searchTenTaiLieu(txtMaTaiLieu.Text.ToString().Trim());
         }
 
         private void button8_Click_1(object sender, EventArgs e)
         {
-            TaiLieuDTO taiLieu = taiLieuBUS.searchTaiLieu(txtMaTaiLieu.Text.ToString());
+            TaiLieuDTO taiLieu = taiLieuBUS.searchTaiLieu(txtMaTaiLieu.Text.ToString().Trim());
             if (taiLieu == null) return;
             PhieuTaiLieuDTO newPhieuTaiLieu = new PhieuTaiLieuDTO();
             newPhieuTaiLieu.soLuongMuon = short.Parse(txtSoLuongMuon.Text);
@@ -126,19 +126,22 @@ namespace BTL_LT_Windows
             // Lưu button
             try
             {
-                string maPhieuMuon = txtMaPhieuMuon.Text.ToString();
-                string maDocGia = txtMaDocGia.Text.ToString();
+                string maPhieuMuon = txtMaPhieuMuon.Text.ToString().Trim();
+                string maDocGia = txtMaDocGia.Text.ToString().Trim();
                 DateTime ngayMuon = txtNgayMuon.Value;
-                string maNhanVien = txtMaNhanVien.Text.ToString();
+                string maNhanVien = txtMaNhanVien.Text.ToString().Trim();
 
                 PhieuMuonDTO newPhieuMuon = new PhieuMuonDTO(maPhieuMuon, maDocGia, maNhanVien, ngayMuon);
                 newPhieuMuon.DanhSachPhieuTaiLieu = danhSachPhieuTaiLieu;
                 phieuMuonBUS.addNewData(newPhieuMuon);
+                this.LoadInit();
             }
             catch (Exception expect) {
-                MessageBox.Show(expect.Message);
+                MessageBox.Show(expect.Message, "Có lỗi");
             }
-            this.LoadInit();
+            dgvTaiLieuMuon.Rows.Clear();
+            danhSachPhieuTaiLieu.Clear();
+            
         }
 
         private void btnNhapLai_Click(object sender, EventArgs e)
@@ -168,7 +171,7 @@ namespace BTL_LT_Windows
             {
                 currentPhieuMuuon.DanhSachPhieuTaiLieu[i].ngayTra = DateTime.Now;
             }
-            phieuMuonBUS.updateData(currentPhieuMuuon);
+            phieuMuonBUS.traSach(currentPhieuMuuon);
             this.LoadInit();
         }
 
@@ -179,17 +182,17 @@ namespace BTL_LT_Windows
 
         private void btnTim_Click(object sender, EventArgs e)
         {
-            string maPhieuMuon = txtMaPhieuMuon.Text.ToString();
+            string maPhieuMuon = txtMaPhieuMuon.Text.ToString().Trim();
             dgvTaiLieuDangMuon.DataSource = phieuMuonBUS.getDataFromSource(maPhieuMuon);
         }
 
         private void btnSua_Click(object sender, EventArgs e)
         {
             try { 
-                string maPhieuMuon = txtMaPhieuMuon.Text.ToString();
-                string maDocGia = txtMaDocGia.Text.ToString();
+                string maPhieuMuon = txtMaPhieuMuon.Text.ToString().Trim();
+                string maDocGia = txtMaDocGia.Text.ToString().Trim();
                 DateTime ngayMuon = txtNgayMuon.Value;
-                string maNhanVien = txtMaNhanVien.Text.ToString();
+                string maNhanVien = txtMaNhanVien.Text.ToString().Trim();
 
                 PhieuMuonDTO phieuMuon = new PhieuMuonDTO(maPhieuMuon, maDocGia, maNhanVien, ngayMuon);
 
@@ -209,25 +212,48 @@ namespace BTL_LT_Windows
                 danhSachPhieuTaiLieu.Add(newPhieuTaiLieu);
                 phieuMuon.DanhSachPhieuTaiLieu = danhSachPhieuTaiLieu;
                 phieuMuonBUS.updateData(phieuMuon);
+                this.LoadInit();
             }
             catch (Exception expect) {
-                MessageBox.Show(expect.Message);
+                MessageBox.Show(expect.Message, "Có lỗi");
             }
-            this.LoadInit();
+            
         }
 
         private void btnXoa_Click(object sender, EventArgs e)
         {
-            string maPhieuMuon = txtMaPhieuMuon.Text.ToString();
-            string maTaiLieu =  txtMaTaiLieu.Text.ToString();
-            PhieuMuonDTO currentPhieuMuuon = phieuMuonBUS.getPhieuByMa(maPhieuMuon, maTaiLieu);
-            Boolean isSuccess = phieuMuonBUS.deleteTaiLieuPhieuByMa(currentPhieuMuuon);
-            this.LoadInit();
+            try
+            {
+                var result = MessageBox.Show("Xác nhận xóa phiếu mượn", "Cảnh báo", MessageBoxButtons.YesNo);
+                if (result == DialogResult.Yes)
+                {
+                    string maPhieuMuon = txtMaPhieuMuon.Text.ToString().Trim();
+                    string maTaiLieu = txtMaTaiLieu.Text.ToString().Trim();
+                    PhieuMuonDTO currentPhieuMuuon = phieuMuonBUS.getPhieuByMa(maPhieuMuon, maTaiLieu);
+                    Boolean isSuccess = phieuMuonBUS.deleteTaiLieuPhieuByMa(currentPhieuMuuon);
+                    this.LoadInit();
+                }
+
+            }
+            catch (Exception expect)
+            {
+                MessageBox.Show(expect.Message, "Có lỗi");
+            }
+            
         }
 
         private void label7_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void dgvTaiLieuMuon_RowEnter(object sender, DataGridViewCellEventArgs e)
+        {
+            txtMaTaiLieu.Text = dgvTaiLieuMuon.Rows[e.RowIndex].Cells[0].Value.ToString().Trim();
+            txtTenTaiLieu.Text = dgvTaiLieuMuon.Rows[e.RowIndex].Cells[1].Value.ToString().Trim();
+            txtSoLuongMuon.Text = dgvTaiLieuMuon.Rows[e.RowIndex].Cells[2].Value.ToString().Trim();
+            
+            PhieuTaiLieuDTO newPhieuTaiLieu = new PhieuTaiLieuDTO();
         }
     }
 }

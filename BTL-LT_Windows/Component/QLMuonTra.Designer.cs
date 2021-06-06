@@ -184,11 +184,11 @@ namespace BTL_LT_Windows
             // 
             // button8
             // 
-            this.button8.Location = new System.Drawing.Point(886, 281);
+            this.button8.Location = new System.Drawing.Point(936, 283);
             this.button8.Name = "button8";
             this.button8.Size = new System.Drawing.Size(162, 23);
             this.button8.TabIndex = 76;
-            this.button8.Text = "Thêm vào danh sách mượn";
+            this.button8.Text = "Lưu vào danh sách mượn";
             this.button8.UseVisualStyleBackColor = true;
             this.button8.Click += new System.EventHandler(this.button8_Click_1);
             // 
@@ -335,6 +335,7 @@ namespace BTL_LT_Windows
             this.dgvTaiLieuMuon.ReadOnly = true;
             this.dgvTaiLieuMuon.Size = new System.Drawing.Size(346, 150);
             this.dgvTaiLieuMuon.TabIndex = 61;
+            this.dgvTaiLieuMuon.RowEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvTaiLieuMuon_RowEnter);
             // 
             // Column8
             // 

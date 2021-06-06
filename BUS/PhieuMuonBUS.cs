@@ -34,6 +34,11 @@ namespace BUS
             phieuMuonDB.UpdateToDB(phieuMuon);
             return true;
         }
+        public Boolean traSach(PhieuMuonDTO phieuMuon)
+        {
+            phieuMuonDB.traSach(phieuMuon);
+            return true;
+        }
 
         public Object getThongKe(DateTime fromParams, DateTime to)
         {

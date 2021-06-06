@@ -11,6 +11,8 @@ namespace DAL
 
         public string TimTenNhanVienVoiMa(string maNhanVien)
         {
+            data = new dbDataContext();
+
             try
             {
                 var nhanVien = data.NhanViens.Single(x => x.MaNhanVien == maNhanVien);

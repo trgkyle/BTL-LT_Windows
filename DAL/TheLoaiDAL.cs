@@ -12,17 +12,23 @@ namespace DAL
 
         public Object loadFromDB()
         {
+            data = new dbDataContext();
+
             return data.TheLoais.Select(x => x).Select(x => new { x.MaTheLoai, x.TenTheLoai, x.GhiChu });
         }
 
         public Object loadFromDB(String maTheLoai)
         {
+            data = new dbDataContext();
+
             return data.TheLoais.Where(x => x.MaTheLoai == maTheLoai).Select(x => x).Select(x => new { x.MaTheLoai, x.TenTheLoai, x.GhiChu });
         }
 
         
         public Boolean SaveToDB(TheLoaiDTO newTheLoai)
         {
+            data = new dbDataContext();
+
             // check if doc gia exist
             TaiLieu taiLieuORM = new TaiLieu();
             taiLieuORM.MaTaiLieu = newTheLoai.MaTheLoai;
@@ -60,6 +66,8 @@ namespace DAL
 
         public Boolean AddNewToDB(TheLoaiDTO newTheLoai)
         {
+            data = new dbDataContext();
+
             TheLoai theLoaiORM = new TheLoai();
             theLoaiORM.MaTheLoai = newTheLoai.MaTheLoai;
             theLoaiORM.TenTheLoai = newTheLoai.TenTheLoai;
@@ -77,6 +85,8 @@ namespace DAL
 
         public Boolean UpdateToDB(TheLoaiDTO theLoai)
         {
+            data = new dbDataContext();
+
             var line = data.TheLoais.Single(x => x.MaTheLoai == theLoai.MaTheLoai);
             line.TenTheLoai = theLoai.TenTheLoai;
             line.GhiChu = theLoai.GhiChu;
@@ -86,9 +96,18 @@ namespace DAL
 
         public Boolean DeleteToDB(String maTheLoai)
         {
+            data = new dbDataContext();
+
             var line = data.TheLoais.Single(x => x.MaTheLoai == maTheLoai);
             data.TheLoais.DeleteOnSubmit(line);
-            data.SubmitChanges();
+            try
+            {
+                data.SubmitChanges();
+            }
+            catch (Exception expect)
+            {
+                throw new Exception("Lỗi không thể xóa, thể loại này đang được sử dụng");
+            }
             return true;
         }
     }
