@@ -32,8 +32,8 @@ namespace BTL_LT_Windows
             bm = new Bitmap(s.Width, s.Height, myGraphics);
             Graphics mg = Graphics.FromImage(bm);
             mg.CopyFromScreen(this.Location.X, this.Location.Y, 0, 0, this.Size);
-
-            printDocument1.Print();
+            printPreviewDialog1.ShowDialog();
+            //printDocument1.Print();
         }
 
         private void printDocument1_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)

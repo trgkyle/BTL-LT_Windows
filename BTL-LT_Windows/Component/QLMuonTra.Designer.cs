@@ -73,6 +73,7 @@ namespace BTL_LT_Windows
             this.label16 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTaiLieuDangMuon)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTaiLieuMuon)).BeginInit();
             this.SuspendLayout();
@@ -106,7 +107,7 @@ namespace BTL_LT_Windows
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(194, 482);
+            this.label7.Location = new System.Drawing.Point(194, 551);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(396, 29);
             this.label7.TabIndex = 78;
@@ -126,7 +127,7 @@ namespace BTL_LT_Windows
             this.Column14,
             this.Column15,
             this.Column1});
-            this.dgvTaiLieuDangMuon.Location = new System.Drawing.Point(199, 531);
+            this.dgvTaiLieuDangMuon.Location = new System.Drawing.Point(199, 613);
             this.dgvTaiLieuDangMuon.Name = "dgvTaiLieuDangMuon";
             this.dgvTaiLieuDangMuon.ReadOnly = true;
             this.dgvTaiLieuDangMuon.Size = new System.Drawing.Size(764, 212);
@@ -330,7 +331,7 @@ namespace BTL_LT_Windows
             this.Column8,
             this.Column7,
             this.Column9});
-            this.dgvTaiLieuMuon.Location = new System.Drawing.Point(752, 325);
+            this.dgvTaiLieuMuon.Location = new System.Drawing.Point(752, 358);
             this.dgvTaiLieuMuon.Name = "dgvTaiLieuMuon";
             this.dgvTaiLieuMuon.ReadOnly = true;
             this.dgvTaiLieuMuon.Size = new System.Drawing.Size(346, 150);
@@ -456,11 +457,22 @@ namespace BTL_LT_Windows
             this.label14.TabIndex = 50;
             this.label14.Text = "Mã phiếu mượn";
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(960, 325);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(138, 24);
+            this.label2.TabIndex = 80;
+            this.label2.Text = "Tài liệu mượn";
+            // 
             // QLMuonTra
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1175, 798);
+            this.ClientSize = new System.Drawing.Size(1175, 928);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.btnTraSach);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.dgvTaiLieuDangMuon);
@@ -546,5 +558,6 @@ namespace BTL_LT_Windows
         private System.Windows.Forms.DataGridViewTextBoxColumn Column14;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column15;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
+        private System.Windows.Forms.Label label2;
     }
 }
