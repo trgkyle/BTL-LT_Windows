@@ -13,6 +13,7 @@ namespace BTL_LT_Windows
 {
     public partial class ThongKe : Form
     {
+        Bitmap bm;
         PhieuMuonBUS phieuMuonBUS = new PhieuMuonBUS();
         private String nguoiLap;
         public ThongKe(String nguoiLap)
@@ -24,16 +25,21 @@ namespace BTL_LT_Windows
         private void button7_Click(object sender, EventArgs e)
         {
             dgvThongKe.DataSource = phieuMuonBUS.getThongKe(dateFrom.Value, dateTo.Value);
+
+            dgvThongKe.Refresh();
+            Graphics myGraphics = this.CreateGraphics();
+            Size s = this.Size;
+            bm = new Bitmap(s.Width, s.Height, myGraphics);
+            Graphics mg = Graphics.FromImage(bm);
+            mg.CopyFromScreen(this.Location.X, this.Location.Y, 0, 0, this.Size);
+
             printDocument1.Print();
         }
 
         private void printDocument1_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
         {
-            Bitmap bm = new Bitmap(this.Size.Width, this.Size.Height);
 
-            this.DrawToBitmap(bm, new Rectangle(0, 0, this.Size.Width, this.Size.Height));
-
-            e.Graphics.DrawImage(bm, 0, 0);
+            e.Graphics.DrawImage(bm, e.PageBounds);
         }
 
         private void ThongKe_Load(object sender, EventArgs e)
